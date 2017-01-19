@@ -1,8 +1,6 @@
 # Umovie
 
-[TOC]
-
-## Requires
+## Required
 
 node && npm
 
@@ -23,7 +21,5 @@ Then:
 ```
 $> node server.js
 ```
-
-
 
 Finally open your browser and go on http://localhost:4242
