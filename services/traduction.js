@@ -1,15 +1,15 @@
 var app = angular.module("umovie-app");
 app.run([
-	"$rootScope",
-	"$cookies",
-	function($rootScope, $cookies) {
-		var lang = $cookies.get("lang");
-		if(lang == null) {
-			$cookies.put("lang", "en");
-		}
+    "$rootScope",
+    "$cookies",
+    function($rootScope, $cookies) {
+        $rootScope.lang = $cookies.get("lang");
+        if ($rootScope.lang == null) {
+            $cookies.put("lang", "en");
+        }
 
-		var dictionnary = {
-			"bannersubtitle": {
+        var dictionnary = {
+            "bannersubtitle": {
                 "fr": "Regardez autrement.",
                 "en": "Watch different."
             },
@@ -83,8 +83,15 @@ app.run([
             },
         }
 
-        $rootScope.translate = function (expr) {
-    		return dictionnary[expr][lang];
+        $rootScope.translate = function(expr) {
+            return dictionnary[expr][$rootScope.lang];
         };
-	}
+
+
+        $rootScope.changeLanguage = function changeLanguage() {
+            $cookies.put("lang", $rootScope.lang == 'en' ? 'fr' : 'en');
+
+            location.reload();
+        };
+    }
 ]);
