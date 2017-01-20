@@ -57,6 +57,10 @@ app.run([
                 "fr": "Se déconnecter",
                 "en": "Log out"
             },
+            "moreinformation": {
+                "fr": "Plus d'information",
+                "en": "More information"
+            },
             "presentation": {
                 "fr": "Presentation",
                 "en": "Presentation"
@@ -80,6 +84,10 @@ app.run([
             "settings": {
                 "fr": "Paramètres",
                 "en": "Settings"
+            },
+            "watch": {
+                "fr": "Regardez",
+                "en": "Watch"
             },
             "watch-block-title": {
                 "fr": "Regardez",
