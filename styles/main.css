@@ -291,3 +291,9 @@ nav ul li a:hover {
     font-family: "globalRobotFont";
     src: url(./fonts/Roboto-Thin.ttf);
 }
+
+/*******************************************************/
+.card-custom-theme {
+    background-color: #1b1b1b;
+}
+/*******************************************************/

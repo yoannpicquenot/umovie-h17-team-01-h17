@@ -1,1 +1,22 @@
-Watch lists
+<div class="container">
+    <div class="row">
+        <div class="covers-list-block">
+            <h2 class="header">Watchlist</h2>
+            <div class="col s12 l6" ng-repeat="movie in watchlist">
+                <div class="card horizontal">
+                    <div class="card-image">
+                        <img src="{{ movie.cover }}">
+                    </div>
+                    <div class="card-stacked card-custom-theme">
+                        <div class="card-content">
+                            <p>{{ movie.summary.substring(1, 200); }}...</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="">Voir plus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
