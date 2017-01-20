@@ -3,8 +3,8 @@
 		<div class="nav-wrapper" ng-controller="NavbarCtrl">
 			<a href="#!" data-activates="navbar-mobile-size" class="button-collapse" ng-init="initButtonSideBar()"><i class="material-icons">menu</i></a>
 			<ul class="left hide-on-med-and-down">
-				<li class="{{ tabActive == 'home' ? 'active' : '' }}"><a href="#!/home"><b>Accueil</b></a></li>
-				<li class="{{ tabActive == 'watchlists' ? 'active' : '' }}"><a href="#!/watchlists"><b>Liste de vidéos</b></a></li>
+				<li class="{{ tabActive == 'home' ? 'active' : '' }}"><a href="#!/home"><b>{{ translate("home") }}</b></a></li>
+				<li class="{{ tabActive == 'watchlists' ? 'active' : '' }}"><a href="#!/watchlists"><b>{{ translate("watchlist") }}</b></a></li>
 			</ul>
 			<ul class="right hide-on-med-and-down">
 				<li>
@@ -12,16 +12,16 @@
 						<div class="input-field searchInput">
 							<label for="search"><i class="material-icons">search</i></label>
 							<b>
-								<input type="text" name="search" placeholder="Rechercher" autocomplete="off">
+								<input type="text" name="search" placeholder="{{ translate('search') }}" autocomplete="off">
 							</b>
 						</div>
 					</form>
 				</li>
 				<li><a class="dropdown-button" href="#!" data-activates="userMenu"><i class="material-icons left">perm_identity</i><b>  {{ user.name }}</b><i class="material-icons right">arrow_drop_down</i></a></li>
 				<ul id="userMenu" class="dropdown-content dropdown-content-custom">
-					<li><a href="#"><i class="left material-icons">settings</i>Paramètres</a></li>
+					<li><a href="#"><i class="left material-icons">settings</i>{{ translate("settings") }}</a></li>
 					<li class="divider"></li>
-					<li><a href="#"><i class="left material-icons">input</i>Se déconnecter</a></li>
+					<li><a href="#"><i class="left material-icons">input</i>{{ translate("logout") }}</a></li>
 				</ul>
 			</ul>
 			<ul id="navbar-mobile-size" class="side-nav">
@@ -33,12 +33,12 @@
 						</div>
 					</form>
 				</li>
-				<li class="{{ tabActive == 'home' ? 'active' : '' }}"><a href="#!/home"><i class="material-icons left">home</i>Accueil</a></li>
-				<li class="{{ tabActive == 'watchlists' ? 'active' : '' }}"><a href="#!/watchlists"><i class="material-icons left">view_module</i>Liste de vidéos</a></li>
+				<li class="{{ tabActive == 'home' ? 'active' : '' }}"><a href="#!/home"><i class="material-icons left">home</i>{{ translate("home") }}</a></li>
+				<li class="{{ tabActive == 'watchlists' ? 'active' : '' }}"><a href="#!/watchlists"><i class="material-icons left">view_module</i>{{ translate("watchlist") }}</a></li>
 				<li class="divider"></li>
 				<li><a><i class="material-icons left">perm_identity</i> {{ user.name }}</a></li>
-				<li><a href="#"><i class="left material-icons">settings</i>Paramètres</a></li>
-				<li><a href="#"><i class="left material-icons">input</i>Se déconnecter</a></li>
+				<li><a href="#"><i class="left material-icons">settings</i>{{ translate("settings") }}</a></li>
+				<li><a href="#"><i class="left material-icons">input</i>{{ translate("logout") }}</a></li>
 				<li class="divider"></li>
 			</ul>
 		</div>
