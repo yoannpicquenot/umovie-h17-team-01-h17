@@ -222,17 +222,15 @@ nav ul li a:hover {
 .infofilmlink-content{
 	display: flex;
 	width: auto;
-	margin-top: 25px;
+	margin-top: 23px;
+	margin-right: 10px;
+	justify-content: center;
+	transition: 0.4s;
 }
 
-.infofilmlink{
-	padding-left: 5px;
-	transition: all 0.3s;
-}
-
-.infofilmlink:hover{
-	color: lightblue;
-	transition: all 0.3s;
+.infofilmlink-content:hover{
+	opacity: 0.6;
+	transition: 0.4s;
 }
 
 .imagefilm-content:hover{
