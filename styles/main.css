@@ -3,7 +3,6 @@
 }
 
 #banner {
-	top: 0;
 	background: center no-repeat url(../images/home-cover.jpg);
 	z-index: 53;
 	min-height: 100vh;
@@ -82,43 +81,20 @@
 	right: 10px;
 }
 
-.wrapper-buttons button {
+.wrapper-buttons a {
 	z-index: 99;
-	border: 1px solid white;
+	border: 1px solid rgba(1,1,1,0.2);
 	color: white;
+}
+
+.wrapper-buttons a:hover {
+	border: 1px solid white;
 }
 
 .block {
 	display: block;
     background: rgba(0, 0, 0, 0.6);
     width: 100%;
-}
-
-.page-indicator {
-	display: block;
-	height: 12px;
-	width: 12px;
-	background-color: transparent;
-	border: 1px solid white;
-	border-radius: 10px;
-}
-
-.table-of-contents a:hover {
-	border: 1px solid white;
-	padding-left: 20px;
-}
-
-.table-of-contents a.active:hover {
-	border: 1px solid white;
-	padding-left: 20px;
-}
-
-.page-indicator.active {
-	background-color: white;
-}
-
-.table-of-contents a.active {
-	border: 2px solid white;
 }
 
 footer.page-footer {
