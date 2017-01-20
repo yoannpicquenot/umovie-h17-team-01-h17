@@ -17,6 +17,10 @@
 	min-width: 100%;
 }
 
+.icon-flag {
+	width: 15px;
+}
+
 .page-title {
 	height: 100vh;
 	width: 100%;
@@ -43,7 +47,7 @@
 
 .dropdown-content {
 	top: auto !important;
-	background: none;
+	background: black;
 }
 
 .dropdown-content li a {
