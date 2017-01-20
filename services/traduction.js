@@ -9,6 +9,10 @@ app.run([
         }
 
         var dictionnary = {
+            "banner": {
+                "fr": "Bannière",
+                "en": "Banner"
+            },
             "bannersubtitle": {
                 "fr": "Regardez autrement.",
                 "en": "Watch different."
@@ -24,6 +28,10 @@ app.run([
             "home": {
                 "fr": "Accueil",
                 "en": "Home"
+            },
+            "footer": {
+                "fr": "Bas de page",
+                "en": "Footer"
             },
             "footer-information": {
                 "fr": "Informations",
@@ -48,6 +56,10 @@ app.run([
             "logout": {
                 "fr": "Se déconnecter",
                 "en": "Log out"
+            },
+            "presentation": {
+                "fr": "Presentation",
+                "en": "Presentation"
             },
             "presentationtitle": {
                 "fr": "En résumé...",
@@ -84,6 +96,9 @@ app.run([
         }
 
         $rootScope.translate = function(expr) {
+            if (dictionnary[expr] == null) {
+                return "Please add translation for : " + expr;
+            }
             return dictionnary[expr][$rootScope.lang];
         };
 
