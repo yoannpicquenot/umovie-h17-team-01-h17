@@ -81,6 +81,14 @@ app.run([
                 "fr": "Watchlist",
                 "en": "Watchlist"
             },
+            "actorcategory" : {
+              "fr": "Catégorie : Comédie",
+              "en": "Category : Comedy"
+            },
+            "moviedate" : {
+              "fr": "Date de sortie : ",
+              "en": "Released : "
+            },
         }
 
         $rootScope.translate = function(expr) {

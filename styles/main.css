@@ -313,3 +313,49 @@ nav ul li a:hover {
     font-family: "globalRobotFont";
     src: url(./fonts/Roboto-Thin.ttf);
 }
+
+.modal {
+	background: rgba(25, 25, 25, 1);
+}
+
+.modal-content h4 {
+	font-weight: bold;
+}
+
+.modal-content {
+	color: white;
+}
+
+#actor {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	background: no-repeat center fixed url(../images/actor-cover.jpg);
+	min-height: 93vh;
+	background-position: top left;
+}
+
+#actor a {
+	color: white;
+}
+
+.actorcontent img {
+	max-width: 100%;
+	height: auto;
+	width: auto;
+}
+
+.modal iframe {
+	max-width: 100%;
+	height: auto;
+	width: auto;
+}
+
+.modal img {
+	max-width: 100%;
+	height: auto;
+	width: auto;
+}
+
+#actor a:hover {
+	font-weight: bold;
+}
