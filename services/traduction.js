@@ -6,6 +6,7 @@ app.run([
         $rootScope.lang = $cookies.get("lang");
         if ($rootScope.lang == null) {
             $cookies.put("lang", "en");
+            $rootScope.lang = "en";
         }
 
         var dictionnary = {
