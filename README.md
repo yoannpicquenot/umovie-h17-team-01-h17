@@ -51,3 +51,22 @@ $> node server.js
 ```
 
 Finally open your browser and go on http://localhost:4242
+
+
+## paths
+
+```
+/home
+```
+
+```
+/infofilm
+```
+
+```
+/actor
+```
+
+```
+/tvshow
+```
