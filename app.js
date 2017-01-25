@@ -1,6 +1,7 @@
 var app = angular.module("umovie-app", [
     "ngRoute",
-    "ngCookies"
+    "ngCookies",
+    "ui.materialize"
 ]);
 
 app.config([
@@ -18,6 +19,10 @@ app.config([
             .when('/infofilm', {
                 templateUrl: "./views/infofilm.html",
                 controller: "InfofilmCtrl"
+            })
+            .when('/tvshow', {
+                templateUrl: "./views/tvshow.html",
+                controller: "TvShowCtrl"
             })
             .otherwise({
                 redirectTo: "/home"

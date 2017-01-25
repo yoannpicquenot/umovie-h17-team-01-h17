@@ -313,3 +313,46 @@ nav ul li a:hover {
     font-family: "globalRobotFont";
     src: url(./fonts/Roboto-Thin.ttf);
 }
+
+.episode-container{
+	display: flex;
+	justify-content: center;
+}
+
+#demoModal .modal-content{
+	color: black;
+	height: 400px;
+}
+
+::-webkit-scrollbar {
+	width: 12px;
+}
+
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px black;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px white;
+}
+
+.image-episode{
+	width:100px;
+	height: 80px;
+}
+
+.collection{
+	margin: 0;
+}
+
+.modal .modal-content{
+	padding: 0;
+	padding-right: 5px;
+	margin: 0;
+}
+
+.btn{
+	margin-top: 10px;
+}
