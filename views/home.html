@@ -1,69 +1,69 @@
 <section id="banner" class="section scrollspy">
-	<div class="valign-wrapper page-title">
-		<div class="valign center-align page-title-banner row">
-			<h1 class="center-align col s12">UMOVIE</h1>
-			<h5 class="center-align col s12">
-			<i>{{ translate("bannersubtitle"); }}</i>
-			</h5>
-		</div>
-	</div>
+    <div class="valign-wrapper page-title">
+        <div class="valign center-align page-title-banner row">
+            <h1 class="center-align col s12">UMOVIE</h1>
+            <h5 class="center-align col s12">
+            <i>{{ translate("bannersubtitle"); }}</i>
+            </h5>
+        </div>
+    </div>
 </section>
 <section id="presentation">
-	<div class="valign-wrapper page-title">
-		<div class="valign center" style="width: 100%">
-			<div class="row">
-				<div class="container">
-					<h2 class="page-title-presentation">{{ translate("presentationtitle"); }}</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col l4 m4  s12 valign-wrapper">
-					<div class="block valign">
-						<h5><i class="material-icons">tv</i> {{ translate("watch-block-title"); }}</h5>
-						<p>{{ translate("watch-block-text"); }}</p>
-					</div>
-				</div>
-				<div class="col l4 m4 s12 valign-wrapper">
-					<div class="block valign">
-						<h5><i class="material-icons">star</i> {{ translate("follow-block-title"); }}</h5>
-						<p>{{ translate("follow-block-text"); }}</p>
-					</div>
-				</div>
-				<div class="col l4 m4 s12 valign-wrapper">
-					<div class="block valign">
-						<h5><i class="material-icons">share</i> {{ translate("share-block-title"); }}</h5>
-						<p>{{ translate("share-block-text"); }}</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="valign-wrapper page-title">
+        <div class="valign center" style="width: 100%">
+            <div class="row">
+                <div class="container">
+                    <h2 class="page-title-presentation">{{ translate("presentationtitle"); }}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col l4 m4  s12 valign-wrapper">
+                    <div class="block valign">
+                        <h5><i class="material-icons">tv</i> {{ translate("watch-block-title"); }}</h5>
+                        <p>{{ translate("watch-block-text"); }}</p>
+                    </div>
+                </div>
+                <div class="col l4 m4 s12 valign-wrapper">
+                    <div class="block valign">
+                        <h5><i class="material-icons">star</i> {{ translate("follow-block-title"); }}</h5>
+                        <p>{{ translate("follow-block-text"); }}</p>
+                    </div>
+                </div>
+                <div class="col l4 m4 s12 valign-wrapper">
+                    <div class="block valign">
+                        <h5><i class="material-icons">share</i> {{ translate("share-block-title"); }}</h5>
+                        <p>{{ translate("share-block-text"); }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 <footer id="footer">
-	<div class="row">
-		<div class="container">
-			<h5 class="white-text">{{ translate("footer-information"); }}</h5>
-			<p>
-				{{ translate("footer-information-text"); }}
-			</p>
-			<h5 class="white-text">{{ translate("footer-contact-text"); }}</h5>
-			<p>
-				<ul>
-					<li>{{ translate("footer-contact-1"); }}</li>
-					<li>{{ translate("footer-contact-2"); }}</li>
-					<li></li>
-				</ul>
-			</p>
-		</div>
-	</div>
-	<div class="footer-copyright">
-		<div class="container">
-			© 2017 Copyright UMOVIE
-			<a class="grey-text text-lighten-4 right" href="https://github.com/GLO3102/umovie-h17-team-01-h17/"><img src="https://assets-cdn.github.com/favicon.ico" class="github-icon"> Github</a>
-		</div>
-	</div>
+    <div class="row">
+        <div class="container">
+            <h5 class="white-text">{{ translate("footer-information"); }}</h5>
+            <p>
+                {{ translate("footer-information-text"); }}
+            </p>
+            <h5 class="white-text">{{ translate("footer-contact-text"); }}</h5>
+            <p>
+                <ul>
+                    <li>{{ translate("footer-contact-1"); }}</li>
+                    <li>{{ translate("footer-contact-2"); }}</li>
+                    <li></li>
+                </ul>
+            </p>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2017 Copyright UMOVIE
+        </div>
+    </div>
 </footer>
-<div class="wrapper-buttons hide-on-med-and-down">
-	<button class="btn-floating btn-large transparent waves-effect waves-light" ng-click="buttonPageindicator('#banner')"><i class="material-icons">keyboard_arrow_up</i></button>
-	<button class="btn-floating btn-large transparent waves-effect waves-light" ng-click="buttonPageindicator('#presentation')"><i class="material-icons">keyboard_arrow_down</i></button>
+<div class="wrapper-buttons">
+    <a class="btn-large waves-effect waves-light transparent" ng-click="buttonPageindicator('#banner')">{{ translate("banner"); }}</a>
+    <a class="btn-large waves-effect waves-light transparent" ng-click="buttonPageindicator('#presentation')">{{ translate("presentation"); }}</a>
+    <a class="btn-large waves-effect waves-light transparent" ng-click="buttonPageindicator('#footer')">{{ translate("footer"); }}</a>
 </div>
