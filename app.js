@@ -23,6 +23,9 @@ app.config([
             .when('/tvshow', {
                 templateUrl: "./views/tvshow.html",
                 controller: "TvShowCtrl"
+            .when('/actor', {
+                templateUrl: "./views/actor.html",
+                controller: "ActorCtrl"
             })
             .otherwise({
                 redirectTo: "/home"
