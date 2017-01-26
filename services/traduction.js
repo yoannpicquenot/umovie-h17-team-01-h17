@@ -6,9 +6,14 @@ app.run([
         $rootScope.lang = $cookies.get("lang");
         if ($rootScope.lang == null) {
             $cookies.put("lang", "en");
+            $rootScope.lang = "en";
         }
 
         var dictionnary = {
+            "banner": {
+                "fr": "Bannière",
+                "en": "Banner"
+            },
             "bannersubtitle": {
                 "fr": "Regardez autrement.",
                 "en": "Watch different."
@@ -24,6 +29,10 @@ app.run([
             "home": {
                 "fr": "Accueil",
                 "en": "Home"
+            },
+            "footer": {
+                "fr": "Bas de page",
+                "en": "Footer"
             },
             "footer-information": {
                 "fr": "Informations",
@@ -49,6 +58,14 @@ app.run([
                 "fr": "Se déconnecter",
                 "en": "Log out"
             },
+            "moreinformation": {
+                "fr": "Plus d'information",
+                "en": "More information"
+            },
+            "presentation": {
+                "fr": "Presentation",
+                "en": "Presentation"
+            },
             "presentationtitle": {
                 "fr": "En résumé...",
                 "en": "In summary..."
@@ -68,6 +85,10 @@ app.run([
             "settings": {
                 "fr": "Paramètres",
                 "en": "Settings"
+            },
+            "watch": {
+                "fr": "Regardez",
+                "en": "Watch"
             },
             "watch-block-title": {
                 "fr": "Regardez",
@@ -92,6 +113,9 @@ app.run([
         }
 
         $rootScope.translate = function(expr) {
+            if (dictionnary[expr] == null) {
+                return "Please add translation for : " + expr;
+            }
             return dictionnary[expr][$rootScope.lang];
         };
 

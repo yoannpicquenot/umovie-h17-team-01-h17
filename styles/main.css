@@ -1,222 +1,198 @@
 .nav-wrapper {
-	z-index: 999;
+    z-index: 999;
 }
 
 #banner {
-	top: 0;
-	background: center no-repeat url(../images/home-cover.jpg);
-	z-index: 53;
-	min-height: 100vh;
-	min-width: 100%;
+    background: center no-repeat url(../images/home-cover.jpg);
+    z-index: 53;
+    min-height: 100vh;
+    min-width: 100%;
 }
 
 #presentation {
-	background: center no-repeat url(../images/presentation-cover.jpg);
-	z-index: 53;
-	min-height: 100vh;
-	min-width: 100%;
+    background: center no-repeat url(../images/presentation-cover.jpg);
+    z-index: 53;
+    min-height: 100vh;
+    min-width: 100%;
 }
 
 .icon-flag {
-	width: 15px;
+    width: 15px;
 }
 
 .page-title {
-	height: 100vh;
-	width: 100%;
+    height: 100vh;
+    width: 100%;
 }
 
 .page-title-banner {
-	text-shadow: black 1px 1px 4px;
+    text-shadow: black 1px 1px 4px;
 }
 
 .page-title-presentation {
-	text-shadow: black 1px 1px 4px;
+    text-shadow: black 1px 1px 4px;
 }
 
 .page-title h1 {
-	margin-right: auto;
-	margin-left: auto;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 /*fix*/
 .nav-wrapper form, .nav-wrapper form .input-field {
-	height: 100%;
-	width: 90%;
+    height: 100%;
+    width: 90%;
 }
 
 .dropdown-content {
-	top: auto !important;
-	background: black;
+    top: auto !important;
+    background: black;
 }
 
 .dropdown-content li a {
-	color: white;
-	transition: background-color 0.3s;
+    color: white;
+    transition: background-color 0.3s;
 }
 
 .dropdown-content li a:hover {
-	color: black;
-	background-color: white;
+    color: black;
+    background-color: white;
 }
 
 .side-nav-input {
-	color: black;
+    color: black;
 }
 
 @media only screen and (min-width : 0px) and (max-width : 760px) {
-	#banner {
-		background-size: 200%;
-	}
+    #banner {
+        background-size: 200%;
+    }
 
-	#presentation {
-		background-size: 200%;
-	}
+    #presentation {
+        background-size: 200%;
+    }
 
 }
 
 .wrapper-buttons {
-	z-index: 99;
-	position: fixed;
-	bottom: 10px;
-	right: 10px;
+    z-index: 99;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
 }
 
-.wrapper-buttons button {
-	z-index: 99;
-	border: 1px solid white;
-	color: white;
+.wrapper-buttons a {
+    z-index: 99;
+    border: 1px solid rgba(1,1,1,0.2);
+    color: white;
+}
+
+.wrapper-buttons a:hover {
+    border: 1px solid white;
 }
 
 .block {
-	display: block;
+    display: block;
     background: rgba(0, 0, 0, 0.6);
     width: 100%;
 }
 
-.page-indicator {
-	display: block;
-	height: 12px;
-	width: 12px;
-	background-color: transparent;
-	border: 1px solid white;
-	border-radius: 10px;
-}
-
-.table-of-contents a:hover {
-	border: 1px solid white;
-	padding-left: 20px;
-}
-
-.table-of-contents a.active:hover {
-	border: 1px solid white;
-	padding-left: 20px;
-}
-
-.page-indicator.active {
-	background-color: white;
-}
-
-.table-of-contents a.active {
-	border: 2px solid white;
-}
-
 footer.page-footer {
-	background-color: black;
+    background-color: black;
 }
 
 .github-icon {
-	filter: invert(100%);
-	width: 20px;
+    filter: invert(100%);
+    width: 20px;
 }
 
 
 /****************************/
 body {
-	background: black;
-	color: white;
-	font-family: globalRobotFont;
+    background: black;
+    color: white;
+    font-family: globalRobotFont;
 }
 
 nav {
-	background: black;
+    background: black;
 }
 
 nav ul li.active a {
-	border-bottom: 1px solid white;
+    border-bottom: 1px solid white;
 }
 
 nav ul li a {
-	border-bottom: 1px solid transparent;
-	transition: all 0.3s;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s;
 }
 
 nav ul li a:hover {
-	border-bottom: 1px solid white;
+    border-bottom: 1px solid white;
 }
 
 /*====================================================infofilm start=====================================================*/
 
 .infofilm-content{
-	padding-top: 0px;
-	flex-direction: row;
-	display: flex;
-	justify-content: center;
-	width:auto;
-	max-width: 600px;
+    padding-top: 0px;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    width:auto;
+    max-width: 600px;
 }
 
 .infofilminfo-content{
-	width: auto;
-	flex-direction: row;
-	display: flex;
-	justify-content: center;
+    width: auto;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
 }
 
 .infofilmliste-content{
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 0px;
-	border-left: solid darkgrey;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0px;
+    border-left: solid darkgrey;
 }
 
 .infofilmlisteun-content{
-	border-left: none;
+    border-left: none;
 }
 
 .contener-content{
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: auto;
 }
 
 .infofilmconteneurdesc-content{
-	padding-left: 15px;
+    padding-left: 15px;
 }
 
 .imagefilm-content{
-	height: 300px;
-	width: 200px;
-	margin-top: 20px;
-	max-width: 95%
+    height: 300px;
+    width: 200px;
+    margin-top: 20px;
+    max-width: 95%
 }
 
 .infofilmdescription-content{
-	text-align: justify;
+    text-align: justify;
 }
 
 .infofilmvideo-content{
-	display: block;
-	margin: 0 auto;
-	border:solid black 1px;
-	max-width: 95%;
+    display: block;
+    margin: 0 auto;
+    border:solid black 1px;
+    max-width: 95%;
 }
 
 .infofilmmain-content{
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .infofilmlink-content{
@@ -234,12 +210,12 @@ nav ul li a:hover {
 }
 
 .imagefilm-content:hover{
-	filter: brightness(50%);
-	transition: all 0.3s;
+    filter: brightness(50%);
+    transition: all 0.3s;
 }
 
 .contenerimagefilm{
-	position: relative;
+    position: relative;
     width: 200px;
     height: 300px;
     opacity: 1;
@@ -257,54 +233,54 @@ nav ul li a:hover {
 }
 
 .afterimagehover{
-	margin-top: 20px;
-	color: white;
-	opacity: 1;
-	height: 100%;
-	width: 100%;
+    margin-top: 20px;
+    color: white;
+    opacity: 1;
+    height: 100%;
+    width: 100%;
 }
 
 
 .contenerimagefilm:hover .afterimagehover {
-	display: block;
+    display: block;
 }
 
 .contenerimagefilm:hover{
-	opacity: 0.5;
-	-webkit-transition: all 1s ease;
+    opacity: 0.5;
+    -webkit-transition: all 1s ease;
 }
 
 .playbutton{
-	height: 100px;
-	width: 100px;
-	margin-top: 100px;
-	margin-left: 50px;
+    height: 100px;
+    width: 100px;
+    margin-top: 100px;
+    margin-left: 50px;
 }
 
 
 @media screen and (max-width: 990px){
-	.infofilm-content{
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		width: 400px;
-		max-width: 95%;
-	}
+    .infofilm-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 400px;
+        max-width: 95%;
+    }
 
-	.contenerinfo{
-		margin-left: auto;
-		margin-right: auto;
-	}
+    .contenerinfo{
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-	.infofilminfo-content{
-		display: flex;
-		flex-wrap: wrap;
-	}
+    .infofilminfo-content{
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
 
 /*================================================infofilm end============================================*/
 .navbar-fixed {
-	z-index: 999;
+    z-index: 999;
 }
 
 /****************************/
@@ -359,3 +335,9 @@ nav ul li a:hover {
 #actor a:hover {
 	font-weight: bold;
 }
+
+/*******************************************************/
+.card-custom-theme {
+    background-color: #1b1b1b;
+}
+/*******************************************************/
