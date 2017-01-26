@@ -1,4 +1,4 @@
-<div class="infofilmmain-content">
+<div class="infofilmmain-content" ng-controller="InfofilmCtrl">
     <div class="contener-content">
         <div class="row">
             <div class="infofilm-content col l12 s12">
@@ -14,11 +14,22 @@
                     </div>
                 </div>
                 <div class="infofilmconteneurdesc-content">
-                    <ul class="">
-                        <li class=""><h2 class="header">Trouver Nemo</h2></li>
-                        <li class="">Type de film : Enfant</li>
-                        <li class="">Date de sortie : 2003</li>
-                        <li class="">Catégorie : Général</li>
+                    <ul>
+                        <li>
+                            <h2 class="header">Trouver Nemo</h2>
+                        </li>
+                        <li>
+                            {{ translate("infofilm_type_film") }} : Enfant
+                        </li>
+                        <li>
+                            {{ translate("moviedate") }} : 2003
+                        </li>
+                        <li>
+                            {{ translate("category") }} : Général
+                        </li>
+                        <li>
+                            {{ translate("info_film_main_actor"); }} : <a ng-click="goToActorPage()" href="">Ellen DeGeneres</a>
+                        </li>
                     </ul>
                     <p class="infofilmdescription-content">
                         Dans les eaux tropicales de la Grande Barrière de corail, un poisson-clown du nom de Marin mène une existence paisible avec son fils unique, Nemo. Redoutant l'océan et ses risques imprévisibles, il fait de son mieux pour protéger son fils. Comme tous les petits poissons de son âge, celui-ci rêve pourtant d'explorer les mystérieux récifs.
