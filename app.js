@@ -19,6 +19,10 @@ app.config([
                 templateUrl: "./views/infofilm.html",
                 controller: "InfofilmCtrl"
             })
+            .when('/actor', {
+                templateUrl: "./views/actor.html",
+                controller: "ActorCtrl"
+            })
             .otherwise({
                 redirectTo: "/home"
             });
