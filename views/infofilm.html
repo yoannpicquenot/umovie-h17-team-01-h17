@@ -1,30 +1,46 @@
-<div class="infofilmmain-content">
-	<div class="contener-content">
-		<div class="infofilm-content">
-			<div class="contenerinfo">
-				<div class="contenerimagefilm">
-					<img src="http://img08.cdn.cinoche.com/images/fd020979cad837c067e6e45d8ed34f22.jpg" class="imagefilm-content">
-					<div class="afterimagehover">
-						<input type="image" src="http://www.iconsdb.com/icons/preview/gray/video-play-3-xxl.png" class="playbutton" />
-					</div>
-				</div>
-				<div class="infofilmlink-content">
-					<a href="https://geo.itunes.apple.com/us/movie/finding-nemo/id255295077?mt=6&app=music" style="display:inline-block;overflow:hidden;background:url(//linkmaker.itunes.apple.com/assets/shared/badges/fr-fr/itunes-lrg.svg) no-repeat;width:110px;height:40px;background-size:contain;"></a>
-				</div>
-			</div>
-			<div class="infofilmconteneurdesc-content">
-				<ul class="infofilminfo-content">
-					<li class="infofilmliste-content infofilmlisteun-content">Trouver Nemo</li>
-					<li class="infofilmliste-content">Enfant</li>
-					<li class="infofilmliste-content">2003</li>
-					<li class="infofilmliste-content">Général</li>
-				</ul>
-				<p class="infofilmdescription-content">
-					Dans les eaux tropicales de la Grande Barrière de corail, un poisson-clown du nom de Marin mène une existence paisible avec son fils unique, Nemo. Redoutant l'océan et ses risques imprévisibles, il fait de son mieux pour protéger son fils. Comme tous les petits poissons de son âge, celui-ci rêve pourtant d'explorer les mystérieux récifs.
-				Lorsque Nemo disparaît, Marin devient malgré lui le héros d'une quête unique et palpitante. Le pauvre papa ignore que son rejeton à écailles a été emmené jusque dans l'aquarium d'un dentiste. Marin ne s'engagera pas seul dans l'aventure : la jolie Dory, un poisson-chirurgien bleu à la mémoire défaillante et au grand coeur, va se révéler d'une aide précieuse. Les deux poissons vont affronter d'innombrables dangers, mais l'optimisme de Dory va pousser Marin à surmonter toutes ses peurs.</p>
-				
-			</div>
-		</div>
-	</div>
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/HsHo1F-duKU" frameborder="0" allowfullscreen class="infofilmvideo-content"></iframe>
+<div class="infofilmmain-content" ng-controller="InfofilmCtrl">
+    <div class="contener-content">
+        <div class="row">
+            <div class="infofilm-content col l12 s12">
+                <div class="contenerinfo">
+                    <div class="contenerimagefilm">
+                        <img src="http://img08.cdn.cinoche.com/images/fd020979cad837c067e6e45d8ed34f22.jpg" class="imagefilm-content">
+                        <div class="afterimagehover">
+                            <input type="image" src="http://www.iconsdb.com/icons/preview/gray/video-play-3-xxl.png" class="playbutton" />
+                        </div>
+                    </div>
+                    <div class="infofilmlink-content">
+                        <a href="https://geo.itunes.apple.com/us/movie/finding-nemo/id255295077?mt=6&app=music" style="display:inline-block;overflow:hidden;background:url(//linkmaker.itunes.apple.com/assets/shared/badges/fr-fr/itunes-lrg.svg) no-repeat;width:110px;height:40px;background-size:contain;"></a>
+                    </div>
+                </div>
+                <div class="infofilmconteneurdesc-content">
+                    <ul>
+                        <li>
+                            <h2 class="header">Trouver Nemo</h2>
+                        </li>
+                        <li>
+                            {{ translate("infofilm_type_film") }} : Enfant
+                        </li>
+                        <li>
+                            {{ translate("moviedate") }} : 2003
+                        </li>
+                        <li>
+                            {{ translate("category") }} : Général
+                        </li>
+                        <li>
+                            {{ translate("info_film_main_actor"); }} : <a ng-click="goToActorPage()" href="">Ellen DeGeneres</a>
+                        </li>
+                    </ul>
+                    <p class="infofilmdescription-content">
+                        Dans les eaux tropicales de la Grande Barrière de corail, un poisson-clown du nom de Marin mène une existence paisible avec son fils unique, Nemo. Redoutant l'océan et ses risques imprévisibles, il fait de son mieux pour protéger son fils. Comme tous les petits poissons de son âge, celui-ci rêve pourtant d'explorer les mystérieux récifs.
+                        Lorsque Nemo disparaît, Marin devient malgré lui le héros d'une quête unique et palpitante. Le pauvre papa ignore que son rejeton à écailles a été emmené jusque dans l'aquarium d'un dentiste. Marin ne s'engagera pas seul dans l'aventure : la jolie Dory, un poisson-chirurgien bleu à la mémoire défaillante et au grand coeur, va se révéler d'une aide précieuse. Les deux poissons vont affronter d'innombrables dangers, mais l'optimisme de Dory va pousser Marin à surmonter toutes ses peurs.
+                    </p>
+                    
+                </div>
+            </div>
+            <div class="col l12 s12">
+                <iframe width="560" height="480" src="https://www.youtube.com/embed/HsHo1F-duKU" frameborder="0" allowfullscreen class="infofilmvideo-content"></iframe>
+            </div>
+        </div>
+    </div>
 </div>
