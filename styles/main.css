@@ -89,7 +89,17 @@
     width: 100%;
 }
 
-.wrapper-buttons a:hover {
+.button-wrapper-carousel {
+    text-align: center;
+}
+
+.button-wrapper-carousel a {
+    border: 1px solid rgba(1,1,1,0.2);
+    transition: all 1s;
+    width: 49%;
+ }
+
+.wrapper-buttons a:hover, .button-wrapper-carousel a:hover {
     border: 1px solid white;
 }
 

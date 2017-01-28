@@ -78,6 +78,14 @@ app.run([
                 "fr": "Plus d'information",
                 "en": "More information"
             },
+            "next": {
+                "fr": "Suivant",
+                "en": "Next"
+            },
+            "previous": {
+                "fr": "Précédent",
+                "en": "Previous"
+            },
             "presentation": {
                 "fr": "Presentation",
                 "en": "Presentation"
