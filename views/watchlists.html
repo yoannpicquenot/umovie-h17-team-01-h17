@@ -7,6 +7,18 @@
                     <img src="{{ movie.cover }}">
                 </a>
             </div>
+            <div class="button-wrapper-carousel">
+                <a class="btn-large waves-effect waves-light transparent" ng-click="pressButtonCarousel(watchlist,'prev')">
+                    <!-- <b>{{ translate("previous"); }}</b> -->
+                    <i class="material-icons large">navigate_before</i>
+                </a>
+                <a class="btn-large waves-effect waves-light transparent" ng-click="pressButtonCarousel(watchlist,'next')">
+                    <b>
+                    <i class="material-icons large">navigate_next</i>
+                    <!-- {{ translate("next"); }} -->
+                    </b>
+                </a>
+            </div>
             <h2>{{ watchlist.name }}</h2>
             <hr>
         </div>

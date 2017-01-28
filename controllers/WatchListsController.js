@@ -68,6 +68,10 @@ app.controller("WatchListsCtrl", [
             }, 1000);
         };
 
+        $scope.pressButtonCarousel = function pressButtonCarousel(watchlist, move) {
+            $('#' + watchlist.name + '-carousel').carousel(move);
+        };
+
         $scope.goTo('');
     }
 ]);
