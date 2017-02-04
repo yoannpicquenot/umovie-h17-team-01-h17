@@ -11,5 +11,6 @@ app.controller("HomeCtrl", [
                 scrollTop: $(section).offset().top
             }, 1000);
         };
+        $scope.buttonPageindicator("body");
     }
 ]);

@@ -10,6 +10,10 @@ app.run([
         }
 
         var dictionnary = {
+            "actorcategory" : {
+              "fr": "Catégorie : Comédie",
+              "en": "Category : Comedy"
+            },
             "banner": {
                 "fr": "Bannière",
                 "en": "Banner"
@@ -17,6 +21,10 @@ app.run([
             "bannersubtitle": {
                 "fr": "Regardez autrement.",
                 "en": "Watch different."
+            },
+            "category": {
+                "fr": "Catégorie",
+                "en": "Category"
             },
             "follow-block-title": {
                 "fr": "Suivez",
@@ -54,13 +62,29 @@ app.run([
                 "fr": "Pour nous contacter",
                 "en": "To contact us"
             },
+            "infofilm_type_film": {
+                "fr": "Type de film",
+                "en": "Rating"
+            },
             "logout": {
                 "fr": "Se déconnecter",
                 "en": "Log out"
             },
+            "moviedate" : {
+              "fr": "Date de sortie",
+              "en": "Released"
+            },
             "moreinformation": {
                 "fr": "Plus d'information",
                 "en": "More information"
+            },
+            "next": {
+                "fr": "Suivant",
+                "en": "Next"
+            },
+            "previous": {
+                "fr": "Précédent",
+                "en": "Previous"
             },
             "presentation": {
                 "fr": "Presentation",
@@ -101,14 +125,6 @@ app.run([
             "watchlist": {
                 "fr": "Watchlist",
                 "en": "Watchlist"
-            },
-            "actorcategory" : {
-              "fr": "Catégorie : Comédie",
-              "en": "Category : Comedy"
-            },
-            "moviedate" : {
-              "fr": "Date de sortie : ",
-              "en": "Released : "
             },
         }
 
