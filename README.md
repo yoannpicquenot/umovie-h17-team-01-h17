@@ -1,8 +1,20 @@
 # Umovie
 
-This a webplatform to see movies. This has been realised with angularJS with Materializecss Framework.
+This is a webplatform to see movies. This has been realized with angularJS and Materializecss Framework.
 
 
+
+#### Team 1
+
+Yoann Picquenot - YOPIC9 - 111 163 676
+
+Antoine Somma - ANSOM2 - 111 107 500
+
+Philippe Giroux Ayotte - PHGIA5 - 111 0444 435
+
+Jeff Tremblay - 111 098 517
+
+Thibault Desplat - THDES43 - 111 163 659
 
 
 
