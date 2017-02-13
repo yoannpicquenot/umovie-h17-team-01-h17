@@ -66,6 +66,10 @@ app.run([
                 "fr": "Type de film",
                 "en": "Rating"
             },
+            "login": {
+                "fr": "Se connecter",
+                "en": "Log in"
+            },
             "logout": {
                 "fr": "Se déconnecter",
                 "en": "Log out"
@@ -109,6 +113,10 @@ app.run([
             "settings": {
                 "fr": "Paramètres",
                 "en": "Settings"
+            },
+            "signup": {
+                "fr": "S'inscrire",
+                "en": "Sign up"
             },
             "watch": {
                 "fr": "Regardez",
