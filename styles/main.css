@@ -36,6 +36,10 @@
     height: 100px;
 }
 
+.loginform input.ng-invalid {
+    border-color: red;
+}
+
 .loginform label {
     font-size: 3rem;
 }
@@ -43,6 +47,10 @@
 .loginform .connection-button {
     background: transparent;
     font-size: 3rem;
+}
+
+.loginform button.connection-button[disabled] {
+    background-color: rgba(50, 50, 50, 1) !important;
 }
 
 .page-title {
@@ -426,3 +434,5 @@ nav ul li a:hover {
     background-color: #1b1b1b;
 }
 /*******************************************************/
+
+.

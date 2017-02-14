@@ -50,9 +50,10 @@ app.config([
 app.run([
     "$rootScope",
     "$api",
-    function($rootScope, $api) {
+    "$cookies",
+    function($rootScope, $api, $cookies) {
         $rootScope.overlayloading = true;
-        if (window.location.hash !== '#!/home') {
+        if ($cookies.get('token')) {
             $api.auth().then(function successCallback(response) {
                 var data = response.data;
                 $rootScope.connected = true;

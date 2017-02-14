@@ -6,6 +6,13 @@ app.factory("$api", [
 	function($http, $cookies) {
 		var apiUrl = "https://umovie.herokuapp.com";
 		return {
+			auth: function auth() {
+				return $http({
+					url: apiUrl + '/tokeninfo',
+					method: 'GET',
+					contentType: 'application/x-www-form-urlencoded'
+				});
+			},
 			logout: function logout() {
 				return $http({
 					url: apiUrl + '/logout',
@@ -24,11 +31,11 @@ app.factory("$api", [
 					contentType: 'application/x-www-form-urlencoded'
 				});
 			},
-			auth: function auth() {
+			signup: function signup(user) {
 				return $http({
-					url: apiUrl + '/tokeninfo',
-					method: 'GET',
-					contentType: 'application/x-www-form-urlencoded'
+					url: apiUrl + '/signup',
+					method: 'POST',
+					data: user
 				});
 			}
 		};

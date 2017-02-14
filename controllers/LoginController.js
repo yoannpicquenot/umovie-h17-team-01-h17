@@ -18,6 +18,20 @@ app.controller("LoginCtrl", [
                 }, function errorCallback(response) {});
             }
         };
+        $scope.signup = function signup(name, email, password, confirmationPassword) {
+        	var newUser = {};
+        	if (password !== confirmationPassword) {
+        		return;
+        	} 
+        	newUser.name = name;
+        	newUser.email = email;
+        	newUser.password = password;
+
+        	$api.signup(newUser).then(function successCallback(response) {
+        		window.location.href = window.location.origin;
+        	}, function errorCallback(response) {
+        	});
+        };
         $rootScope.$on('$viewContentLoaded', function() {});
     }
 ]);
