@@ -28,7 +28,7 @@ app.controller("LoginCtrl", [
         	newUser.password = password;
 
         	$api.signup(newUser).then(function successCallback(response) {
-        		window.location.href = window.location.origin;
+        		window.location.href = window.location.origin + '#!/login';
         	}, function errorCallback(response) {
         	});
         };
