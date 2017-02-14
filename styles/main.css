@@ -20,6 +20,39 @@
     width: 15px;
 }
 
+.loginpage {
+    margin-left: auto;
+    margin-right: auto;
+    height: 90vh;
+}
+
+.loginform {
+    display: block;
+    width: 100%;
+}
+
+.loginform input {
+    font-size: 3rem;
+    height: 100px;
+}
+
+.loginform input.ng-invalid {
+    border-color: red;
+}
+
+.loginform label {
+    font-size: 3rem;
+}
+
+.loginform .connection-button {
+    background: transparent;
+    font-size: 3rem;
+}
+
+.loginform button.connection-button[disabled] {
+    background-color: rgba(50, 50, 50, 1) !important;
+}
+
 .page-title {
     height: 100vh;
     width: 100%;
@@ -36,6 +69,14 @@
 .page-title h1 {
     margin-right: auto;
     margin-left: auto;
+}
+
+.overlay-loading {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    background: black;
 }
 
 /*fix*/
@@ -393,3 +434,5 @@ nav ul li a:hover {
     background-color: #1b1b1b;
 }
 /*******************************************************/
+
+.

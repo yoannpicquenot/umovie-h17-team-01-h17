@@ -8,9 +8,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body ng-app="umovie-app">
+		<div class="overlay-loading" ng-if="overlayloading">
+			<div class="valign-wrapper" style="height: 100%; width: 100%">
+				<div class="valign" style="margin-left: auto; margin-right: auto; font-size: 3rem">Loading</div>
+			</div>
+		</div>
 		<div ng-include="'./views/partials/navbar.html'"></div>
 		<div class="page-content">
-			<div ng-view>Loading...</div>
+			<div ng-view></div>
 		</div>
 		<!-- LIBS -->
 		<script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js"></script>
@@ -27,11 +32,11 @@
 		<script type="text/javascript" src="./controllers/InfofilmController.js"></script>
 		<script type="text/javascript" src="./controllers/TvShowController.js"></script>
 		<script type="text/javascript" src="./controllers/ActorController.js"></script>
-
+		<script type="text/javascript" src="./controllers/LoginController.js"></script>
 		<!-- SERVICES -->
 		<script type="text/javascript" src="./services/traduction.js"></script>
 		<script type="text/javascript" src="./services/api.js"></script>
-
+		<script type="text/javascript" src="./services/interceptor.js"></script>
 
 	</body>
 </html>

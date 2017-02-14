@@ -26,6 +26,10 @@ app.run([
                 "fr": "Catégorie",
                 "en": "Category"
             },
+            "email": {
+                "fr": "Email",
+                "en": "Email"
+            },
             "follow-block-title": {
                 "fr": "Suivez",
                 "en": "Follow"
@@ -66,6 +70,10 @@ app.run([
                 "fr": "Type de film",
                 "en": "Rating"
             },
+            "login": {
+                "fr": "Se connecter",
+                "en": "Log in"
+            },
             "logout": {
                 "fr": "Se déconnecter",
                 "en": "Log out"
@@ -78,9 +86,21 @@ app.run([
                 "fr": "Plus d'information",
                 "en": "More information"
             },
+            "name": {
+                "fr": "Nom",
+                "en": "Name"
+            },
             "next": {
                 "fr": "Suivant",
                 "en": "Next"
+            },
+            "password": {
+                "fr": "Mot de passe",
+                "en": "Password"
+            },
+            "password_message": {
+                "fr": "Le mot de passe doit contenir au moins 8 caractères, une majuscule et une minuscule.",
+                "en": "Password must contain at least 8 characters, an uppercase and a lowercase letter."
             },
             "previous": {
                 "fr": "Précédent",
@@ -109,6 +129,14 @@ app.run([
             "settings": {
                 "fr": "Paramètres",
                 "en": "Settings"
+            },
+            "signup": {
+                "fr": "S'inscrire",
+                "en": "Sign up"
+            },
+            "confirm_password": {
+                "fr": "Confirmer mot de passe",
+                "en": "Confirm password"
             },
             "watch": {
                 "fr": "Regardez",
