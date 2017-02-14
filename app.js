@@ -4,8 +4,6 @@ var app = angular.module("umovie-app", [
     "ui.materialize"
 ]);
 
-var id = {"email":"yoann.picquenot@gmail.com","name":"Yoann Picquenot","following":[],"id":"58a205b685d1820400e8d567"};
-
 app.config([
     "$routeProvider",
     "$httpProvider",
@@ -71,7 +69,10 @@ app.run([
                 $rootScope.overlayloading = false;
             });
         } else {
-            $rootScope.overlayloading = false;
+            if (window.location.hash !== '#!/home') {
+                window.location.href = window.location.origin + "#!/login";
+            }
         }
+        $rootScope.overlayloading = false;
     }
 ]);
