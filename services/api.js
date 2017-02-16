@@ -37,6 +37,12 @@ app.factory("$api", [
 					method: 'POST',
 					data: user
 				});
+			},
+			movie: function movie(id) {
+				return $http({
+					url: apiUrl + '/movies/' + id,
+					method: 'GET'
+				});
 			}
 		};
 	}

@@ -303,8 +303,7 @@ nav ul li a:hover {
 }
 
 .playbutton{
-    height: 100px;
-    width: 100px;
+    cursor: pointer;
     margin-top: 100px;
     margin-left: 50px;
 }
