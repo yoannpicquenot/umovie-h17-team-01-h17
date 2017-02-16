@@ -15,7 +15,7 @@ app.controller("InfofilmCtrl", [
     	};
 
 	    function loadMovie(idMovie){
-	    	$cookies.put("token", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1OGE0NzQ1NmI5ZmQ3NDA0MDA0OTYyOTIiLCJleHAiOjE0ODcyNTkxNDc0NzF9.vlQV1LttQZJ_UHD8f0w7rQGYyVqgypOCEFFqIxUPamA");
+	    	$cookies.put("token", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1OGE0NzQ1NmI5ZmQ3NDA0MDA0OTYyOTIiLCJleHAiOjE0ODczNTc1ODI2MjJ9.skBs-24LkghXTF30H7BjJJ0RB32F4OBDlmT-ZsG5YAc");
 	    	$api.movie(idMovie).then(function successCallback(response) {
 	    		$scope.movieTitle = response.data.results[0].trackName;
 	    		$scope.actorName = response.data.results[0].artistName;
