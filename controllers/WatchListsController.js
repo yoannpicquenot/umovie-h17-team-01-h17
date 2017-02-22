@@ -8,6 +8,7 @@ app.controller("WatchListsCtrl", [
         $rootScope.tabActive = "watchlists";
         $scope.watchlists = [];
         $rootScope.overlayloading = true;
+        $scope.currentID = '';
         $api.getAllWatchlist()
             .then(function successCallback(response) {
                 var data = response.data;
@@ -39,7 +40,9 @@ app.controller("WatchListsCtrl", [
                 .modal('open');
         };
 
-        $scope.goTo = function goTo(watchlist) {};
+        $scope.gotowatchlist = function gotowatchlist(watchlist) {
+            document.getElementById(watchlist.id).scrollIntoView();
+        };
 
         $scope.pressButtonCarousel = function pressButtonCarousel(watchlist, move) {
             $('#' + watchlist.id + '-carousel')

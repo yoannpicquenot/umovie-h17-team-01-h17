@@ -4,17 +4,23 @@ app.controller('NavbarCtrl', [
     "$rootScope",
     "$cookies",
     "$api",
-    function ($scope, $rootScope, $cookies, $api) {
+    "$toaster",
+    function ($scope, $rootScope, $cookies, $api, $toaster) {
         var alreadyLoaded = false;
         $scope.logout = function logout() {
+            $rootScope.overlayloading = true;
             $api.logout()
                 .then(function successCallback(response) {
                     var cookies = $cookies.getAll();
-                    console.log(response);
                     angular.forEach(cookies, function (v, k) {
                         $cookies.remove(k);
                     });
-                    window.location.href = window.location.origin;
+                    window.location.hash = "#!/login";
+                    $rootScope.overlayloading = false;
+                    $toaster.create({
+                        type: 'success',
+                        text: $rootScope.translate("msg_logout_success")
+                    });
                 }, function errorCallback(response) {});
         };
         $rootScope.$on('$viewContentLoaded', function () {

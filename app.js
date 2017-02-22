@@ -66,13 +66,20 @@ app.run([
                         window.location.href = window.location.origin + "#!/login";
                     }
                     $rootScope.overlayloading = false;
+                    var cookies = $cookies.getAll();
+                    angular.forEach(cookies, function (v, k) {
+                        $cookies.remove(k);
+                    });
                 });
         } else {
-            console.log(window.location.hash);
             if (window.location.hash !== '#!/home' && window.location.hash !== '') {
                 window.location.href = window.location.origin + "#!/login";
             }
             $rootScope.overlayloading = false;
+            var cookies = $cookies.getAll();
+            angular.forEach(cookies, function (v, k) {
+                $cookies.remove(k);
+            });
         }
     }
 ]);
