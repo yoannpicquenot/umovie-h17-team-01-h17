@@ -1,41 +1,21 @@
-<div class="container">
-    <h1>Watchlists</h1>
-    <div class="row">
-        <div class="col l12 m12 s12 watchlist" ng-repeat="watchlist in watchlists track by $index">
-            <div class="carousel" id="{{ watchlist.name }}-carousel">
-                <a class="carousel-item" ng-repeat="movie in watchlist.movies" ng-dblclick="openModalinfofilm()" ng-init="$last?loadCarousel(watchlist):null">
-                    <img src="{{ movie.cover }}">
-                </a>
-            </div>
-            <div class="button-wrapper-carousel">
-                <a class="btn-large waves-effect waves-light transparent" ng-click="pressButtonCarousel(watchlist,'prev')">
-                    <!-- <b>{{ translate("previous"); }}</b> -->
-                    <i class="material-icons large">navigate_before</i>
-                </a>
-                <a class="btn-large waves-effect waves-light transparent" ng-click="pressButtonCarousel(watchlist,'next')">
-                    <b>
-                    <i class="material-icons large">navigate_next</i>
-                    <!-- {{ translate("next"); }} -->
-                    </b>
-                </a>
-            </div>
-            <h2>{{ watchlist.name }}</h2>
-            <hr>
+<div class="row">
+    <div class="watchlist">
+        <div class="carousel carousel-custom" ng-repeat="watchlist in watchlists" id="{{ watchlist.id }}">
+            <a class="carousel-item" ng-repeat="movie in watchlist.movies">
+                <span class="carousel-item-title">{{ movie.trackName }}</span>
+                <img src="{{ movie.artworkUrl100 }}">
+            </a>
+            <span ng-if="$last" ng-init="$last?loadCarousel():null"></span>
         </div>
     </div>
+    <div class="watchlist-shortcuts">
+        <a class="btn btn-primary waves-effect waves-light btn transparent col s12" ng-repeat="watchlist in watchlists">
+            {{ watchlist.name }}
+        </a>
+    </div>
 </div>
-<div class="wrapper-buttons hide-on-med-and-down">
-    <ul>
-        <li ng-click="goTo('top')">
-            <a class="btn-large waves-effect waves-light transparent" ><b>TOP</b></a>
-        </li>
-        <li ng-click="goTo(watchlist)" ng-repeat="watchlist in watchlists">
-            <a class="btn-large waves-effect waves-light transparent" ><b>{{ watchlist.name }}</b></a>
-        </li>
-    </ul>
-</div>
-<div id="modal1" class="modal modal-fixed-footer">
+<!-- <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
         <div ng-include="'./views/infofilm.html'"></div>
     </div>
-</div>
+</div> -->

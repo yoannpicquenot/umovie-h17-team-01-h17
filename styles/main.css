@@ -3,17 +3,17 @@
 }
 
 #banner {
-    background: center no-repeat url(../images/home-cover.jpg);
     z-index: 53;
-    min-height: 100vh;
     min-width: 100%;
+    min-height: 100vh;
+    background: center no-repeat url(../images/home-cover.jpg);
 }
 
 #presentation {
-    background: center no-repeat url(../images/presentation-cover.jpg);
     z-index: 53;
-    min-height: 100vh;
     min-width: 100%;
+    min-height: 100vh;
+    background: center no-repeat url(../images/presentation-cover.jpg);
 }
 
 .icon-flag {
@@ -21,9 +21,9 @@
 }
 
 .loginpage {
-    margin-left: auto;
-    margin-right: auto;
     height: 90vh;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .loginform {
@@ -32,8 +32,8 @@
 }
 
 .loginform input {
-    font-size: 3rem;
     height: 100px;
+    font-size: 3rem;
 }
 
 .loginform input.ng-invalid {
@@ -54,8 +54,8 @@
 }
 
 .page-title {
-    height: 100vh;
     width: 100%;
+    height: 100vh;
 }
 
 .page-title-banner {
@@ -73,16 +73,18 @@
 
 .overlay-loading {
     position: fixed;
-    height: 100%;
-    width: 100%;
     z-index: 9999;
+    width: 100%;
+    height: 100%;
     background: black;
 }
 
+
 /*fix*/
+
 .nav-wrapper form, .nav-wrapper form .input-field {
-    height: 100%;
     width: 90%;
+    height: 100%;
 }
 
 .dropdown-content {
@@ -91,8 +93,8 @@
 }
 
 .dropdown-content li a {
+    transition: background-color .3s;
     color: white;
-    transition: background-color 0.3s;
 }
 
 .dropdown-content li a:hover {
@@ -104,41 +106,59 @@
     color: black;
 }
 
-@media only screen and (min-width : 0px) and (max-width : 760px) {
+@media only screen and (min-width: 0) and (max-width: 760px) {
     #banner {
         background-size: 200%;
     }
-
     #presentation {
         background-size: 200%;
     }
+}
 
+.carousel-item-title {
+    color: white;
+}
+
+.cover-carousel {
+    border: 1px solid white;
+    min-height: 295.516px;
+}
+
+.watchlist {
+    left: 0;
+    position: fixed;
+    width: 75%;
+    height: 93%;
+    overflow-y: auto;
+}
+
+.watchlist-shortcuts {
+    right: 0;
+    position: fixed;
+    width: 25%;
+    height: 93%;
+    overflow-y: auto;
 }
 
 .wrapper-buttons {
-    z-index: 99;
     position: fixed;
-    bottom: 10px;
+    z-index: 99;
     right: 10px;
+    bottom: 10px;
     text-align: center;
 }
 
 .wrapper-buttons a {
     z-index: 99;
-    border: 1px solid rgba(1,1,1,0.2);
-    color: white;
     width: 100%;
+    color: white;
+    border: 1px solid rgba(1, 1, 1, .2);
 }
 
-.button-wrapper-carousel {
-    text-align: center;
+.carousel-custom {
+    height: 500px;
+    border-top: 1px solid white;
 }
-
-.button-wrapper-carousel a {
-    border: 1px solid rgba(1,1,1,0.2);
-    transition: all 1s;
-    width: 49%;
- }
 
 .wrapper-buttons a:hover, .button-wrapper-carousel a:hover {
     border: 1px solid white;
@@ -146,8 +166,8 @@
 
 .block {
     display: block;
-    background: rgba(0, 0, 0, 0.6);
     width: 100%;
+    background: rgba(0, 0, 0, .6);
 }
 
 footer.page-footer {
@@ -155,14 +175,16 @@ footer.page-footer {
 }
 
 .github-icon {
-    filter: invert(100%);
     width: 20px;
+    filter: invert(100%);
 }
+
+
 /****************************/
 
 body {
-    background: black;
     color: white;
+    background: black;
     font-family: globalRobotFont;
 }
 
@@ -175,263 +197,264 @@ nav ul li.active a {
 }
 
 nav ul li a {
+    transition: all .3s;
     border-bottom: 1px solid transparent;
-    transition: all 0.3s;
 }
 
 nav ul li a:hover {
     border-bottom: 1px solid white;
 }
 
+
 /*====================================================infofilm start=====================================================*/
 
-.infofilm-content{
-    padding-top: 0px;
-    flex-direction: row;
+.infofilm-content {
     display: flex;
-    justify-content: center;
-    width:auto;
-    margin-bottom: 50px;
-}
-
-.infofilminfo-content{
+    flex-direction: row;
     width: auto;
-    flex-direction: row;
-    display: flex;
+    margin-bottom: 50px;
+    padding-top: 0;
     justify-content: center;
 }
 
-.infofilmliste-content{
-    padding-left: 10px;
+.infofilminfo-content {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    justify-content: center;
+}
+
+.infofilmliste-content {
+    padding-top: 0;
     padding-right: 10px;
-    padding-top: 0px;
+    padding-left: 10px;
     border-left: solid darkgrey;
 }
 
-.infofilmlisteun-content{
+.infofilmlisteun-content {
     border-left: none;
 }
 
-.contener-content{
+.contener-content {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     height: auto;
+    justify-content: center;
 }
 
-.infofilmconteneurdesc-content{
+.infofilmconteneurdesc-content {
     padding-left: 15px;
 }
 
-.imagefilm-content{
-    height: 300px;
+.imagefilm-content {
     width: 200px;
+    max-width: 95%;
+    height: 300px;
     margin-top: 20px;
-    max-width: 95%
 }
 
-.infofilmdescription-content{
+.infofilmdescription-content {
     text-align: justify;
 }
 
-.infofilmvideo-content{
+.infofilmvideo-content {
     display: block;
-    margin: 0 auto;
-    border:solid black 1px;
     max-width: 95%;
+    margin: 0 auto;
+    border: solid black 1px;
 }
 
-.infofilmmain-content{
+.infofilmmain-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.infofilmlink-content{
-	display: flex;
-	width: auto;
-	margin-top: 23px;
-	margin-right: 10px;
-	justify-content: center;
-	transition: 0.4s;
+.infofilmlink-content {
+    display: flex;
+    width: auto;
+    margin-top: 23px;
+    margin-right: 10px;
+    transition: .4s;
+    justify-content: center;
 }
 
-.infofilmlink-content:hover{
-	opacity: 0.6;
-	transition: 0.4s;
+.infofilmlink-content:hover {
+    transition: .4s;
+    opacity: .6;
 }
 
-.imagefilm-content:hover{
+.imagefilm-content:hover {
+    transition: all .3s;
     filter: brightness(50%);
-    transition: all 0.3s;
 }
 
-.contenerimagefilm{
+.contenerimagefilm {
     position: relative;
     width: 200px;
     height: 300px;
-    opacity: 1;
     -webkit-transition: all 1s ease;
+    opacity: 1;
 }
 
 .contenerimagefilm .afterimagehover {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
     display: none;
-    color: #FFF;
-}
-
-.afterimagehover{
-    margin-top: 20px;
-    color: white;
-    opacity: 1;
-    height: 100%;
     width: 100%;
+    height: 100%;
+    color: #fff;
 }
 
+.afterimagehover {
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    opacity: 1;
+    color: white;
+}
 
 .contenerimagefilm:hover .afterimagehover {
     display: block;
 }
 
-.contenerimagefilm:hover{
-    opacity: 0.5;
+.contenerimagefilm:hover {
     -webkit-transition: all 1s ease;
+    opacity: .5;
 }
 
-.playbutton{
+.playbutton {
     cursor: pointer;
+    width: 100px;
+    height: 100px;
     margin-top: 100px;
     margin-left: 50px;
 }
 
-
-@media screen and (max-width: 990px){
-    .infofilm-content{
+@media screen and (max-width: 990px) {
+    .infofilm-content {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         width: 400px;
         max-width: 95%;
+        justify-content: center;
     }
-
-    .contenerinfo{
-        margin-left: auto;
+    .contenerinfo {
         margin-right: auto;
+        margin-left: auto;
     }
-
-    .infofilminfo-content{
+    .infofilminfo-content {
         display: flex;
         flex-wrap: wrap;
     }
 }
 
+
 /*================================================infofilm end============================================*/
+
 .navbar-fixed {
     z-index: 999;
 }
 
+
 /****************************/
 
 @font-face {
-    font-family: "globalRobotFont";
+    font-family: 'globalRobotFont';
     src: url(./fonts/Roboto-Thin.ttf);
 }
 
+
 /*================================================Tvshow==================================================*/
 
-.episode-container{
-	display: flex;
-	justify-content: center;
+.episode-container {
+    display: flex;
+    justify-content: center;
 }
 
 ::-webkit-scrollbar {
-	width: 12px;
+    width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-	-webkit-box-shadow: inset 0 0 6px black;
-	border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px black;
 }
 
 ::-webkit-scrollbar-thumb {
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px white;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px white;
 }
 
 #episode-carousel {
-    top:20px;
-    width:300px;
+    top: 20px;
+    width: 300px;
     height: 200px;
 }
 
 #episode-carousel img {
-    width:300px;
+    width: 300px;
     height: 200px;
 }
 
+
 /*================================================Tvshow end==================================================*/
 
-.modal .modal-content{
+.modal .modal-content {
+    margin: 0;
     padding: 0;
     padding-right: 5px;
-    margin: 0;
 }
 
-.btn{
-	margin-top: 10px;
+.btn {
+    margin-top: 10px;
+}
 
 .modal {
-	background: rgba(25, 25, 25, 1);
+    background: rgba(25, 25, 25, 1);
 }
 
 .modal-content h4 {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 .modal-content {
-	color: white;
+    color: white;
 }
 
 #actor {
-	padding-top: 30px;
-	padding-bottom: 30px;
-	background: no-repeat center fixed url(../images/actor-cover.jpg);
-	min-height: 93vh;
-	background-position: top left;
+    min-height: 93vh;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background: no-repeat center fixed url(../images/actor-cover.jpg);
+    background-position: top left;
 }
 
 #actor a {
-	color: white;
+    color: white;
 }
 
 .actorcontent img {
-	max-width: 100%;
-	height: auto;
-	width: auto;
+    width: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 .modal iframe {
-	min-width: 100%;
+    min-width: 100%;
 }
 
 .modal img {
-	max-width: 100%;
-	height: auto;
-	width: auto;
+    width: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 #actor a:hover {
-	font-weight: bold;
+    font-weight: bold;
 }
 
-/*******************************************************/
 .card-custom-theme {
     background-color: #1b1b1b;
 }
-/*******************************************************/
-
-.

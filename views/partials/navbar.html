@@ -1,11 +1,11 @@
 <div class="navbar-fixed">
     <nav>
         <div class="nav-wrapper" ng-controller="NavbarCtrl">
-            <a href="#!" data-activates="navbar-mobile-size" class="button-collapse" ng-init="initButtonSideBar()"><i class="material-icons">menu</i></a>
+            <a href="#!" data-activates="navbar-mobile-size" class="button-collapse"><i class="material-icons">menu</i></a>
             <a ng-click="changeLanguage()" class="hide-on-large-only"><img src="./images/icon-{{ lang }}-flag.png" class="icon-flag"></a>
             <ul class="left hide-on-med-and-down">
                 <li class="{{ tabActive == 'home' ? 'active' : '' }}"><a href="#!/home"><b>{{ translate("home") }}</b></a></li>
-                <li ng-hide="!connected" class="{{ tabActive == 'watchlists' ? 'active' : '' }}"><a href="#!/watchlists"><b>{{ translate("watchlist") }}</b></a></li>
+                <li ng-if="connected" class="{{ tabActive == 'watchlists' ? 'active' : '' }}"><a href="#!/watchlists"><b>{{ translate("watchlists") }}</b></a></li>
             </ul>
             <ul class="right hide-on-med-and-down">
                 <li>
@@ -18,13 +18,15 @@
                         </div>
                     </form>
                 </li>
-                <li><a ng-click="changeLanguage()"><img src="./images/icon-{{ lang }}-flag.png" class="icon-flag"></a></li>
-                <li ng-hide="!connected">
-                    <a class="dropdown-button" data-activates="userMenu">
+                <li>
+                    <a ng-click="changeLanguage()"><img src="./images/icon-{{ lang }}-flag.png" class="icon-flag"></a>
+                </li>
+                <li ng-if="connected">
+                    <a class="dropdown-button" data-activates="userMenu" ng-init="initDropdown()">
                         <i class="material-icons left">perm_identity</i><b>  {{ user.name }}</b><i class="material-icons right">arrow_drop_down</i>
                     </a>
                 </li>
-                <li ng-hide="connected" class="{{ tabActive == 'login' ? 'active' : '' }}">
+                <li ng-if="!connected" class="{{ tabActive == 'login' ? 'active' : '' }}">
                     <a href="#!/login">
                         <i class="material-icons left">perm_identity</i><b>  {{ translate("login"); }}</b>
                     </a>
@@ -45,12 +47,12 @@
                     </form>
                 </li>
                 <li class="{{ tabActive == 'home' ? 'active' : '' }}"><a href="#!/home"><i class="material-icons left">home</i>{{ translate("home") }}</a></li>
-                <li ng-hide="!connected" class="{{ tabActive == 'watchlists' ? 'active' : '' }}"><a href="#!/watchlists"><i class="material-icons left">view_module</i>{{ translate("watchlist") }}</a></li>
+                <li ng-if="connected" class="{{ tabActive == 'watchlists' ? 'active' : '' }}"><a href="#!/watchlists"><i class="material-icons left">view_module</i>{{ translate("watchlists") }}</a></li>
                 <li class="divider"></li>
-                <li ng-hide="!connected"><a><i class="material-icons left">perm_identity</i> {{ user.name }}</a></li>
-                <li ng-hide="!connected"><a href="#"><i class="left material-icons">settings</i>{{ translate("settings") }}</a></li>
-                <li ng-hide="!connected" ng-click="logout()"><a><i class="left material-icons">input</i>{{ translate("logout") }}</a></li>
-                <li ng-hide="connected" class="{{ tabActive == 'login' ? 'active' : '' }}">
+                <li ng-if="connected"><a><i class="material-icons left">perm_identity</i> {{ user.name }}</a></li>
+                <li ng-if="connected"><a href="#"><i class="left material-icons">settings</i>{{ translate("settings") }}</a></li>
+                <li ng-if="connected" ng-click="logout()"><a><i class="left material-icons">input</i>{{ translate("logout") }}</a></li>
+                <li ng-if="!connected" class="{{ tabActive == 'login' ? 'active' : '' }}">
                     <a href="#!/login"><i class="material-icons left">perm_identity</i> {{ translate("login") }}</a>
                 </li>
                 <li class="divider"></li>

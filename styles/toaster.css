@@ -1,0 +1,24 @@
+.toaster-wrapper {
+    display: block;
+    position: absolute;
+    top: 80px;
+    z-index: 9999;
+    right: 10px;
+}
+
+.toaster {
+    position: relative;
+    display: block;
+    padding: 20px;
+    z-index: 9999;
+    opacity: 0;
+    margin-bottom: 10px;
+}
+
+.toaster.success {
+    background-color: green;
+}
+
+.toaster.error {
+    background-color: red;
+}

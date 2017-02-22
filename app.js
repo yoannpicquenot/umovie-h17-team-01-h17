@@ -7,7 +7,7 @@ var app = angular.module("umovie-app", [
 app.config([
     "$routeProvider",
     "$httpProvider",
-    function($routeProvider, $httpProvider) {
+    function ($routeProvider, $httpProvider) {
         $httpProvider.interceptors.push('interceptor');
 
         $routeProvider
@@ -49,30 +49,30 @@ app.run([
     "$rootScope",
     "$api",
     "$cookies",
-    function($rootScope, $api, $cookies) {
+    function ($rootScope, $api, $cookies) {
         $rootScope.overlayloading = true;
         if ($cookies.get('token')) {
-            $api.auth().then(function successCallback(response) {
-                var data = response.data;
-                $rootScope.connected = true;
-                $rootScope.user = {
-                    name: data.name,
-                    email: data.email,
-                    id: data.id
-                };
-                $rootScope.overlayloading = false;
-            }, function errorCallback(response) {
-                if (response.status == 401 && window.location.hash !== '#!/home') {
-                    window.location.href = window.location.origin + "#!/login";
-                }
-
-                $rootScope.overlayloading = false;
-            });
+            $api.auth()
+                .then(function successCallback(response) {
+                    var data = response.data;
+                    $rootScope.connected = true;
+                    $rootScope.user = {
+                        name: data.name,
+                        email: data.email,
+                        id: data.id
+                    };
+                }, function errorCallback(response) {
+                    if (response.status == 401 && window.location.hash !== '#!/home') {
+                        window.location.href = window.location.origin + "#!/login";
+                    }
+                    $rootScope.overlayloading = false;
+                });
         } else {
-            if (window.location.hash !== '#!/home') {
+            console.log(window.location.hash);
+            if (window.location.hash !== '#!/home' && window.location.hash !== '') {
                 window.location.href = window.location.origin + "#!/login";
             }
+            $rootScope.overlayloading = false;
         }
-        $rootScope.overlayloading = false;
     }
 ]);
