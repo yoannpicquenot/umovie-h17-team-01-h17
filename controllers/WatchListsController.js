@@ -1,28 +1,31 @@
 var app = angular.module("umovie-app");
-
 app.controller("WatchListsCtrl", [
     "$rootScope",
     "$scope",
     "$api",
-    function ($rootScope, $scope, $api) {
+    "$toaster",
+    function($rootScope, $scope, $api, $toaster) {
         $rootScope.tabActive = "watchlists";
         $scope.watchlists = [];
         $rootScope.overlayloading = true;
-        $scope.currentID = '';
-        $api.getAllWatchlist()
-            .then(function successCallback(response) {
-                var data = response.data;
-                for (var i = data.length - 1; i >= 0; i--) {
-                    if (data[i].movies.length != 0) {
-                        $scope.watchlists.push(data[i]);
+
+        $api.getAllWatchlist().then(function success(response) {
+            var watchlists = response.data;
+            if (watchlists) {
+                for (watchlist of watchlists) {
+                    if (watchlist.owner && watchlist.owner.id == $rootScope.user.id) {
+                        $scope.watchlists.push(watchlist);
                     }
                 }
                 $rootScope.overlayloading = false;
-            }, function errorCallback(response) {});
+            }
+        }, function error(response) {});
 
-        $rootScope.$on('$viewContentLoaded', function () {
+        $rootScope.$on('$viewContentLoaded', function() {
             $('.modal')
-                .modal();
+                .modal({
+                    dismissible: false
+                });
         });
 
         $scope.loadCarousel = function loadCarousel(watchlist) {
@@ -35,18 +38,44 @@ app.controller("WatchListsCtrl", [
                 });
         };
 
-        $scope.openModalinfofilm = function openModalinfofilm() {
-            $('#modal1')
-                .modal('open');
-        };
-
-        $scope.gotowatchlist = function gotowatchlist(watchlist) {
-            document.getElementById(watchlist.id).scrollIntoView();
-        };
+        $scope.openModal = function openModal(idModal) {
+            $(`#${idModal}`).modal('open');
+        }
 
         $scope.pressButtonCarousel = function pressButtonCarousel(watchlist, move) {
-            $('#' + watchlist.id + '-carousel')
-                .carousel(move);
+            $(`#${watchlist.id}-carousel`).carousel(move);
+        };
+
+        $scope.createWatchlist = function createWatchlist(watchlistName) {
+            $api.createWatchlist(watchlistName).then(function successCb(response) {
+                $scope.watchlists.push(response.data);
+                $toaster.create({
+                    type: 'success',
+                    text: $rootScope.translate('watchlist_created_msg')
+                });
+                $('#modal-add').modal('close');
+            }, function errorCallback() {});
+        };
+
+        $scope.deleteWatchlist = function deleteWatchlist(watchlistId) {
+            $api.deleteWatchlist(watchlistId).then(function successCallback() {
+                angular.forEach($scope.watchlists, function(watchlist, index) {
+                    if (watchlistId == watchlist.id) {
+                        $scope.watchlists.splice(index, 1);
+                    }
+                });
+                $toaster.create({
+                    type: 'success',
+                    text: $rootScope.translate('watchlist_deleted_msg')
+                });
+            }, function errorCallback() {});
+        };
+
+        $scope.setDeletingWatchlist = function setDeletingWatchlist(watchlist) {
+            $scope.selectedWatchlist = watchlist;
+        };
+
+        $scope.addMovies = function addMovies(watchlist) {
         };
     }
 ]);
