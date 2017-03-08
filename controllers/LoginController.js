@@ -35,6 +35,7 @@ app.controller("LoginCtrl", [
                             type: "error",
                             text: $scope.translate("login_msg_no_connection")
                         });
+                        $rootScope.overlayloading = false;
                     });
             }
         };

@@ -53,6 +53,20 @@
     background-color: rgba(50, 50, 50, 1) !important;
 }
 
+@media screen and (max-width: 480px) {
+    .loginform input {
+        font-size: 2rem;
+        height: 50px;
+    }
+    .loginform label {
+        font-size: 2rem;
+    }
+    .loginform .connection-button {
+        background: transparent;
+        font-size: 2rem;
+    }
+}
+
 .page-title {
     width: 100%;
     height: 100vh;
@@ -124,22 +138,6 @@
     min-height: 295.516px;
 }
 
-.watchlist {
-    left: 0;
-    position: fixed;
-    width: 75%;
-    height: 93%;
-    overflow-y: auto;
-}
-
-.watchlist-shortcuts {
-    right: 0;
-    position: fixed;
-    width: 25%;
-    height: 93%;
-    overflow-y: auto;
-}
-
 .wrapper-buttons {
     position: fixed;
     z-index: 99;
@@ -157,7 +155,7 @@
 
 .carousel-custom {
     height: 500px;
-    border-top: 1px solid white;
+    border-bottom: 1px solid white;
 }
 
 .wrapper-buttons a:hover, .button-wrapper-carousel a:hover {
@@ -402,9 +400,6 @@ nav ul li a:hover {
 /*================================================Tvshow end==================================================*/
 
 .modal .modal-content {
-    margin: 0;
-    padding: 0;
-    padding-right: 5px;
 }
 
 .btn {
@@ -457,4 +452,71 @@ nav ul li a:hover {
 
 .card-custom-theme {
     background-color: #1b1b1b;
+}
+
+.modal-footer {
+    background-color: rgb(25, 25, 25) !important;
+}
+
+.modal-footer a {
+    color: white;
+    text-shadow: 0px 0px 10px 0px black;
+}
+
+renamable {
+    font-size: 1em;
+    width: 50%;
+}
+
+
+.searchbar-form, .searchbar {
+    width: 100% !important;
+}
+
+.searchbar input:focus {
+    font-size: 2em;
+    color: black !important;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 990px) {
+    renamable, renamable input {
+        width: 100%;
+        text-align: center;
+    }
+
+    .searchbar input {
+        text-align: center;
+    }
+
+    .button-watchlist-wrapper {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+#modal-confirmation-delete {
+    transform: translateY(60%) !important;
+}
+
+.icons-add-movies i {
+    width: 100%;
+    font-size: 100px;
+    color: white;
+    transition: font-size 0.5s;
+}
+
+.icons-add-movies i:hover {
+    font-size: 150px;
+    cursor: pointer;
 }

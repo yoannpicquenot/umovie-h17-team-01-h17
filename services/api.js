@@ -2,8 +2,8 @@ var app = angular.module("umovie-app");
 
 app.factory("$api", [
     "$http",
-    "$cookies",
-    function ($http, $cookies) {
+    "$rootScope",
+    function ($http, $rootScope) {
         var apiUrl = "https://umovie.herokuapp.com";
         //var apiUrl = "http://localhost:3000"; // local
         return {
@@ -14,18 +14,29 @@ app.factory("$api", [
                     contentType: 'application/x-www-form-urlencoded'
                 });
             },
+            createWatchlist: function createWatchlist(watchlistName) {
+                return $http({
+                    url: apiUrl + '/watchlists',
+                    method: 'POST',
+                    data: {
+                        "name": watchlistName,
+                        "owner": $rootScope.user.id
+                    },
+                    headers: {
+                        "Content-Type": 'application/json'
+                    }
+                });
+            },
             getAllWatchlist: function getAllWatchlist() {
                 return $http({
                     url: apiUrl + '/watchlists',
                     method: 'GET',
-                    contentType: 'application/x-www-form-urlencoded'
                 });
             },
             logout: function logout() {
                 return $http({
                     url: apiUrl + '/logout',
                     method: 'GET',
-                    contentType: 'application/x-www-form-urlencoded'
                 });
             },
             movie: function movie(id) {
@@ -42,7 +53,7 @@ app.factory("$api", [
                         email,
                         password
                     },
-                    contentType: 'application/x-www-form-urlencoded'
+                    "Content-Type": 'application/x-www-form-urlencoded'
                 });
             },
             signup: function signup(user) {
@@ -50,6 +61,12 @@ app.factory("$api", [
                     url: apiUrl + '/signup',
                     method: 'POST',
                     data: user
+                });
+            },
+            deleteWatchlist: function deleteWatchlist(watchlistId) {
+                return $http({
+                    url: `${apiUrl}/watchlists/${watchlistId}`,
+                    method: 'DELETE',
                 });
             }
         };

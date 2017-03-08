@@ -14,6 +14,10 @@ app.run([
                 "en": "Category : Comedy",
                 "fr": "Catégorie : Comédie"
             },
+            "add_watchlist_title": {
+                "en": "Add watchlist title",
+                "fr": "Ajouter le titre de la watchlist"
+            },
             "banner": {
                 "en": "Banner",
                 "fr": "Bannière"
@@ -21,6 +25,14 @@ app.run([
             "bannersubtitle": {
                 "en": "Watch different.",
                 "fr": "Regardez autrement."
+            },
+            "button_create": {
+                "en": "Create",
+                "fr": "Créé"
+            },
+            "button_cancel": {
+                "en": "Cancel",
+                "fr": "Annuler"
             },
             "category": {
                 "en": "Category",
@@ -98,6 +110,14 @@ app.run([
                 "en": "Next",
                 "fr": "Suivant"
             },
+            "no_watchlists": {
+                "en": "Oh no ! It seems like you don't have any watchlist (yet) !",
+                "fr": "Oh non ! Il semblerait que vous n'ayez aucune watchlist (pour l'instant) !"
+            },
+            "no_watchlists_instructions": {
+                "en": "To create one, click the blue button on the bottom right.",
+                "fr": "Pour commencer, cliquez sur le boutton bleu en bas à droite de l'écran."
+            },
             "password": {
                 "en": "Password",
                 "fr": "Mot de passe"
@@ -121,6 +141,10 @@ app.run([
             "search": {
                 "en": "Search",
                 "fr": "Rechercher"
+            },
+            "search_watchlists": {
+                "en": "Search watchlist, ex: my favorite",
+                "fr": "Rechercher watchlist, ex: ma favorite"
             },
             "settings": {
                 "en": "Settings",
@@ -157,6 +181,18 @@ app.run([
             "watchlists": {
                 "en": "Watchlists",
                 "fr": "Watchlists"
+            },
+            "watchlist_edit_button": {
+                "en": "Edit",
+                "fr": "Modifier",
+            },
+            "watchlist_delete_button": {
+                "en": "Delete",
+                "fr": "Supprimer",
+            },
+            "watchlist_name": {
+                "en": "Watchlist name",
+                "fr": "Nom de watchlist"
             }
         };
 
