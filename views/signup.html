@@ -1,36 +1,37 @@
 <div class="container">
-	<div class="valign-wrapper loginpage">
-		<form class="loginform valign" name="loginform" novalidate>
-			<div class="row">
-				<div class="input-field col s8 offset-s2">
-					<input id="name_input" name="name_input" type="text" autocomplete="off" class="{{ loginform.name_input.$valid ? 'valid' : 'invalid' }}" ng-model="name" required>
-					<label for="name_input">{{ translate("name"); }}</label>
-				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s8 offset-s2">
-					<input id="email_input" name="email_input" ng-required="email" type="email" class="{{ loginform.email_input.$viewValue && loginform.email_input.$valid  ? 'valid' : 'invalid' }}" autocomplete="off" ng-model="email" required>
-					<label for="email_input">{{ translate("email"); }}</label>
-				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s8 offset-s2">
-					<input id="password_input" name="password_input" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+/" type="password" class="{{ loginform.password_input.$valid ? 'valid' : 'invalid' }}" autocomplete="off" ng-model="password" ng-minlength="8" required>
-					<label for="password_input">{{ translate("password"); }}</label>
-				</div>
-				<div class="col s8 offset-s2">
-					<span>{{ translate("password_message"); }}</span>
-				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s8 offset-s2">
-					<input id="password_input_confirmation" name="password_input_confirmation" type="password" class="{{ loginform.password_input.$viewValue == loginform.password_input_confirmation.$viewValue ? 'valid' : 'invalid' }}" autocomplete="off" ng-model="passwordConfirmation" required>
-					<label for="password_input_confirmation">{{ translate("confirm_password"); }}</label>
-				</div>
-			</div>
-			<div class="row">
-				<button class="waves-effect waves-light btn btn-large col s8 offset-s2 connection-button" ng-disabled="loginform.password_input.$viewValue !== loginform.password_input_confirmation.$viewValue && loginform.$error" type="submit" ng-click="signup(name, email, password, passwordConfirmation)">{{ translate("signup"); }}</button>
-			</div>
-		</form>
-	</div>
+    <div class="valign-wrapper loginpage">
+        <form class="loginform valign" name="loginform" novalidate>
+            <div class="row">
+                <div class="input-field col s8 offset-s2">
+                    <input id="name_input" name="name_input" type="text" autocomplete="off" class="{{ loginform.name_input.$valid ? 'valid' : 'invalid' }}" ng-model="name" required>
+                    <label for="name_input">{{ translate("name"); }}</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s8 offset-s2">
+                    <input id="email_input" name="email_input" ng-required="email" type="email" class="{{ loginform.email_input.$viewValue && loginform.email_input.$valid  ? 'valid' : 'invalid' }}" autocomplete="off" ng-model="email" required>
+                    <label for="email_input">{{ translate("email"); }}</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s8 offset-s2">
+                    <input id="password_input" name="password_input" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+/" type="password" class="{{ loginform.password_input.$valid ? 'valid' : 'invalid' }}" autocomplete="off" ng-model="password" ng-minlength="8" required>
+                    <label for="password_input">{{ translate("password"); }}</label>
+                </div>
+                <div class="col s8 offset-s2">
+                    <span>{{ translate("password_message"); }}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s8 offset-s2">
+                    <input id="password_input_confirmation" name="password_input_confirmation" type="password" class="{{ loginform.password_input.$viewValue == loginform.password_input_confirmation.$viewValue ? 'valid' : 'invalid' }}" autocomplete="off" ng-model="passwordConfirmation"
+                        required>
+                        <label for="password_input_confirmation">{{ translate("confirm_password"); }}</label>
+                </div>
+            </div>
+            <div class="row">
+                <button class="waves-effect waves-light btn btn-large col s8 offset-s2 connection-button" ng-disabled="loginform.password_input.$viewValue !== loginform.password_input_confirmation.$viewValue && loginform.$error" type="submit" ng-click="signup(name, email, password, passwordConfirmation)">{{ translate("signup"); }}</button>
+            </div>
+        </form>
+    </div>
 </div>

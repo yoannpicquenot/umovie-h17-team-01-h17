@@ -1,24 +1,24 @@
 <div class="container">
-	<div class="valign-wrapper loginpage">
-		<form class="loginform valign" name="loginform">
-			<div class="row">
-				<div class="input-field col s8 offset-s2">
-					<input id="email_input" type="email" class="validate" autocomplete="off" ng-model="email" required>
-					<label for="email_input">{{ translate("email") }}</label>
-				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s8 offset-s2">
-					<input id="password_input" type="password" class="validate" autocomplete="off" ng-model="password" required>
-					<label for="password_input">{{ translate("password"); }}</label>
-				</div>
-			</div>
-			<div class="row">
-				<button class="waves-effect waves-light btn btn-large col s8 offset-s2 connection-button" type="submit" ng-click="pressButtonConnection(email, password)">{{ translate("login"); }}</button>
-			</div>
-			<div class="row">
-				<a class="waves-effect waves-light btn btn-large col s8 offset-s2 connection-button" href="#!/signup">{{ translate("signup"); }}</a>
-			</div>
-		</form>
-	</div>
+    <div class="valign-wrapper loginpage">
+        <form class="loginform valign" name="loginform">
+            <div class="row">
+                <div class="input-field col l8 offset-l2 s12">
+                    <input id="email_input" type="email" class="validate" autocomplete="off" ng-model="email" required>
+                    <label for="email_input">{{ translate("email") }}</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col l8 offset-l2 s12">
+                    <input id="password_input" type="password" class="validate" autocomplete="off" ng-model="password" required>
+                    <label for="password_input">{{ translate("password"); }}</label>
+                </div>
+            </div>
+            <div class="row">
+                <button class="waves-effect waves-light btn btn-large col s8 offset-s2 connection-button" type="submit" ng-click="pressButtonConnection(email, password)" ng-disabled="">{{ translate("login"); }}</button>
+            </div>
+            <div class="row">
+                <a class="waves-effect waves-light btn btn-large col s8 offset-s2 connection-button" href="#!/signup">{{ translate("signup"); }}</a>
+            </div>
+        </form>
+    </div>
 </div>

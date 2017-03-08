@@ -2,7 +2,7 @@ var app = angular.module("umovie-app");
 app.run([
     "$rootScope",
     "$cookies",
-    function($rootScope, $cookies) {
+    function ($rootScope, $cookies) {
         $rootScope.lang = $cookies.get("lang");
         if ($rootScope.lang == null) {
             $cookies.put("lang", "en");
@@ -10,153 +10,193 @@ app.run([
         }
 
         var dictionnary = {
-            "actorcategory" : {
-              "fr": "Catégorie : Comédie",
-              "en": "Category : Comedy"
+            "actorcategory": {
+                "en": "Category : Comedy",
+                "fr": "Catégorie : Comédie"
+            },
+            "add_watchlist_title": {
+                "en": "Add watchlist title",
+                "fr": "Ajouter le titre de la watchlist"
             },
             "banner": {
-                "fr": "Bannière",
-                "en": "Banner"
+                "en": "Banner",
+                "fr": "Bannière"
             },
             "bannersubtitle": {
-                "fr": "Regardez autrement.",
-                "en": "Watch different."
+                "en": "Watch different.",
+                "fr": "Regardez autrement."
+            },
+            "button_create": {
+                "en": "Create",
+                "fr": "Créé"
+            },
+            "button_cancel": {
+                "en": "Cancel",
+                "fr": "Annuler"
             },
             "category": {
-                "fr": "Catégorie",
-                "en": "Category"
-            },
-            "email": {
-                "fr": "Email",
-                "en": "Email"
-            },
-            "follow-block-title": {
-                "fr": "Suivez",
-                "en": "Follow"
-            },
-            "follow-block-text": {
-                "fr": "Ne ratez jamais vos séries favorites grâce à vos watchlists",
-                "en": "Don't miss any series of yours thanks to your Watchlists"
-            },
-            "home": {
-                "fr": "Accueil",
-                "en": "Home"
-            },
-            "footer": {
-                "fr": "Bas de page",
-                "en": "Footer"
-            },
-            "footer-information": {
-                "fr": "Informations",
-                "en": "Information"
-            },
-            "footer-information-text": {
-                "fr": "Toutes les données proviennents de Apple Inc. Ce projet a été créé dans un cadre pédagogique.",
-                "en": "Every data are provided by Apple Inc. This project has been created within a pedagogical aim."
-            },
-            "footer-contact-1": {
-                "fr": "Pigeon voyageur",
-                "en": "Carrier piegon"
-            },
-            "footer-contact-2": {
-                "fr": "Ligne 800 : arrêt Université Laval, pavillon Pouliot (On est souvent a l'ASETIN, demandez pour trouver)",
-                "en": "Bus 800 : bus stop Laval University, Pouliot block (We are often at ASETIN office, ask for it)"
-            },
-            "footer-contact-text": {
-                "fr": "Pour nous contacter",
-                "en": "To contact us"
-            },
-            "infofilm_type_film": {
-                "fr": "Type de film",
-                "en": "Rating"
-            },
-            "login": {
-                "fr": "Se connecter",
-                "en": "Log in"
-            },
-            "logout": {
-                "fr": "Se déconnecter",
-                "en": "Log out"
-            },
-            "moviedate" : {
-              "fr": "Date de sortie",
-              "en": "Released"
-            },
-            "moreinformation": {
-                "fr": "Plus d'information",
-                "en": "More information"
-            },
-            "name": {
-                "fr": "Nom",
-                "en": "Name"
-            },
-            "next": {
-                "fr": "Suivant",
-                "en": "Next"
-            },
-            "password": {
-                "fr": "Mot de passe",
-                "en": "Password"
-            },
-            "password_message": {
-                "fr": "Le mot de passe doit contenir au moins 8 caractères, une majuscule et une minuscule.",
-                "en": "Password must contain at least 8 characters, an uppercase and a lowercase letter."
-            },
-            "previous": {
-                "fr": "Précédent",
-                "en": "Previous"
-            },
-            "presentation": {
-                "fr": "Presentation",
-                "en": "Presentation"
-            },
-            "presentationtitle": {
-                "fr": "En résumé...",
-                "en": "In summary..."
-            },
-            "share-block-title": {
-                "fr": "Share",
-                "en": "Share"
-            },
-            "share-block-text": {
-                "fr": "Partagez vos watchlists avec vos amis",
-                "en": "Share your watchlists with your friends"
-            },
-            "search": {
-                "fr": "Rechercher",
-                "en": "Search"
-            },
-            "settings": {
-                "fr": "Paramètres",
-                "en": "Settings"
-            },
-            "signup": {
-                "fr": "S'inscrire",
-                "en": "Sign up"
+                "en": "Category",
+                "fr": "Catégorie"
             },
             "confirm_password": {
-                "fr": "Confirmer mot de passe",
-                "en": "Confirm password"
+                "en": "Confirm password",
+                "fr": "Confirmer mot de passe"
+            },
+            "email": {
+                "en": "Email",
+                "fr": "Email"
+            },
+            "follow-block-text": {
+                "en": "Don't miss any series of yours thanks to your Watchlists",
+                "fr": "Ne ratez jamais vos séries favorites grâce à vos watchlists"
+            },
+            "follow-block-title": {
+                "en": "Follow",
+                "fr": "Suivez"
+            },
+            "footer": {
+                "en": "Footer",
+                "fr": "Bas de page"
+            },
+            "footer-contact-1": {
+                "en": "Carrier piegon",
+                "fr": "Pigeon voyageur"
+            },
+            "footer-contact-2": {
+                "en": "Bus 800 : bus stop Laval University, Pouliot block (We are often at ASETIN office, ask for it)",
+                "fr": "Ligne 800 : arrêt Université Laval, pavillon Pouliot (On est souvent a l'ASETIN, demandez pour trouver)"
+            },
+            "footer-contact-text": {
+                "en": "To contact us",
+                "fr": "Pour nous contacter"
+            },
+            "footer-information": {
+                "en": "Information",
+                "fr": "Informations"
+            },
+            "footer-information-text": {
+                "en": "Every data are provided by Apple Inc. This project has been created within a pedagogical aim.",
+                "fr": "Toutes les données proviennents de Apple Inc. Ce projet a été créé dans un cadre pédagogique."
+            },
+            "home": {
+                "en": "Home",
+                "fr": "Accueil"
+            },
+            "infofilm_type_film": {
+                "en": "Rating",
+                "fr": "Type de film"
+            },
+            "login": {
+                "en": "Log in",
+                "fr": "Se connecter"
+            },
+            "logout": {
+                "en": "Log out",
+                "fr": "Se déconnecter"
+            },
+            "moreinformation": {
+                "en": "More information",
+                "fr": "Plus d'information"
+            },
+            "moviedate": {
+                "en": "Released",
+                "fr": "Date de sortie"
+            },
+            "name": {
+                "en": "Name",
+                "fr": "Nom"
+            },
+            "next": {
+                "en": "Next",
+                "fr": "Suivant"
+            },
+            "no_watchlists": {
+                "en": "Oh no ! It seems like you don't have any watchlist (yet) !",
+                "fr": "Oh non ! Il semblerait que vous n'ayez aucune watchlist (pour l'instant) !"
+            },
+            "no_watchlists_instructions": {
+                "en": "To create one, click the blue button on the bottom right.",
+                "fr": "Pour commencer, cliquez sur le boutton bleu en bas à droite de l'écran."
+            },
+            "password": {
+                "en": "Password",
+                "fr": "Mot de passe"
+            },
+            "password_message": {
+                "en": "Password must contain at least 8 characters, an uppercase and a lowercase letter.",
+                "fr": "Le mot de passe doit contenir au moins 8 caractères, une majuscule et une minuscule."
+            },
+            "presentation": {
+                "en": "Presentation",
+                "fr": "Presentation"
+            },
+            "presentationtitle": {
+                "en": "In summary...",
+                "fr": "En résumé..."
+            },
+            "previous": {
+                "en": "Previous",
+                "fr": "Précédent"
+            },
+            "search": {
+                "en": "Search",
+                "fr": "Rechercher"
+            },
+            "search_watchlists": {
+                "en": "Search watchlist, ex: my favorite",
+                "fr": "Rechercher watchlist, ex: ma favorite"
+            },
+            "settings": {
+                "en": "Settings",
+                "fr": "Paramètres"
+            },
+            "share-block-text": {
+                "en": "Share your watchlists with your friends",
+                "fr": "Partagez vos watchlists avec vos amis"
+            },
+            "share-block-title": {
+                "en": "Share",
+                "fr": "Share"
+            },
+            "signup": {
+                "en": "Sign up",
+                "fr": "S'inscrire"
             },
             "watch": {
-                "fr": "Regardez",
-                "en": "Watch"
-            },
-            "watch-block-title": {
-                "fr": "Regardez",
-                "en": "Watch"
+                "en": "Watch",
+                "fr": "Regardez"
             },
             "watch-block-text": {
-                "fr": "Visionnez vos films et vos séries préférées",
-                "en": "Watch your favorite movies and series"
+                "en": "Watch your favorite movies and series",
+                "fr": "Visionnez vos films et vos séries préférées"
+            },
+            "watch-block-title": {
+                "en": "Watch",
+                "fr": "Regardez"
             },
             "watchlist": {
-                "fr": "Watchlist",
-                "en": "Watchlist"
+                "en": "Watchlist",
+                "fr": "Watchlist"
             },
-        }
+            "watchlists": {
+                "en": "Watchlists",
+                "fr": "Watchlists"
+            },
+            "watchlist_edit_button": {
+                "en": "Edit",
+                "fr": "Modifier",
+            },
+            "watchlist_delete_button": {
+                "en": "Delete",
+                "fr": "Supprimer",
+            },
+            "watchlist_name": {
+                "en": "Watchlist name",
+                "fr": "Nom de watchlist"
+            }
+        };
 
-        $rootScope.translate = function(expr) {
+        $rootScope.translate = function (expr) {
             if (dictionnary[expr] == null) {
                 return "Please add translation for : " + expr;
             }
