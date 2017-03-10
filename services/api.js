@@ -68,7 +68,19 @@ app.factory("$api", [
                     url: `${apiUrl}/watchlists/${watchlistId}`,
                     method: 'DELETE',
                 });
-            }
+            },
+						actor: function actor(id) {
+								return $http({
+										url: apiUrl + '/actors/' + id,
+										method: 'GET'
+								});
+						},
+						actorMovies: function actorMovies(id) {
+								return $http({
+										url: apiUrl + '/actors/' + id + '/movies',
+										method: 'GET'
+								});
+						}
         };
     }
 ]);

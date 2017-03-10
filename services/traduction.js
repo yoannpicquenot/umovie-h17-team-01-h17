@@ -11,8 +11,8 @@ app.run([
 
         var dictionnary = {
             "actorcategory": {
-                "en": "Category : Comedy",
-                "fr": "Catégorie : Comédie"
+                "en": "Category : ",
+                "fr": "Genre : "
             },
             "add_watchlist_title": {
                 "en": "Add watchlist title",
