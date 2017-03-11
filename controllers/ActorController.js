@@ -5,9 +5,11 @@ app.controller("ActorCtrl", [
     '$scope',
     '$api',
     '$cookies',
-    function($rootScope, $scope, $api, $cookies) {
+    '$routeParams',
+    function($rootScope, $scope, $api, $cookies, $routeParams) {
       var alreadyLoaded = false;
-      var actorId = 286146221;
+      var actorId = $routeParams.id;
+      // var actorId = 286146221;
       loadActor(actorId);
       loadActorMovies(actorId);
 
