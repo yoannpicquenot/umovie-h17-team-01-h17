@@ -6,6 +6,16 @@ app.factory("$api", [
     function($http, $rootScope) {
         var apiUrl = "https://umovie.herokuapp.com";
         //var apiUrl = "http://localhost:3000"; // local
+
+        function htmlEscape(str) {
+            return str
+                .replace(/&/g, '&amp;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+        }
+
         return {
             auth: function auth() {
                 return $http({
@@ -18,6 +28,11 @@ app.factory("$api", [
                 return $http({
                     url: apiUrl + '/actors/' + id,
                     method: 'GET'
+                });
+            },
+            getActorByName: function getActorByName(name) {
+                return $http({
+                    url: apiUrl + '/search/actors?q=' + htmlEscape(name)
                 });
             },
             actorMovies: function actorMovies(id) {

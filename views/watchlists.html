@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a class="carousel-item" ng-if="watchlist.movies.length > 0" ng-repeat="movie in watchlist.movies" ng-dblclick="showMovie(movie)">
+                        <a class="carousel-item" ng-if="watchlist.movies.length > 0" ng-repeat="movie in watchlist.movies" ng-dblclick="selectMovie(movie)">
                             <img ng-src="{{ movie.artworkUrl100 }}" class="cover-carousel">
                             <span ng-if="$last" ng-init="loadCarousel()"></span>
                         </a>
@@ -125,6 +125,9 @@
 <div id="modal-infofilm" class="modal modal-fixed-footer">
     <div class="modal-content">
         <div ng-include="'./views/infofilm.html'"></div>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-yellow btn-flat"><i class="material-icons">close</i> {{ translate("button_close") }}</a>
     </div>
 </div>
 <!-- Modal add movies -->

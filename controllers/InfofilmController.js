@@ -4,17 +4,17 @@ app.controller("InfofilmCtrl", [
     '$rootScope',
     '$scope',
     '$api',
-    '$route',
-    function($rootScope, $scope, $api, $route) {
+    function($rootScope, $scope, $api) {
         $scope.goToActorPage = function goToActorPage() {
-            $api.actorMovies($scope.currentMovie.trackId).then(function successCallback(response) {
-                console.log(response.data);
+            $api.getActorByName($scope.currentMovie.artistName).then(function successCallback(response) {
+                if (response.data.resultCount > 0) {
+                    $("#modal-infofilm").modal("close");
+                    location.hash = `#!/actor/${response.data.results[0].artistId}`;
+                }
             }, function errorCallback() {});
-            //location.hash = "#!/actor";
         };
-
         $scope.$watch("currentMovie", function() {
-            if ($scope.currentMovie.trackId) {
+            if ($scope.currentMovie && $scope.currentMovie.trackId) {
                 $api.movie($scope.currentMovie.trackId).then(function successCallback(response) {
                     $scope.movie = response.data.results[0];
                     $scope.movieBanner = response.data.results[0].artworkUrl100;

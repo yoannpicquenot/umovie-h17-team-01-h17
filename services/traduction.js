@@ -94,6 +94,10 @@ app.run([
                 "en": "Rating",
                 "fr": "Type de film"
             },
+            "info_film_main_actor": {
+                "en": "Main actor",
+                "fr": "Acteur principal"
+            },
             "login": {
                 "en": "Log in",
                 "fr": "Se connecter"
