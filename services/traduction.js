@@ -14,6 +14,10 @@ app.run([
                 "en": "Category : ",
                 "fr": "Genre : "
             },
+            "add_movies_modal_title": {
+                "en": "Add movies",
+                "fr": "Ajouter un film"
+            },
             "add_watchlist_title": {
                 "en": "Add watchlist title",
                 "fr": "Ajouter le titre de la watchlist"
@@ -41,6 +45,10 @@ app.run([
             "confirm_password": {
                 "en": "Confirm password",
                 "fr": "Confirmer mot de passe"
+            },
+            "done": {
+                "en": "Done",
+                "fr": "Fait"
             },
             "email": {
                 "en": "Email",
@@ -86,6 +94,10 @@ app.run([
                 "en": "Rating",
                 "fr": "Type de film"
             },
+            "info_film_main_actor": {
+                "en": "Main actor",
+                "fr": "Acteur principal"
+            },
             "login": {
                 "en": "Log in",
                 "fr": "Se connecter"
@@ -102,6 +114,10 @@ app.run([
                 "en": "Released",
                 "fr": "Date de sortie"
             },
+            "msg_delete_confirmation": {
+                "en": "Are you sure you want to delete the watchlist ",
+                "fr": "Date de sortie"
+            },
             "name": {
                 "en": "Name",
                 "fr": "Nom"
@@ -109,6 +125,10 @@ app.run([
             "next": {
                 "en": "Next",
                 "fr": "Suivant"
+            },
+            "no_movies": {
+                "en": "No movies",
+                "fr": "Pas de films"
             },
             "no_watchlists": {
                 "en": "Oh no ! It seems like you don't have any watchlist (yet) !",
@@ -185,6 +205,10 @@ app.run([
             "watchlists": {
                 "en": "Watchlists",
                 "fr": "Watchlists"
+            },
+            "watchlist_add_button": {
+                "en": "Add",
+                "fr": "Ajouter",
             },
             "watchlist_edit_button": {
                 "en": "Edit",
