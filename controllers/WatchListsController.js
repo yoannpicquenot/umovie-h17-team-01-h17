@@ -16,9 +16,6 @@ app.controller("WatchListsCtrl", [
             $('.modal')
                 .modal({
                     dismissible: false,
-                    complete: function() {
-                        $route.reload();
-                    }
                 });
         });
 
@@ -172,6 +169,10 @@ app.controller("WatchListsCtrl", [
             $api.getWatchlist($route.current.params.id).then(function successCallback(response) {
                 $scope.watchlist = response.data;
             }, function errorCallback() {});
+
+            $scope.selectMovieToDeleteFromWatchlist = function selectMovieToDeleteFromWatchlist(movie, watchlist) {
+                $scope.movieToDelete = movie;
+            };
         }
     }
 ]);

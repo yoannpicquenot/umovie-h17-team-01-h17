@@ -1,15 +1,15 @@
+<nav>
+    <div class="nav-wrapper">
+        <form class="searchbar-form">
+            <div class="input-field searchbar">
+                <input id="search" type="search" placeholder="{{ translate('search_watchlists') }}" ng-model="search">
+                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+            </div>
+        </form>
+    </div>
+</nav>
 <div ng-if="!oneWatchlist">
-    <nav>
-        <div class="nav-wrapper">
-            <form class="searchbar-form">
-                <div class="input-field searchbar">
-                    <input id="search" type="search" placeholder="{{ translate('search_watchlists') }}" ng-model="search">
-                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                    <i class="material-icons">close</i>
-                </div>
-            </form>
-        </div>
-    </nav>
     <div class="row">
         <div class="col l3 list-watchlist hide-on-med-and-down" ng-if="watchlists.length > 0">
             <ul class="watchlist">
@@ -89,9 +89,12 @@
                     <i class="material-icons valign center" style="font-size: 74px; width: 100%;">add</i>
                 </div>
             </div>
-            <div class="col l3 m4 s6" ng-repeat="movie in watchlist.movies">
+            <div class="col l3 m4 s6" ng-repeat="movie in watchlist.movies | filter:search">
                 <img ng-src="{{ movie.artworkUrl100 }}" style="width: 100%; height: auto" class="movie-cover">
                 <h4>{{ movie.trackName }}</h4>
+                <i class="material-icons col s4 clickable">play_arrow</i>
+                <i class="material-icons col s4 clickable" ng-click="selectMovie(movie)">info</i>
+                <i class="material-icons col s4 clickable" ng-click="selectMovieToDeleteFromWatchlist(movie, watchlist)" data-target="modal-confirmation-delete-movie-from-watchlists">delete</i>
             </div>
         </div>
     </div>
@@ -176,9 +179,12 @@
     </div>
 </div>
 <!-- modal-confirmation-delete-movie-from-watchlists -->
-<div id="modal-confirmation-delete-movie-from-watchlists">
+<div id="modal-confirmation-delete-movie-from-watchlists" class="modal">
     <div class="modal-content">
+        <h3>{{ translate("msg_confirmation_delete_movies_from_watchlist"); }}</h3>
     </div>
     <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-yellow btn-flat" ng-click="deleteWatchlist(selectedWatchlist.id)"><i class="material-icons">delete</i> {{ translate("button_delete") }}</a>
+        <a class="modal-action modal-close waves-effect waves-yellow btn-flat"><i class="material-icons">close</i> {{ translate("button_cancel") }}</a>
     </div>
 </div>

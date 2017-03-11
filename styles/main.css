@@ -613,3 +613,7 @@ nav ul li a:hover {
     height: 295.516px !important;
     cursor: pointer;
 }
+
+.clickable {
+    cursor: pointer;
+}
