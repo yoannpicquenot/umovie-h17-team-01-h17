@@ -15,7 +15,7 @@ app.config([
                 templateUrl: "./views/home.html",
                 controller: "HomeCtrl"
             })
-            .when('/watchlists', {
+            .when('/watchlists/:id?', {
                 templateUrl: "./views/watchlists.html",
                 controller: "WatchListsCtrl"
             })

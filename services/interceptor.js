@@ -16,6 +16,7 @@ app.factory('interceptor', function($q, $cookies, $injector, $rootScope) {
                         };
                         return config;
                     }, function errorCallback(response) {
+                        $cookies.remove("token");
                         return config;
                     });
             }
