@@ -80,6 +80,18 @@ app.factory("$api", [
 										url: apiUrl + '/actors/' + id + '/movies',
 										method: 'GET'
 								});
+						},
+						tvshow: function tvshow(id) {
+								return $http({
+										url: apiUrl + '/tvshows/seasons/' + id,
+										method: 'GET'
+								});
+						},
+						tvshowEpisodes: function tvshowEpisodes(id) {
+								return $http({
+										url: apiUrl + '/tvshows/seasons/' + id + '/episodes',
+										method: 'GET'
+								});
 						}
         };
     }

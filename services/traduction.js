@@ -162,6 +162,10 @@ app.run([
                 "en": "Sign up",
                 "fr": "S'inscrire"
             },
+            "tvshow-name":{
+              "en": "TV Show",
+              "fr": "Série"
+            },
             "watch": {
                 "en": "Watch",
                 "fr": "Regardez"
