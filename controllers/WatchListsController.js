@@ -17,6 +17,7 @@ app.controller("WatchListsCtrl", [
                 .modal({
                     dismissible: false,
                     complete: function() {
+                        $route.reload();
                     }
                 });
         });
@@ -44,6 +45,12 @@ app.controller("WatchListsCtrl", [
         $scope.selectMovie = function selectMovie(movie) {
             $scope.currentMovie = movie;
             $("#modal-infofilm").modal("open");
+        };
+
+        $scope.deleteMovie = function deleteMovie(movie, watchlist) {
+            $api.deleteMovieFromWatchlist(movie.trackId, watchlist.id).then(function successCallback(response) {
+                $route.reload();
+            }, function errorCallback() {});
         };
 
         if (!$route.current.params.id) {

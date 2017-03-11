@@ -68,6 +68,12 @@ app.factory("$api", [
                     method: 'DELETE',
                 });
             },
+            deleteMovieFromWatchlist: function deleteMovieFromWatchlist(movieId, watchlistId) {
+                return $http({
+                    url: `${apiUrl}/watchlists/${watchlistId}/movies/${movieId}`,
+                    method: 'DELETE'
+                });
+            },
             getAllWatchlist: function getAllWatchlist() {
                 return $http({
                     url: apiUrl + '/watchlists',

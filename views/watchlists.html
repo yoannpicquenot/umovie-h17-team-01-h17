@@ -11,7 +11,7 @@
         </div>
     </nav>
     <div class="row">
-        <div class="col l3 list-watchlist hide-on-med-and-down">
+        <div class="col l3 list-watchlist hide-on-med-and-down" ng-if="watchlists.length > 0">
             <ul class="watchlist">
                 <li class="tab col s12 {{ currentWatchlistId == watchlist.id ? 'active' : '' }}" ng-repeat="watchlist in watchlists | filter:search" ng-click="goToWatchlist(watchlist.id);">
                     {{ watchlist.name }}
@@ -39,14 +39,19 @@
                 </div>
                 <div class="watchlist-body">
                     <div class="carousel carousel-custom" id="{{ watchlist.id }}" ng-if="watchlists.length > 0">
-                        <a ng-if="!watchlist.movies.length" class="carousel-item">
+                        <a ng-if="!watchlist.movies.length" class="carousel-item" ng-init="loadCarousel()">
                             <div class="cover-carousel">
                                 <div class="valign-wrapper icons-add-movies noselect" style="height: 295.516px" >
                                     <h1 class="valign center">{{ translate("no_movies"); }}</h1>
                                 </div>
                             </div>
                         </a>
-                        <a class="carousel-item" ng-if="watchlist.movies.length > 0" ng-repeat="movie in watchlist.movies" ng-dblclick="selectMovie(movie)">
+                        <a class="carousel-item cover" ng-if="watchlist.movies.length > 0" ng-repeat="movie in watchlist.movies">
+                            <div class="overlay-cover">
+                                <i class="material-icons">play_arrow</i>
+                                <i class="material-icons" ng-click="selectMovie(movie)">info</i>
+                                <i class="material-icons" ng-click="deleteMovie(movie, watchlist)">delete</i>
+                            </div>
                             <img ng-src="{{ movie.artworkUrl100 }}" class="cover-carousel">
                             <span ng-if="$last" ng-init="loadCarousel()"></span>
                         </a>
@@ -168,5 +173,12 @@
             </span>
             <i class="material-icons right">checked</i>
         </a>
+    </div>
+</div>
+<!-- modal-confirmation-delete-movie-from-watchlists -->
+<div id="modal-confirmation-delete-movie-from-watchlists">
+    <div class="modal-content">
+    </div>
+    <div class="modal-footer">
     </div>
 </div>

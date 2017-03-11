@@ -295,7 +295,7 @@ nav ul li a:hover {
     opacity: 1;
 }
 
-.contenerimagefilm .afterimagehover {
+.afterimagehover {
     position: absolute;
     top: 0;
     left: 0;
@@ -315,11 +315,11 @@ nav ul li a:hover {
 
 .contenerimagefilm:hover .afterimagehover {
     display: block;
+    background-color: rgba(0,0,0, 0.5);
 }
 
 .contenerimagefilm:hover {
     -webkit-transition: all 1s ease;
-    opacity: .5;
 }
 
 .playbutton {
@@ -585,4 +585,31 @@ nav ul li a:hover {
 
 .movie-suggestion li:hover {
     color: black !important;
+}
+
+.overlay-cover {
+    opacity: 0;
+    position: absolute;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity .2s;
+}
+
+.overlay-cover i {
+    font-size: 34px;
+    max-width: 50%;
+}
+
+.cover:hover .overlay-cover {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    opacity: 1;
+}
+
+.cover {
+    height: 295.516px !important;
+    cursor: pointer;
 }
