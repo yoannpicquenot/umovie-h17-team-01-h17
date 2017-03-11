@@ -14,7 +14,7 @@
             <div class="film col s6 m4 l3" ng-repeat="movie in movies" ng-click="selectMovie(movie)">
                 <a data-target='modal1' modal>
                     <p>{{ movie.trackName }}</p>
-                    <img src="{{ movie.artworkUrl100 }}" />
+                    <img ng-src="{{ movie.artworkUrl100 }}" />
                 </a>
             </div>
         </div>

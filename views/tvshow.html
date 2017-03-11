@@ -4,53 +4,51 @@
             <div class="infofilm-content col l12 s12">
                 <div class="contenerinfo">
                     <div class="contenerimagefilm">
-                        <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjI3ODU0OTQ1MV5BMl5BanBnXkFtZTgwNzI0MTQ2MzE@._V1_UY1200_CR88,0,630,1200_AL_.jpg" class="imagefilm-content">
+                        <img src="{{ tvShow.artworkUrl100 }}" class="imagefilm-content">
                         <div class="afterimagehover">
-                            <input type="image" src="http://www.iconsdb.com/icons/preview/gray/video-play-3-xxl.png" class="playbutton" />
+                            <!-- <input type="image" src="http://www.iconsdb.com/icons/preview/gray/video-play-3-xxl.png" class="playbutton" /> -->
                         </div>
                     </div>
                     <div class="infofilmlink-content">
-                        <a href="https://geo.itunes.apple.com/ca/tv-season/heroes-season-1/id196139170?l=fr" style="display:inline-block;overflow:hidden;background:url(//linkmaker.itunes.apple.com/assets/shared/badges/fr-fr/itunes-lrg.svg) no-repeat;width:110px;height:40px;background-size:contain;"></a>
+                        <a href="{{ tvShow.collectionViewUrl }}" style="display:inline-block;overflow:hidden;background:url(//linkmaker.itunes.apple.com/assets/shared/badges/fr-fr/itunes-lrg.svg) no-repeat;width:110px;height:40px;background-size:contain;"></a>
                     </div>
                 </div>
                 <div class="infofilmconteneurdesc-content">
                     <ul>
                         <li>
-                            <h2 class="header">{{tvShow.title}}</h2>
+                            <h2 class="header">{{tvShow.collectionName}}</h2>
                         </li>
                         <li>
-                            {{ translate("infofilm_type_film") }} : {{tvShow.genre}}
+                            {{ translate("category") }} : {{tvShow.primaryGenreName}}
                         </li>
                         <li>
                             {{ translate("moviedate") }} : {{tvShow.releaseDate}}
                         </li>
                         <li>
-                            {{ translate("category") }} : {{tvShow.rating}}
+                            {{ translate("infofilm_type_film") }} : {{tvShow.contentAdvisoryRating}}
                         </li>
                         <li>
-                            {{ translate("info_film_main_actor"); }} : <a ng-click="goToActorPage()" href="">Ellen DeGeneres</a>
+                            {{ translate("tvshow-name"); }} : <a href="{{ tvShow.artistViewUrl }}">{{ tvShow.artistName }}</a>
                         </li>
                     </ul>
                     <p class="infofilmdescription-content">
-                        {{tvShow.description}}
+                        {{tvShow.longDescription}}
                     </p>
 
                 </div>
             </div>
             <div class="col l12 s12">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/9AX6aXFdTkc" frameborder="0" allowfullscreen class="infofilmvideo-content"></iframe>
+                <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/9AX6aXFdTkc" frameborder="0" allowfullscreen class="infofilmvideo-content"></iframe> -->
+                <!-- <video controls autoplay class="infofilmvideo-content" src="{{ tvShow.previewUrl }}"></video> -->
+                <div id="myvideo5" class="infofilmvideo-content">Loading the player...</div>
             </div>
-            <div class="col l12 s12" carousel>
-                <a id="episode-carousel" class="carousel-item" href="javascript:void(0);" ng-repeat="episode in tvShow.episodes"><img src={{episode.cover}}>
-                    <p class="white-text center">{{episode.title}}</p>
+            <div class="col l12 s12 carousel">
+                <a id="episode-carousel" class="carousel-item" href="javascript:void(0);" ng-repeat="episode in episodes"><img ng-src="{{ episode.artworkUrl100 }}"/>
+                    <p class="white-text center">{{episode.trackName}}</p>
+                    <span ng-if="$last" ng-init="loadCarousel()"></span>
                 </a>
             </div>
         </div>
 
     </div>
-</div>
-v>
-</div>
-
-</div>
 </div>
