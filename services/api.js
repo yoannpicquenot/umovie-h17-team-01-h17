@@ -3,7 +3,7 @@ var app = angular.module("umovie-app");
 app.factory("$api", [
     "$http",
     "$rootScope",
-    function ($http, $rootScope) {
+    function($http, $rootScope) {
         var apiUrl = "https://umovie.herokuapp.com";
         //var apiUrl = "http://localhost:3000"; // local
         return {
@@ -12,6 +12,18 @@ app.factory("$api", [
                     url: apiUrl + '/tokeninfo',
                     method: 'GET',
                     contentType: 'application/x-www-form-urlencoded'
+                });
+            },
+            actor: function actor(id) {
+                return $http({
+                    url: apiUrl + '/actors/' + id,
+                    method: 'GET'
+                });
+            },
+            actorMovies: function actorMovies(id) {
+                return $http({
+                    url: apiUrl + '/actors/' + id + '/movies',
+                    method: 'GET'
                 });
             },
             addMovie: function addMovie(watchlistId, movie) {

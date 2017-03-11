@@ -27,7 +27,7 @@ app.config([
                 templateUrl: "./views/tvshow.html",
                 controller: "TvShowCtrl"
             })
-            .when('/actor', {
+            .when('/actor/:id', {
                 templateUrl: "./views/actor.html",
                 controller: "ActorCtrl"
             })

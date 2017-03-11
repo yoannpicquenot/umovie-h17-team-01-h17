@@ -9,6 +9,7 @@ app.controller("WatchListsCtrl", [
         $rootScope.tabActive = "watchlists";
         $rootScope.overlayloading = true;
         $scope.oneWatchlist = false;
+        $scope.currentMovie = "";
 
         $rootScope.$on('$viewContentLoaded', function() {
             $('.modal')
@@ -37,6 +38,11 @@ app.controller("WatchListsCtrl", [
 
         $scope.stopSearchingMovies = function stopSearchingMovies() {
             listener();
+        };
+
+        $scope.showMovie = function showMovie(movie) {
+            $scope.currentMovie = movie;
+            $(".modal-infofilm").modal("open");
         };
 
         if (!$route.current.params.id) {

@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a class="carousel-item" ng-if="watchlist.movies.length > 0" ng-repeat="movie in watchlist.movies" data-target="modal-infofilm">
+                        <a class="carousel-item" ng-if="watchlist.movies.length > 0" ng-repeat="movie in watchlist.movies" ng-dblclick="showMovie(movie)">
                             <img ng-src="{{ movie.artworkUrl100 }}" class="cover-carousel">
                             <span ng-if="$last" ng-init="loadCarousel()"></span>
                         </a>

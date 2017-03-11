@@ -1,10 +1,10 @@
-<div class="infofilmmain-content" ng-controller="InfofilmCtrl">
+<div class="infofilmmain-content" ng-controller="InfofilmCtrl" ng-model="currentMovie">
     <div class="contener-content">
         <div class="row">
             <div class="infofilm-content col l12 s12">
                 <div class="contenerinfo">
                     <div class="contenerimagefilm">
-                        <img src={{movie.artworkUrl100}} class="imagefilm-content">
+                        <img ng-src="{{ movie.artworkUrl100 }}" class="imagefilm-content">
                         <div class="afterimagehover">
                             <div class="playbutton">
                                 <i class="large material-icons">play_arrow</i>
@@ -12,7 +12,7 @@
                         </div>
                     </div>
                     <div class="infofilmlink-content">
-                        <a href={{movie.trackViewUrl}} style="display:inline-block;overflow:hidden;background:url(//linkmaker.itunes.apple.com/assets/shared/badges/fr-fr/itunes-lrg.svg) no-repeat;width:110px;height:40px;background-size:contain;"></a>
+                        <a href="{{ movie.trackViewUrl }}" style="display:inline-block;overflow:hidden;background:url(//linkmaker.itunes.apple.com/assets/shared/badges/fr-fr/itunes-lrg.svg) no-repeat;width:110px;height:40px;background-size:contain;"></a>
                     </div>
                 </div>
                 <div class="infofilmconteneurdesc-content">
@@ -30,20 +30,16 @@
                             {{ translate("category") }} : {{movie.contentAdvisoryRating}}
                         </li>
                         <li>
-                            {{ translate("info_film_main_actor"); }} : <a ng-click="goToActorPage()" href="">{{movie.artistName}}</a>
+                            {{ translate("info_film_main_actor"); }} : <a ng-click="goToActorPage(movie.artistName)">{{ movie.artistName }}</a>
                         </li>
                     </ul>
                     <p class="infofilmdescription-content">
                         {{movie.longDescription}}
                     </p>
-                    
                 </div>
             </div>
-            <div class="col l12 s12">
-                <video controls autoplay 
-                    src={{movie.previewUrl}}>
-                </video>
-            </div>
+            <div class="col l12 s12" ng-init="loadMovie();">
+            <video controls class="col l12" src="{{ movie.previewUrl }}"></video>
         </div>
     </div>
 </div>

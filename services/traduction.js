@@ -11,8 +11,8 @@ app.run([
 
         var dictionnary = {
             "actorcategory": {
-                "en": "Category : Comedy",
-                "fr": "Catégorie : Comédie"
+                "en": "Category : ",
+                "fr": "Genre : "
             },
             "add_movies_modal_title": {
                 "en": "Add movies",
