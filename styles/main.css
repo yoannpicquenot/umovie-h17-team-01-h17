@@ -463,12 +463,6 @@ nav ul li a:hover {
     text-shadow: 0px 0px 10px 0px black;
 }
 
-renamable {
-    font-size: 1em;
-    width: 50%;
-}
-
-
 .searchbar-form, .searchbar {
     width: 100% !important;
 }
@@ -480,15 +474,6 @@ renamable {
 }
 
 @media screen and (max-width: 990px) {
-    renamable, renamable input {
-        width: 100%;
-        text-align: center;
-    }
-
-    .searchbar input {
-        text-align: center;
-    }
-
     .button-watchlist-wrapper {
         width: 100%;
         text-align: center;
@@ -519,4 +504,85 @@ renamable {
 .icons-add-movies i:hover {
     font-size: 150px;
     cursor: pointer;
+}
+
+.watchlist {
+    background-color: black;
+    height: auto;
+}
+
+.watchlist .tab {
+    text-align: left;
+    display: block;
+    padding: 20px;
+    border-bottom: transparent 1px solid;
+    transition: border-bottom 0.5s;
+}
+
+.watchlist .tab.active {
+    background-color: white;
+    color: black;
+}
+
+.watchlist .tab:hover {
+    background-color: grey;
+    color: black;
+    cursor: pointer;
+}
+
+.watchlist .tab a {
+    color: white;
+}
+
+.list-watchlist {
+    position: fixed;
+    overflow: auto !important;
+    background-color: #121212;
+    height: 86%;
+    overflow-y: hidden;
+}
+
+.watchlists {
+    position: fixed;
+    height: 86%;
+    left: 25% !important;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 992px) {
+    .watchlists {
+        left: 0px !important;
+        overflow-y: auto;
+    }
+}
+
+.show-on-hover {
+    display: none;
+}
+
+.separator {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid white;
+}
+
+.movie-cover {
+    height: 369.2978px;
+    border: 1px solid white;
+    background-color: black;
+    transition: all 0.2s;
+}
+
+.movie-cover:hover {
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+
+.movie-suggestion li {
+    color: white !important;
+}
+
+.movie-suggestion li:hover {
+    color: black !important;
 }

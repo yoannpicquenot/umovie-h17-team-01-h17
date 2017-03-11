@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
-    <body ng-app="umovie-app">
+    <body ng-app="umovie-app" class="noselect">
         <div class="overlay-loading" ng-if="overlayloading">
             <div class="valign-wrapper" style="height: 100%; width: 100%">
                 <div class="valign" style="margin-left: auto; margin-right: auto; font-size: 3rem">
@@ -56,8 +56,6 @@
         <script type="text/javascript" src="./services/api.js"></script>
         <script type="text/javascript" src="./services/interceptor.js"></script>
         <script type="text/javascript" src="./services/toaster.js"></script>
-        <!-- DIRECTIVES -->
-        <script type="text/javascript" src="./directives/renamable.js"></script>
     </body>
 
 </html>

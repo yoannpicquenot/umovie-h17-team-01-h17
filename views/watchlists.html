@@ -1,54 +1,97 @@
-<nav>
-    <div class="nav-wrapper">
-        <form class="searchbar-form">
-            <div class="input-field searchbar">
-                <input id="search" type="search" placeholder="{{ translate('search_watchlists') }}" ng-model="search">
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                <i class="material-icons">close</i>
-            </div>
-        </form>
-    </div>
-</nav>
-<div class="row">
-    <div ng-repeat="watchlist in watchlists | filter:search">
-        <nav>
-            <div class="nav-wrapper">
-                <renamable class="left" model="watchlist"></renamable>
-                <ul class="right button-watchlist-wrapper">
-                    <li class="col s6">
-                        <button class="btn waves-effect waves-light transparent btn-edit-watchlist">{{ translate('watchlist_edit_button') }} <i class="material-icons">mode_edit</i></button>
-                    </li>
-                    <li class="col s6">
-                        <button class="btn waves-effect waves-light transparent btn-delete-watchlist" data-target="modal-confirmation-delete" ng-click="setDeletingWatchlist(watchlist)">{{ translate('watchlist_delete_button') }} <i class="material-icons"></i></button>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <div class="carousel carousel-custom" id="{{ watchlist.id }}" ng-if="watchlists.length > 0">
-            <a ng-if="!watchlist.movies.length" class="carousel-item" ng-init="loadCarousel()">
-                <div class="cover-carousel">
-                    <div class="valign-wrapper icons-add-movies noselect" style="height: 295.516px" data-target="modal-add-movies" ng-click="addMovies(watchlist)">
-                        <i class="valign center material-icons">add</i>
+<div ng-if="!oneWatchlist">
+    <nav>
+        <div class="nav-wrapper">
+            <form class="searchbar-form">
+                <div class="input-field searchbar">
+                    <input id="search" type="search" placeholder="{{ translate('search_watchlists') }}" ng-model="search">
+                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                </div>
+            </form>
+        </div>
+    </nav>
+    <div class="row">
+        <div class="col l3 list-watchlist hide-on-med-and-down">
+            <ul class="watchlist">
+                <li class="tab col s12 {{ currentWatchlistId == watchlist.id ? 'active' : '' }}" ng-repeat="watchlist in watchlists | filter:search" ng-click="goToWatchlist(watchlist.id);">
+                    {{ watchlist.name }}
+                </li>
+            </ul>
+        </div>
+        <div class="col l9 s12 watchlists">
+            <div ng-repeat="watchlist in watchlists | filter:search" id="{{ watchlist.id }}">
+                <div class="watchlist-header">
+                    <h2 class="left">{{ watchlist.name }}</h2>
+                    <div class="right">
+                        <button class="btn waves-effect waves-light transparent btn-add-watchlist" data-target="modal-add-movies" ng-click="addMovies(watchlist)">
+                        <i class="material-icons">add</i>
+                        {{ translate('watchlist_add_button') }}
+                        </button>
+                        <a href="#!/watchlists/{{ watchlist.id }}" class="btn waves-effect waves-light transparent btn-edit-watchlist">
+                            <i class="material-icons">mode_edit</i>
+                            {{ translate('watchlist_edit_button') }}
+                        </a>
+                        <button class="btn waves-effect waves-light transparent btn-delete-watchlist" data-target="modal-confirmation-delete" ng-click="setDeletingWatchlist(watchlist)">
+                        <i class="material-icons">delete</i>
+                        {{ translate('watchlist_delete_button') }}
+                        </button>
                     </div>
                 </div>
-            </a>
-            <a class="carousel-item" ng-if="watchlist.movies.length > 0" ng-repeat="movie in watchlist.movies" ng-dblclick="openModal('modal-infofilm')">
-                <img ng-src="{{ movie.artworkUrl100 }}" class="cover-carousel">
-            </a>
-            <span ng-if="$last" ng-init="$last?loadCarousel():null"></span>
+                <div class="watchlist-body">
+                    <div class="carousel carousel-custom" id="{{ watchlist.id }}" ng-if="watchlists.length > 0">
+                        <a ng-if="!watchlist.movies.length" class="carousel-item">
+                            <div class="cover-carousel">
+                                <div class="valign-wrapper icons-add-movies noselect" style="height: 295.516px" >
+                                    <h1 class="valign center">{{ translate("no_movies"); }}</h1>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="carousel-item" ng-if="watchlist.movies.length > 0" ng-repeat="movie in watchlist.movies" data-target="modal-infofilm">
+                            <img ng-src="{{ movie.artworkUrl100 }}" class="cover-carousel">
+                            <span ng-if="$last" ng-init="loadCarousel()"></span>
+                        </a>
+                    </div>
+                </div>
+                <span ng-if="$first" ng-init="setInitialWatchlist(watchlist.id)"></span>
+                <span ng-if="$last" ng-init="initWatchlists()"></span>
+            </div>
+        </div>
+        <div class="center-align" ng-if="!watchlists.length">
+            <h2>{{ translate('no_watchlists'); }}</h2>
+            <h4>{{ translate('no_watchlists_instructions'); }}</h4>
         </div>
     </div>
-    <div class="center-align" ng-if="!watchlists.length">
-        <h2>{{ translate('no_watchlists'); }}</h2>
-        <h4>{{ translate('no_watchlists_instructions'); }}</h4>
+    <div class="fixed-action-btn noselect">
+        <a class="btn-floating btn-large blue" data-target="modal-add">
+            <i class="large material-icons">add</i>
+        </a>
     </div>
 </div>
-<div class="fixed-action-btn noselect">
-    <a class="btn-floating btn-large blue" data-target="modal-add">
-        <i class="large material-icons">add</i>
-    </a>
+<div ng-if="oneWatchlist">
+    <div class="row">
+        <a href="#!/watchlists">
+            <i class="material-icons" style="font-size: 35px; cursor: pointer">arrow_back</i>
+        </a>
+    </div>
+    <div class="row">
+        <div class="container">
+            <div class="header">
+                <h1 style="display: inline">{{ watchlist.name }}</h1> <i class="material-icons show-on-hover">mode_edit</i>
+            </div>
+            <div class="separator"></div>
+            <div class="col l3 m4 s6">
+                <div class="movie-cover valign-wrapper" ng-click="addMovies(watchlist)" data-target="modal-add-movies">
+                    <i class="material-icons valign center" style="font-size: 74px; width: 100%;">add</i>
+                </div>
+            </div>
+            <div class="col l3 m4 s6" ng-repeat="movie in watchlist.movies">
+                <img ng-src="{{ movie.artworkUrl100 }}" style="width: 100%; height: auto" class="movie-cover">
+                <h4>{{ movie.trackName }}</h4>
+            </div>
+        </div>
+    </div>
 </div>
-<!-- modal -->
+<!-- modal-add -->
 <div id="modal-add" class="modal">
     <form novalidate>
         <div class="modal-content">
@@ -66,6 +109,7 @@
         </div>
     </form>
 </div>
+<!-- modal delete -->
 <div id="modal-confirmation-delete" class="modal">
     <div class="modal-content">
         <h3>
@@ -77,17 +121,49 @@
         <a class="modal-action modal-close waves-effect waves-yellow btn-flat"><i class="material-icons">close</i> {{ translate("button_cancel") }}</a>
     </div>
 </div>
+<!-- modal infofilm -->
 <div id="modal-infofilm" class="modal modal-fixed-footer">
     <div class="modal-content">
         <div ng-include="'./views/infofilm.html'"></div>
     </div>
 </div>
-<div id="modal-add-movies" class="modal bottom-sheet">
-    <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
+<!-- Modal add movies -->
+<div id="modal-add-movies" class="modal modal-fixed-footer" style="height: 100%">
+    <div class="modal-content" style="overflow-x: hidden; overflow-y: hidden;">
+        <h4>{{ translate("add_movies_modal_title"); }}</h4>
+        <div style="height: 247px">
+            <nav>
+                <div class="nav-wrapper">
+                    <form class="searchbar-form">
+                        <div class="input-field searchbar">
+                            <input id="search-movies-input" type="search" placeholder="{{ translate('search_watchlists') }}" class="autocomplete" ng-model="searchMoviesInput" ng-model-options="{ debounce: 1000 }" autocomplete="off">
+                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                            <i class="material-icons">close</i>
+                            <ul class="autocomplete-content dropdown-content" ng-hide="!searchMoviesInput" style="overflow-y: auto; height: 200px">
+                                <li ng-repeat="movie in movies" class="movie-suggestion">
+                                    <div class="left">
+                                        <img ng-src="{{ movie.artworkUrl100 }}">
+                                        <span style="color: white">
+                                            {{ movie.trackName }}
+                                        </span>
+                                    </div>
+                                    <a class="right" ng-click="addMovieToWatchlist(movie)">
+                                        <i class="material-icons right">add</i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </nav>
     </div>
     <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        <a class="modal-action modal-close waves-effect waves-green btn-flat" ng-click="stopSearchingMovies()">
+            <span class="left">
+                {{ translate("done"); }}
+            </span>
+            <i class="material-icons right">checked</i>
+        </a>
     </div>
 </div>
