@@ -206,6 +206,10 @@ app.run([
                 "en": "Sign up",
                 "fr": "S'inscrire"
             },
+            "signup_ids_already_exist": {
+                "en": "IDs already exist",
+                "fr": "Les informations saisies existent déjà"
+            },
             "tvshow-name":{
               "en": "TV Show",
               "fr": "Série"
