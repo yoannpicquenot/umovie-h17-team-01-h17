@@ -17,6 +17,12 @@ app.controller("InfofilmCtrl", [
             if ($scope.currentMovie && $scope.currentMovie.trackId) {
                 $api.movie($scope.currentMovie.trackId).then(function successCallback(response) {
                     $scope.movie = response.data.results[0];
+
+                    jwplayer("myvideo5").setup({
+                      file: response.data.results[0].previewUrl,
+                      image: response.data.results[0].artworkUrl100.replace("100x100", "227x227")
+                    });
+
                     $scope.movieBanner = response.data.results[0].artworkUrl100;
                 }, function errorCallback(response) {});
             }
