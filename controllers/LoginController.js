@@ -57,8 +57,8 @@ app.controller("LoginCtrl", [
                     });
                 }, function errorCallback(response) {
                     $toaster.create({
-                        type: 'success',
-                        text: $scope.translate(response),
+                        type: 'error',
+                        text: $scope.translate("signup_ids_already_exist"),
                     });
                 });
         };
