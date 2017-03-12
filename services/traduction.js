@@ -110,9 +110,21 @@ app.run([
                 "en": "Log in",
                 "fr": "Se connecter"
             },
+            "login_msg_success_connection": {
+                "en": "Successfully logged in",
+                "fr": "Connexion réussie"
+            },
+            "login_msg_no_connection": {
+                "en": "Connection denied, check your IDs",
+                "fr": "Connexion refusée, vérifier vos ID de connexion"
+            },
             "logout": {
                 "en": "Log out",
                 "fr": "Se déconnecter"
+            },
+            "msg_logout_success": {
+                "en": "Successfully logged out",
+                "fr": "Déconnexion réussie"
             },
             "moreinformation": {
                 "en": "More information",
