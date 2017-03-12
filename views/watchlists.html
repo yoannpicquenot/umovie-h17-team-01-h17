@@ -52,7 +52,7 @@
                                 <i class="material-icons" ng-click="selectMovie(movie)">info</i>
                                 <i class="material-icons" ng-click="deleteMovie(movie, watchlist)">delete</i>
                             </div>
-                            <img ng-src="{{ movie.artworkUrl100 }}" class="cover-carousel">
+                            <img ng-src="{{ movie.artworkUrl100.replace('100x100', '400x400') }}" class="cover-carousel">
                             <span ng-if="$last" ng-init="loadCarousel()"></span>
                         </a>
                     </div>
@@ -80,23 +80,20 @@
     </div>
     <div class="row">
         <div class="container">
-            <div class="header">
-                <h1 style="display: inline">{{ watchlist.name }}</h1> <i class="material-icons show-on-hover">mode_edit</i>
+            <div class="header" ng-click="editTitle()">
+                <h1 style="display: inline" class="watchlist-title">{{ watchlist.name }}</h1> <i class="material-icons show-on-hover">mode_edit</i>
             </div>
             <div class="separator"></div>
-            <div class="col l3 m4 s6">
-                <div class="movie-cover valign-wrapper" ng-click="addMovies(watchlist)" data-target="modal-add-movies">
-                    <i class="material-icons valign center" style="font-size: 74px; width: 100%;">add</i>
-                </div>
-            </div>
             <div class="col l3 m4 s6" ng-repeat="movie in watchlist.movies | filter:search">
-                <img ng-src="{{ movie.artworkUrl100 }}" style="width: 100%; height: auto" class="movie-cover">
-                <h4>{{ movie.trackName }}</h4>
+                <img ng-src="{{ movie.artworkUrl100.replace('100x100', '400x400') }}" style="width: 100%; height: auto" class="movie-cover">
                 <i class="material-icons col s4 clickable">play_arrow</i>
                 <i class="material-icons col s4 clickable" ng-click="selectMovie(movie)">info</i>
                 <i class="material-icons col s4 clickable" ng-click="selectMovieToDeleteFromWatchlist(movie, watchlist)" data-target="modal-confirmation-delete-movie-from-watchlists">delete</i>
             </div>
         </div>
+    </div>
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large waves-effect waves-light blue" ng-click="addMovies(watchlist)" data-target="modal-add-movies"><i class="material-icons">add</i></a>
     </div>
 </div>
 <!-- modal-add -->
@@ -153,7 +150,7 @@
                             <ul class="autocomplete-content dropdown-content" ng-hide="!searchMoviesInput" style="overflow-y: auto; height: 200px">
                                 <li ng-repeat="movie in movies" class="movie-suggestion">
                                     <div class="left">
-                                        <img ng-src="{{ movie.artworkUrl100 }}">
+                                        <img ng-src="{{ movie.artworkUrl100.replace('100x100', '400x400') }}">
                                         <span style="color: white">
                                             {{ movie.trackName }}
                                         </span>

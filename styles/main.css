@@ -557,7 +557,11 @@ nav ul li a:hover {
 }
 
 .show-on-hover {
-    display: none;
+    display: inline;
+}
+
+.watchlist-title:hover {
+    color: #039be5;
 }
 
 .separator {
@@ -616,4 +620,15 @@ nav ul li a:hover {
 
 .clickable {
     cursor: pointer;
+}
+
+.renamable {
+    height: 6rem;
+    font-size: 4rem !important;
+    margin-bottom: 20px;
+    border: none !important;
+}
+
+.renamable:active {
+    border: none;
 }

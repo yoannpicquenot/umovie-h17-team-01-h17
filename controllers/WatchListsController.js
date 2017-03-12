@@ -5,7 +5,8 @@ app.controller("WatchListsCtrl", [
     "$api",
     "$toaster",
     "$route",
-    function($rootScope, $scope, $api, $toaster, $route) {
+    "$compile",
+    function($rootScope, $scope, $api, $toaster, $route, $compile) {
         $rootScope.tabActive = "watchlists";
         $rootScope.overlayloading = true;
         $scope.oneWatchlist = false;
@@ -31,12 +32,18 @@ app.controller("WatchListsCtrl", [
 
         $scope.addMovieToWatchlist = function addMovieToWatchlist(movie) {
             $api.addMovie($scope.currentWatchlist.id, movie).then(function successCallback(response) {
+                $toaster.create({
+                    type: 'success',
+                    text: $rootScope.translate("movie_added_text")
+                });
                 $scope.currentWatchlist.movies.push(movie);
             }, function errorCallback() {});
         };
 
         $scope.stopSearchingMovies = function stopSearchingMovies() {
             listener();
+            $("#modal-add-movies").modal("close");
+            $route.reload();
         };
 
         $scope.selectMovie = function selectMovie(movie) {
@@ -163,15 +170,45 @@ app.controller("WatchListsCtrl", [
                 $scope.selectedWatchlist = watchlist;
             };
         } else {
-            $rootScope.overlayloading = false;
             $scope.oneWatchlist = true;
 
             $api.getWatchlist($route.current.params.id).then(function successCallback(response) {
                 $scope.watchlist = response.data;
+                $rootScope.overlayloading = false;
             }, function errorCallback() {});
 
             $scope.selectMovieToDeleteFromWatchlist = function selectMovieToDeleteFromWatchlist(movie, watchlist) {
                 $scope.movieToDelete = movie;
+            };
+
+            $scope.editTitle = function editTitle() {
+                var oldTemplate = $compile("<h1 style='display: inline' class='watchlist-title' ng-click='editTitle()'>{{ watchlist.name }}</h1> <i class='material-icons show-on-hover'>mode_edit</i>")($scope);
+                var template = $compile("<input type='text' name='title-watchlist' class='renamable' ng-model='watchlist.name'>")($scope);
+                $(".header i").remove();
+                $(".watchlist-title").replaceWith(template);
+
+                $(".renamable").focus();
+
+                function save() {
+                    if (!$scope.watchlist.name.match(/^([A-Za-z0-9]*)$/)) {
+                        $toaster.create({
+                            type: 'error',
+                            text: $rootScope.translate('watchlist_error_message_rename')
+                        });
+                        return;
+                    }
+                    $api.modifyWatchlist($scope.watchlist).then(function successCallback() {
+                        $(".renamable").replaceWith(oldTemplate);
+                    }, function errorCallback() {});
+                };
+
+                $(".renamable").on("focusout", save);
+
+                $(document).keypress(function(e) {
+                    if (e.which == 13) {
+                        save();
+                    }
+                });
             };
         }
     }

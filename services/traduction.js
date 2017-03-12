@@ -38,6 +38,14 @@ app.run([
                 "en": "Cancel",
                 "fr": "Annuler"
             },
+            "button_close": {
+                "en": "Close",
+                "fr": "Fermer"
+            },
+            "button_delete": {
+                "en": "Delete",
+                "fr": "Effacer"
+            },
             "category": {
                 "en": "Category",
                 "fr": "Catégorie"
@@ -113,6 +121,10 @@ app.run([
             "moviedate": {
                 "en": "Released",
                 "fr": "Date de sortie"
+            },
+            "movie_added_text": {
+                "en": "Movie successfully added",
+                "fr": "Ce film a été ajouté"
             },
             "msg_delete_confirmation": {
                 "en": "Are you sure you want to delete the watchlist ",
@@ -197,6 +209,10 @@ app.run([
             "watch-block-title": {
                 "en": "Watch",
                 "fr": "Regardez"
+            },
+            "watchlist_error_message_rename": {
+                "en": "The title can only contain letters and numbers",
+                "fr": "Le titre peut seulement contenir des lettres et des nombres"
             },
             "watchlist": {
                 "en": "Watchlist",
