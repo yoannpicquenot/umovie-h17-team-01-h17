@@ -223,8 +223,8 @@ app.run([
                 "fr": "Watchlists"
             },
             "watchlist_add_button": {
-                "en": "Add",
-                "fr": "Ajouter",
+                "en": "Add movie",
+                "fr": "Ajouter un film",
             },
             "watchlist_edit_button": {
                 "en": "Edit",
