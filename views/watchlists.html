@@ -88,7 +88,7 @@
                 <img ng-src="{{ movie.artworkUrl100.replace('100x100', '400x400') }}" style="width: 100%; height: auto" class="movie-cover">
                 <i class="material-icons col s4 clickable">play_arrow</i>
                 <i class="material-icons col s4 clickable" ng-click="selectMovie(movie)">info</i>
-                <i class="material-icons col s4 clickable" ng-click="selectMovieToDeleteFromWatchlist(movie, watchlist)" data-target="modal-confirmation-delete-movie-from-watchlists">delete</i>
+                <i class="material-icons col s4 clickable" ng-click="deleteMovie(movie, watchlist)">delete</i>
             </div>
         </div>
     </div>
