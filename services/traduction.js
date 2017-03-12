@@ -38,6 +38,14 @@ app.run([
                 "en": "Cancel",
                 "fr": "Annuler"
             },
+            "button_close": {
+                "en": "Close",
+                "fr": "Fermer"
+            },
+            "button_delete": {
+                "en": "Delete",
+                "fr": "Effacer"
+            },
             "category": {
                 "en": "Category",
                 "fr": "Catégorie"
