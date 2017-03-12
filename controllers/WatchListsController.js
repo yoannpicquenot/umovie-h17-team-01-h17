@@ -32,12 +32,18 @@ app.controller("WatchListsCtrl", [
 
         $scope.addMovieToWatchlist = function addMovieToWatchlist(movie) {
             $api.addMovie($scope.currentWatchlist.id, movie).then(function successCallback(response) {
+                $toaster.create({
+                    type: 'success',
+                    text: $rootScope.translate("movie_added_text")
+                });
                 $scope.currentWatchlist.movies.push(movie);
             }, function errorCallback() {});
         };
 
         $scope.stopSearchingMovies = function stopSearchingMovies() {
             listener();
+            $("#modal-add-movies").modal("close");
+            $route.reload();
         };
 
         $scope.selectMovie = function selectMovie(movie) {

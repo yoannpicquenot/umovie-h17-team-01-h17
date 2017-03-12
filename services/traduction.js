@@ -122,6 +122,10 @@ app.run([
                 "en": "Released",
                 "fr": "Date de sortie"
             },
+            "movie_added_text": {
+                "en": "Movie successfully added",
+                "fr": "Ce film a été ajouté"
+            },
             "msg_delete_confirmation": {
                 "en": "Are you sure you want to delete the watchlist ",
                 "fr": "Date de sortie"
