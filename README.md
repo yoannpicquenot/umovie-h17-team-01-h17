@@ -84,7 +84,7 @@ Page infofilm.html
 INFOFILM -> /#!/infofilm
 ```
 
-Notes : I created this route but actually it's a template of modal. If you want to see this page in its right context, check /watchlist, and then double click on a cover in the carousel.
+Notes : I created this route but actually it's a template of modal. If you want to see this page in its right context, check /watchlists, and then double click on a cover in the carousel.
 
 
 
