@@ -163,11 +163,11 @@ app.controller("WatchListsCtrl", [
                 $scope.selectedWatchlist = watchlist;
             };
         } else {
-            $rootScope.overlayloading = false;
             $scope.oneWatchlist = true;
 
             $api.getWatchlist($route.current.params.id).then(function successCallback(response) {
                 $scope.watchlist = response.data;
+                $rootScope.overlayloading = false;
             }, function errorCallback() {});
 
             $scope.selectMovieToDeleteFromWatchlist = function selectMovieToDeleteFromWatchlist(movie, watchlist) {
