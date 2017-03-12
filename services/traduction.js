@@ -198,6 +198,10 @@ app.run([
                 "en": "Watch",
                 "fr": "Regardez"
             },
+            "watchlist_error_message_rename": {
+                "en": "The title can only contain letters and numbers",
+                "fr": "Le titre peut seulement contenir des lettres et des nombres"
+            },
             "watchlist": {
                 "en": "Watchlist",
                 "fr": "Watchlist"

@@ -98,6 +98,13 @@ app.factory("$api", [
                     method: 'GET'
                 });
             },
+            modifyWatchlist: function modifyWatchlist(watchlist) {
+                return $http({
+                    url: apiUrl + '/watchlists/' + watchlist.id,
+                    method: 'PUT',
+                    data: watchlist,
+                });
+            },
             searchMovieWithString: function searchMovieWithString(str) {
                 return $http({
                     url: apiUrl + '/search/movies?q=' + str,
