@@ -76,12 +76,12 @@ Page home.html
 HOME -> /#!/home
 ```
 
+Notes : Here you need to sign in to be able to navigate in your Watchlists by clicking on the Login button.
 
-
-Page movie.html
+Page infofilm.html
 
 ```
-MOVIE -> /#!/infofilm
+INFOFILM -> /#!/infofilm
 ```
 
 Notes : I created this route but actually it's a template of modal. If you want to see this page in its right context, check /watchlist, and then double click on a cover in the carousel.
@@ -91,13 +91,38 @@ Notes : I created this route but actually it's a template of modal. If you want 
 Page tvshow.html
 
 ```
-TVSHOW -> /#!/tvshow
+TVSHOW -> /#!/tvshow/:id
 ```
 
-
+Notes : This route need an ID (ex : 279175900)
 
 Page actor.html
 
 ```
-ACTOR -> /#!/actor
+ACTOR -> /#!/actor/:id
+```
+
+Notes : This route need an ID (ex : 253584821). It's accessible by clicking on an actor's name while looking at movies informations in a Watchlist.
+
+
+Page watchlists.html
+
+```
+WATCHLISTS -> /#!/watchlists/:id?
+```
+
+Notes : Here you can add a Watchlist by clicking on the (+) button at the bottom right of the page. You can also edit and delete your previously created Watchlists.
+
+Page login.html
+
+```
+LOGIN -> /#!/login
+```
+
+
+
+Page signup.html
+
+```
+SIGNUP -> /#!/signup
 ```
