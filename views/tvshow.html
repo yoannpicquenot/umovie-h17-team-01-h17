@@ -43,12 +43,62 @@
                 <div id="myvideo5" class="infofilmvideo-content">Loading the player...</div>
             </div>
             <div class="col l12 s12 carousel">
-                <a id="episode-carousel" class="carousel-item" href="javascript:void(0);" ng-repeat="episode in episodes"><img ng-src="{{ episode.artworkUrl100 }}"/>
+                <a id="episode-carousel" class="carousel-item" ng-repeat="episode in episodes" data-target='episodeModal' modal><img ng-click="selectCurrentEpisode(episode)" ng-src="{{ episode.artworkUrl100 }}"/>
                     <p class="white-text center">{{episode.trackName}}</p>
                     <span ng-if="$last" ng-init="loadCarousel()"></span>
                 </a>
             </div>
         </div>
+    </div>
+    <!--Episode Modal -->
+    <div id="episodeModal" class="modal">
+        <div class="modal-content">
+            <div class="contener-content">
+                <div class="row">
+                    <div class="infofilm-content col l12 s12">
+                        <div class="contenerinfo">
+                            <div class="contenerimagefilm">
+                                <img src="{{ currentEpisode.artworkUrl100 }}" class="imagefilm-content">
+                                <div class="afterimagehover">
+                                    <!-- <input type="image" src="http://www.iconsdb.com/icons/preview/gray/video-play-3-xxl.png" class="playbutton" /> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infofilmconteneurdesc-content">
+                            <ul>
+                                <li>
+                                    <h2 class="header">{{currentEpisode.trackName}}</h2>
+                                </li>
+                                <li>
+                                    {{ translate("episode") }} : {{currentEpisode.trackNumber}}
+                                </li>
+                                <li>
+                                    {{ translate("season") }} : {{currentEpisode.collectionName}}
+                                </li>
+                                <li>
+                                    {{ translate("runtime") }} : {{currentEpisode.runtime}} min
+                                </li>
+                            </ul>
+                            <p class="infofilmdescription-content">
+                                {{currentEpisode.longDescription}}
+                            </p>
 
+                        </div>
+                    </div>
+                    <div class="col l12 s12">
+                        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/9AX6aXFdTkc" frameborder="0" allowfullscreen class="infofilmvideo-content"></iframe> -->
+                        <!-- <video controls autoplay class="infofilmvideo-content" src="{{ tvShow.previewUrl }}"></video> -->
+                        <div id="myvideo6" class="infofilmvideo-content">Loading the player...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a class=" modal-action waves-effect waves-green btn-flat" ng-click="nextEpisode(episodes)" ng-if="currentEpisode.trackCount != currentEpisode.trackNumber">Next</a>
+            <a class=" modal-action waves-effect waves-green btn-flat" ng-click="previousEpisode(episodes)" ng-if="currentEpisode.trackNumber != 1">Previous</a>
+            <a class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
     </div>
 </div>
+
+
