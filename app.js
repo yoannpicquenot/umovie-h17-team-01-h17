@@ -39,6 +39,10 @@ app.config([
                 templateUrl: "./views/signup.html",
                 controller: "LoginCtrl"
             })
+            .when('/user/:uid', {
+                templateUrl: "./views/user.html",
+                controller: "UserCtrl"
+            })
             .otherwise({
                 redirectTo: "/home"
             });

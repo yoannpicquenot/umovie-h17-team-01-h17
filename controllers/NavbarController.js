@@ -16,6 +16,8 @@ app.controller('NavbarCtrl', [
                         $cookies.remove(k);
                     });
                     window.location.hash = "#!/login";
+                    $rootScope.user = {};
+                    $rootScope.connected = false;
                     $rootScope.overlayloading = false;
                     $toaster.create({
                         type: 'success',

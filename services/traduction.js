@@ -210,9 +210,9 @@ app.run([
                 "en": "IDs already exist",
                 "fr": "Les informations saisies existent déjà"
             },
-            "tvshow-name":{
-              "en": "TV Show",
-              "fr": "Série"
+            "tvshow-name": {
+                "en": "TV Show",
+                "fr": "Série"
             },
             "watch": {
                 "en": "Watch",
@@ -258,7 +258,7 @@ app.run([
 
         $rootScope.translate = function (expr) {
             if (dictionnary[expr] == null) {
-                return "Please add translation for : " + expr;
+                return expr;
             }
             return dictionnary[expr][$rootScope.lang];
         };
