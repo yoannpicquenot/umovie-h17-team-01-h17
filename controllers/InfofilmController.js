@@ -9,7 +9,7 @@ app.controller("InfofilmCtrl", [
             $api.getActorByName($scope.currentMovie.artistName).then(function successCallback(response) {
                 if (response.data.resultCount > 0) {
                     $("#modal-infofilm").modal("close");
-                    location.hash = `#!/actor/${response.data.results[0].artistId}`;
+                    location.pathName = `/actor/${response.data.results[0].artistId}`;
                 }
             }, function errorCallback() {});
         };

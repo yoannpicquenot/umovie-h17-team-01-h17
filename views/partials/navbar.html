@@ -1,59 +1,41 @@
 <div class="navbar-fixed" style="z-index: 99999">
     <nav>
         <div class="nav-wrapper" ng-controller="NavbarCtrl">
-            <a href="#!" data-activates="navbar-mobile-size" class="button-collapse"><i class="material-icons">menu</i></a>
+            <a data-activates="navbar-mobile-size" class="button-collapse"><i class="material-icons">menu</i></a>
             <a ng-click="changeLanguage()" class="hide-on-large-only"><img src="./images/icon-{{ lang }}-flag.png" class="icon-flag"></a>
             <ul class="left hide-on-med-and-down">
-                <li class="{{ tabActive == 'home' ? 'active' : '' }}"><a href="#!/home"><b>{{ translate("home") }}</b></a></li>
-                <li ng-if="connected" class="{{ tabActive == 'watchlists' ? 'active' : '' }}"><a href="#!/watchlists"><b>{{ translate("watchlists") }}</b></a></li>
+                <li class="{{ tabActive == 'home' ? 'active' : '' }}"><a href="/home"><b>{{ translate("home") }}</b></a></li>
+                <li ng-if="connected" class="{{ tabActive == 'watchlists' ? 'active' : '' }}"><a href="/watchlists"><b>{{ translate("watchlists") }}</b></a></li>
             </ul>
             <ul class="right hide-on-med-and-down">
-                <li>
-                    <form>
-                        <div class="input-field searchInput">
-                            <label for="search"><i class="material-icons">search</i></label>
-                            <b>
-                            <input type="text" name="search" placeholder="{{ translate('search') }}" autocomplete="off" validate>
-                            </b>
-                        </div>
-                    </form>
-                </li>
                 <li>
                     <a ng-click="changeLanguage()"><img src="./images/icon-{{ lang }}-flag.png" class="icon-flag"></a>
                 </li>
                 <li ng-if="connected">
-                    <a class="dropdown-button" data-activates="userMenu" ng-init="initDropdown()">
-                        <i class="material-icons left">perm_identity</i><b>  {{ user.name }}</b><i class="material-icons right">arrow_drop_down</i>
+                    <a href="/user/{{ user.id }}">
+                        <img ng-src="{{ user.avatarUrl }}" class="circle responsive-img userprofile-picture" width="30">
                     </a>
                 </li>
                 <li ng-if="!connected" class="{{ tabActive == 'login' ? 'active' : '' }}">
-                    <a href="#!/login">
-                        <i class="material-icons left">perm_identity</i><b>  {{ translate("login"); }}</b>
+                    <a href="/login">
+                        <b>{{ translate("login"); }}</b>
                     </a>
                 </li>
-                <ul id="userMenu" class="dropdown-content dropdown-content-custom">
-                    <li><a href="#"><i class="left material-icons">settings</i><b>{{ translate("settings") }}</b></a></li>
-                    <li class="divider"></li>
-                    <li ng-click="logout()"><a><i class="left material-icons">input</i><b>{{ translate("logout") }}</b> </a></li>
-                </ul>
+                <li ng-if="connected" ng-click="logout()">
+                    <a>
+                        <i class="left material-icons">input</i><b>{{ translate("logout") }}</b>
+                    </a>
+                </li>
             </ul>
             <ul id="navbar-mobile-size" class="side-nav">
-                <li>
-                    <form>
-                        <div class="input-field side-nav-input">
-                            <label for="search"><i class="material-icons">search</i></label>
-                            <input type="text" name="search" placeholder="Rechercher">
-                        </div>
-                    </form>
-                </li>
-                <li class="{{ tabActive == 'home' ? 'active' : '' }}"><a href="#!/home"><i class="material-icons left">home</i>{{ translate("home") }}</a></li>
-                <li ng-if="connected" class="{{ tabActive == 'watchlists' ? 'active' : '' }}"><a href="#!/watchlists"><i class="material-icons left">view_module</i>{{ translate("watchlists") }}</a></li>
+                <li class="{{ tabActive == 'home' ? 'active' : '' }}"><a href="/home"><i class="material-icons left">home</i>{{ translate("home") }}</a></li>
+                <li ng-if="connected" class="{{ tabActive == 'watchlists' ? 'active' : '' }}"><a href="/watchlists"><i class="material-icons left">view_module</i>{{ translate("watchlists") }}</a></li>
                 <li class="divider"></li>
-                <li ng-if="connected"><a><i class="material-icons left">perm_identity</i> {{ user.name }}</a></li>
+                <li ng-if="connected"><a href="/user/{{ user.id }}"><i class="material-icons left">perm_identity</i> {{ user.name }}</a></li>
                 <li ng-if="connected"><a href="#"><i class="left material-icons">settings</i>{{ translate("settings") }}</a></li>
                 <li ng-if="connected" ng-click="logout()"><a><i class="left material-icons">input</i>{{ translate("logout") }}</a></li>
                 <li ng-if="!connected" class="{{ tabActive == 'login' ? 'active' : '' }}">
-                    <a href="#!/login"><i class="material-icons left">perm_identity</i> {{ translate("login") }}</a>
+                    <a href="/login"><i class="material-icons left">perm_identity</i> {{ translate("login") }}</a>
                 </li>
                 <li class="divider"></li>
             </ul>
