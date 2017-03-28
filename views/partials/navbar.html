@@ -1,23 +1,23 @@
 <div class="navbar-fixed" style="z-index: 99999">
     <nav>
         <div class="nav-wrapper" ng-controller="NavbarCtrl">
-            <a href="#!" data-activates="navbar-mobile-size" class="button-collapse"><i class="material-icons">menu</i></a>
+            <a data-activates="navbar-mobile-size" class="button-collapse"><i class="material-icons">menu</i></a>
             <a ng-click="changeLanguage()" class="hide-on-large-only"><img src="./images/icon-{{ lang }}-flag.png" class="icon-flag"></a>
             <ul class="left hide-on-med-and-down">
-                <li class="{{ tabActive == 'home' ? 'active' : '' }}"><a href="#!/home"><b>{{ translate("home") }}</b></a></li>
-                <li ng-if="connected" class="{{ tabActive == 'watchlists' ? 'active' : '' }}"><a href="#!/watchlists"><b>{{ translate("watchlists") }}</b></a></li>
+                <li class="{{ tabActive == 'home' ? 'active' : '' }}"><a href="/home"><b>{{ translate("home") }}</b></a></li>
+                <li ng-if="connected" class="{{ tabActive == 'watchlists' ? 'active' : '' }}"><a href="/watchlists"><b>{{ translate("watchlists") }}</b></a></li>
             </ul>
             <ul class="right hide-on-med-and-down">
                 <li>
                     <a ng-click="changeLanguage()"><img src="./images/icon-{{ lang }}-flag.png" class="icon-flag"></a>
                 </li>
                 <li ng-if="connected">
-                    <a href="#!/user/{{ user.id }}">
-                        <i class="material-icons">perm_identity</i>
+                    <a href="/user/{{ user.id }}">
+                        <img ng-src="{{ user.avatarUrl }}" class="circle responsive-img userprofile-picture" width="30">
                     </a>
                 </li>
                 <li ng-if="!connected" class="{{ tabActive == 'login' ? 'active' : '' }}">
-                    <a href="#!/login">
+                    <a href="/login">
                         <b>{{ translate("login"); }}</b>
                     </a>
                 </li>
@@ -28,14 +28,14 @@
                 </li>
             </ul>
             <ul id="navbar-mobile-size" class="side-nav">
-                <li class="{{ tabActive == 'home' ? 'active' : '' }}"><a href="#!/home"><i class="material-icons left">home</i>{{ translate("home") }}</a></li>
-                <li ng-if="connected" class="{{ tabActive == 'watchlists' ? 'active' : '' }}"><a href="#!/watchlists"><i class="material-icons left">view_module</i>{{ translate("watchlists") }}</a></li>
+                <li class="{{ tabActive == 'home' ? 'active' : '' }}"><a href="/home"><i class="material-icons left">home</i>{{ translate("home") }}</a></li>
+                <li ng-if="connected" class="{{ tabActive == 'watchlists' ? 'active' : '' }}"><a href="/watchlists"><i class="material-icons left">view_module</i>{{ translate("watchlists") }}</a></li>
                 <li class="divider"></li>
-                <li ng-if="connected"><a><i class="material-icons left">perm_identity</i> {{ user.name }}</a></li>
+                <li ng-if="connected"><a href="/user/{{ user.id }}"><i class="material-icons left">perm_identity</i> {{ user.name }}</a></li>
                 <li ng-if="connected"><a href="#"><i class="left material-icons">settings</i>{{ translate("settings") }}</a></li>
                 <li ng-if="connected" ng-click="logout()"><a><i class="left material-icons">input</i>{{ translate("logout") }}</a></li>
                 <li ng-if="!connected" class="{{ tabActive == 'login' ? 'active' : '' }}">
-                    <a href="#!/login"><i class="material-icons left">perm_identity</i> {{ translate("login") }}</a>
+                    <a href="/login"><i class="material-icons left">perm_identity</i> {{ translate("login") }}</a>
                 </li>
                 <li class="divider"></li>
             </ul>

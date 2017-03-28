@@ -4,12 +4,17 @@ var app = angular.module("umovie-app", [
     "ui.materialize"
 ]);
 
+app.run(["$rootScope",function($rootScope) {
+    $rootScope.alreadyLoadedGravatar = false;
+}]);
+
 app.config([
     "$routeProvider",
     "$httpProvider",
-    function ($routeProvider, $httpProvider) {
+    "$locationProvider",
+    function ($routeProvider, $httpProvider, $locationProvider) {
         $httpProvider.interceptors.push('interceptor');
-
+        $locationProvider.html5Mode(true);
         $routeProvider
             .when('/home', {
                 templateUrl: "./views/home.html",

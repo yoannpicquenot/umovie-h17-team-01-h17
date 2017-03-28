@@ -18,6 +18,7 @@ app.factory('interceptor', function($q, $cookies, $injector, $rootScope) {
                     }, function errorCallback(response) {
                         $cookies.remove("token");
                         location.href = "#!/login";
+                        location.pathname = "/login";
                         return config;
                     });
             }

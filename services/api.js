@@ -4,8 +4,8 @@ app.factory("$api", [
     "$http",
     "$rootScope",
     function ($http, $rootScope) {
-        // var apiUrl = "https://umovie.herokuapp.com";
-        var apiUrl = "http://localhost:3000"; // local
+        var apiUrl = "https://umovie.herokuapp.com";
+        //var apiUrl = "http://localhost:3000"; // local
 
         function htmlEscape(str) {
             return str
