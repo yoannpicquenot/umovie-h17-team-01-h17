@@ -72,7 +72,12 @@
                                         </div>
                                     </div>
                                 </a>
-                                <a class="carousel-item cover" ng-if="watchlist.movies.length > 0" ng-repeat="movie in watchlist.movies" ng-dblclick="selectMovie(movie)">
+                                <a
+                                class="carousel-item cover"
+                                ng-if="watchlist.movies.length > 0"
+                                ng-repeat="movie in watchlist.movies"
+                                ng-dblclick="selectMovie(movie)">
+                                    <i class="material-icons delete-movie-from-watchlist" ng-click="deleteMovie(movie, watchlist)">delete</i>
                                     <img ng-src="{{ movie.artworkUrl100.replace('100x100', '400x400') }}" class="cover-carousel">
                                     <span ng-if="$last" ng-init="loadCarousel()"></span>
                                 </a>

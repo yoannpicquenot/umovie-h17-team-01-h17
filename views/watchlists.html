@@ -1,18 +1,14 @@
-<nav>
-    <div class="nav-wrapper">
-        <form class="searchbar-form">
-            <div class="input-field searchbar">
-                <input id="search" type="search" placeholder="{{ translate('search_watchlists') }}" ng-model="search" autocomplete="off">
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                <i class="material-icons">close</i>
-            </div>
-        </form>
-    </div>
-</nav>
 <div ng-if="!oneWatchlist">
     <div class="row">
         <div class="col l3 list-watchlist hide-on-med-and-down">
             <ul class="watchlist">
+                <li>
+                    <div class="input-field">
+                        <i class="material-icons prefix">search</i>
+                        <input type="text" id="watchlists-search" name="watchlists-search" ng-model="search">
+                        <label for="watchlists-search">{{ translate('search_watchlists'); }}</label>
+                    </div>
+                </li>
                 <li class="tab col s12 {{ currentWatchlistId == watchlist.id ? 'active' : '' }}" ng-repeat="watchlist in watchlists | filter:search" ng-click="goToWatchlist(watchlist.id);">
                     {{ watchlist.name }}
                 </li>
@@ -54,16 +50,19 @@
     </div>
     <div class="row">
         <div class="container">
-            <div class="header" ng-click="editTitle()">
-                <h1 style="display: inline" class="watchlist-title">{{ watchlist.name }}</h1>
+            <div class="header" ng-click="watchlist.owner.id == user.id?editTitle():null">
+                <h1 style="display: inline" class="{{watchlist.owner.id == user.id ? 'watchlist-title':''}}">{{ watchlist.name }} <i ng-show="watchlist.owner.id == user.id" class='material-icons show-on-hover'>mode_edit</i></h1>
             </div>
             <div class="separator"></div>
             <div class="col l3 m4 s6" ng-repeat="movie in watchlist.movies | filter:search">
-                <img ng-src="{{ movie.artworkUrl100.replace('100x100', '400x400') }}" style="width: 100%; height: auto" class="movie-cover" ng-click="selectMovie(movie)">
+                <a>
+                    <i class="material-icons delete-movie-from-watchlist" ng-if="watchlist.owner.id === user.id" ng-click="deleteMovie(movie, watchlist)">delete</i>
+                    <img ng-src="{{ movie.artworkUrl100.replace('100x100', '400x400') }}" style="width: 100%; height: auto" class="movie-cover" ng-click="selectMovie(movie)">
+                </a>
             </div>
         </div>
     </div>
-    <div class="fixed-action-btn">
+    <div class="fixed-action-btn" ng-if="watchlist.owner.id === user.id">
         <a class="btn-floating btn-large waves-effect waves-light blue" ng-click="addMovies(watchlist)" data-target="modal-add-movies"><i class="material-icons">add</i></a>
     </div>
 </div>

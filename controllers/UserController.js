@@ -167,6 +167,12 @@ app.controller('UserCtrl', [
                 });
         };
 
+        $scope.deleteMovie = function deleteMovie(movie, watchlist) {
+            $api.deleteMovieFromWatchlist(movie.trackId, watchlist.id).then(function successCallback(response) {
+                $(`#${movie.trackId}`).remove();
+            }, function errorCallback() {});
+        };
+
         $scope.deleteWatchlist = function deleteWatchlist(watchlistId) {
             $api.deleteWatchlist(watchlistId).then(function successCallback() {
                 angular.forEach($scope.watchlists, function(watchlist, index) {

@@ -133,8 +133,13 @@
 }
 
 .cover-carousel {
-    border: 1px solid white;
+    border: 2px solid grey;
     min-height: 295.516px;
+    transition: all 0.3s;
+}
+
+.cover-carousel:hover {
+    border: 2px solid white;
 }
 
 .wrapper-buttons {
@@ -538,7 +543,7 @@ nav ul li a:hover {
     position: fixed;
     overflow: auto !important;
     background-color: #121212;
-    height: 86%;
+    height: 93%;
     overflow-y: hidden;
     border-top: 1px solid grey;
 }
@@ -549,7 +554,7 @@ nav ul li a:hover {
 
 .watchlists {
     position: fixed;
-    height: 86%;
+    height: 93%;
     left: 25% !important;
     overflow: hidden;
     border-top: 1px solid grey;
@@ -583,15 +588,16 @@ nav ul li a:hover {
 
 .movie-cover {
     height: 369.2978px;
-    border: 1px solid white;
+    border: 2px solid grey;
     background-color: black;
-    transition: all 0.2s;
+    transition: all 0.3s;
 }
 
 .movie-cover:hover {
     color: black;
     background-color: white;
     cursor: pointer;
+    border: 2px solid white;
 }
 
 .movie-suggestion li {
@@ -695,4 +701,18 @@ nav ul li a:hover {
         overflow: hidden;
         position: relative;
     }
+}
+
+i.material-icons.delete-movie-from-watchlist {
+    position: absolute;
+    font-size: 34px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: -19px;
+    margin-left: -14px;
+}
+
+i.material-icons.delete-movie-from-watchlist:hover {
+    font-size: 44px;
 }

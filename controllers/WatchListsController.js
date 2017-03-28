@@ -116,7 +116,7 @@ app.controller("WatchListsCtrl", [
                         if (offset.id == $scope.currentWatchlistId) {
                             $(".watchlists").stop();
                             $(".watchlists").animate({
-                                scrollTop: offsets[index].offset - 970
+                                scrollTop: offsets[index].offset - 980
                             }, 1000);
                             return;
                         }
