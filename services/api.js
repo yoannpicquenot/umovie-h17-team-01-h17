@@ -30,6 +30,14 @@ app.factory("$api", [
                     method: 'GET'
                 });
             },
+            follow: function follow(id) {
+                return $http({
+                    url: apiUrl + '/follow',
+                    method: 'POST',
+                    data: {id},
+                    ContentType: 'application/json'
+                });
+            },
             getActorByName: function getActorByName(name) {
                 return $http({
                     url: apiUrl + '/search/actors?q=' + htmlEscape(name)
@@ -132,6 +140,12 @@ app.factory("$api", [
                     url: apiUrl + '/signup',
                     method: 'POST',
                     data: user
+                });
+            },
+            unfollow: function unfollow(userId) {
+                return $http({
+                    url: apiUrl + '/follow/' + userId,
+                    method: 'DELETE'
                 });
             },
             actor: function actor(id) {

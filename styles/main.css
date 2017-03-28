@@ -86,13 +86,12 @@
 }
 
 .overlay-loading {
-    position: fixed;
+    /*position: fixed;*/
     z-index: 9999;
     width: 100%;
     height: 100%;
     background: black;
 }
-
 
 /*fix*/
 
@@ -522,6 +521,7 @@ nav ul li a:hover {
 .watchlist .tab.active {
     background-color: white;
     color: black;
+    font-weight: bold;
 }
 
 .watchlist .tab:hover {
@@ -540,6 +540,11 @@ nav ul li a:hover {
     background-color: #121212;
     height: 86%;
     overflow-y: hidden;
+    border-top: 1px solid grey;
+}
+
+.list-watchlist.user {
+    height: 69%;
 }
 
 .watchlists {
@@ -547,6 +552,12 @@ nav ul li a:hover {
     height: 86%;
     left: 25% !important;
     overflow: hidden;
+    border-top: 1px solid grey;
+    border-left: 1px solid grey;
+}
+
+.watchlists.user {
+    height: 65%;
 }
 
 @media screen and (max-width: 992px) {
@@ -622,6 +633,16 @@ nav ul li a:hover {
     cursor: pointer;
 }
 
+.selectable {
+    -webkit-touch-callout: text; /* iOS Safari */
+      -webkit-user-select: text; /* Safari */
+       -khtml-user-select: text; /* Konqueror HTML */
+         -moz-user-select: text; /* Firefox */
+          -ms-user-select: text; /* Internet Explorer/Edge */
+              user-select: text; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+}
+
 .renamable {
     height: 6rem;
     font-size: 4rem !important;
@@ -631,4 +652,47 @@ nav ul li a:hover {
 
 .renamable:active {
     border: none;
+}
+
+.tabs-user-profile {
+    background-color: transparent;
+}
+
+.tabs-user-profile .tab a {
+    color: white;
+    cursor: pointer;
+}
+
+.tabs-user-profile .tab:hover > a, .tabs-user-profile .tab a.active {
+    color: rgb(33, 150, 243);
+}
+
+.indicator {
+    background-color: white !important;
+}
+
+.button-follow a {
+    position: absolute;
+    border-radius: 30px;
+    border: 1px solid grey;
+}
+
+.userprofile-picture {
+    margin-top: 20px;
+    margin-bottom: -15px;
+}
+
+.card-panel.card-custom-style {
+    border: 1px solid grey;
+}
+
+@media screen and (max-width: 990px) {
+    #user-page {
+        overflow: auto;
+    }
+
+    .watchlists, .watchlists.user {
+        overflow: hidden;
+        position: relative;
+    }
 }

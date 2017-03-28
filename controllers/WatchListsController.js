@@ -6,14 +6,14 @@ app.controller("WatchListsCtrl", [
     "$toaster",
     "$route",
     "$compile",
-    function($rootScope, $scope, $api, $toaster, $route, $compile) {
+    function ($rootScope, $scope, $api, $toaster, $route, $compile) {
         $rootScope.tabActive = "watchlists";
-        $rootScope.overlayloading = true;
+        $rootScope.overlayloading = false;
         $scope.oneWatchlist = false;
         $scope.currentMovie = "";
         $scope.currentWatchlist = {};
 
-        $rootScope.$on('$viewContentLoaded', function() {
+        $rootScope.$on('$viewContentLoaded', function () {
             $('.modal')
                 .modal({
                     dismissible: false,
@@ -23,8 +23,8 @@ app.controller("WatchListsCtrl", [
         var listener;
         $scope.addMovies = function addMovies(watchlist) {
             $scope.currentWatchlist = watchlist;
-            listener = $scope.$watch("searchMoviesInput", function(value) {
-                $api.searchMovieWithString(value).then(function(response) {
+            listener = $scope.$watch("searchMoviesInput", function (value) {
+                $api.searchMovieWithString(value).then(function (response) {
                     $scope.movies = response.data.results;
                 });
             });
@@ -65,12 +65,12 @@ app.controller("WatchListsCtrl", [
                 var watchlists = response.data;
                 if (watchlists) {
                     for (watchlist of watchlists) {
-                        if (watchlist.owner && watchlist.owner.id == $rootScope.user.id) {
-                            $scope.watchlists.push(watchlist);
-                        }
+                        $scope.watchlists.push(watchlist);
                     }
                     $rootScope.overlayloading = false;
                 }
+
+                $scope.loaded = true;
             }, function error(response) {});
 
             $scope.loadCarousel = function loadCarousel() {
@@ -110,21 +110,21 @@ app.controller("WatchListsCtrl", [
                         offset: $(`#${watchlist.id}`).offset().top
                     });
                 }
-                $scope.$watch("currentWatchlistId", function() {
+                $scope.$watch("currentWatchlistId", function () {
                     var index = 0;
                     for (var offset of offsets) {
                         if (offset.id == $scope.currentWatchlistId) {
                             $(".watchlists").stop();
                             $(".watchlists").animate({
-                                scrollTop: offsets[index].offset - 128
-                            }, 500);
+                                scrollTop: offsets[index].offset - 970
+                            }, 1000);
                             return;
                         }
                         ++index;
                     }
                 });
 
-                $(".watchlists").on("mousewheel", function(e) {
+                $(".watchlists").on("mousewheel", function (e) {
                     var index = 0;
                     for (var offset of offsets) {
                         if (offset.id == $scope.currentWatchlistId) {
@@ -153,7 +153,7 @@ app.controller("WatchListsCtrl", [
 
             $scope.deleteWatchlist = function deleteWatchlist(watchlistId) {
                 $api.deleteWatchlist(watchlistId).then(function successCallback() {
-                    angular.forEach($scope.watchlists, function(watchlist, index) {
+                    angular.forEach($scope.watchlists, function (watchlist, index) {
                         if (watchlistId == watchlist.id) {
                             $scope.watchlists.splice(index, 1);
                         }
@@ -190,7 +190,7 @@ app.controller("WatchListsCtrl", [
                 $(".renamable").focus();
 
                 function save() {
-                    if (!$scope.watchlist.name.match(/^([A-Za-z0-9]*)$/)) {
+                    if (!$scope.watchlist.name.match(/^([A-Za-z0-9 ]*)$/)) {
                         $toaster.create({
                             type: 'error',
                             text: $rootScope.translate('watchlist_error_message_rename')
@@ -204,7 +204,7 @@ app.controller("WatchListsCtrl", [
 
                 $(".renamable").on("focusout", save);
 
-                $(document).keypress(function(e) {
+                $(document).keypress(function (e) {
                     if (e.which == 13) {
                         save();
                     }

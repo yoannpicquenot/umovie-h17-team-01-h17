@@ -11,7 +11,7 @@
 </nav>
 <div ng-if="!oneWatchlist">
     <div class="row">
-        <div class="col l3 list-watchlist hide-on-med-and-down" ng-if="watchlists.length > 0">
+        <div class="col l3 list-watchlist hide-on-med-and-down">
             <ul class="watchlist">
                 <li class="tab col s12 {{ currentWatchlistId == watchlist.id ? 'active' : '' }}" ng-repeat="watchlist in watchlists | filter:search" ng-click="goToWatchlist(watchlist.id);">
                     {{ watchlist.name }}
@@ -19,23 +19,11 @@
             </ul>
         </div>
         <div class="col l9 s12 watchlists">
-            <div ng-repeat="watchlist in watchlists | filter:search" id="{{ watchlist.id }}">
+            <loading ng-hide="loaded"></loading>
+            <div ng-repeat="watchlist in watchlists" id="{{ watchlist.id }}">
                 <div class="watchlist-header">
-                    <h2 class="left">{{ watchlist.name }}</h2>
-                    <div class="right">
-                        <button class="btn waves-effect waves-light transparent btn-add-watchlist" data-target="modal-add-movies" ng-click="addMovies(watchlist)">
-                        <i class="material-icons">add</i>
-                        {{ translate('watchlist_add_button') }}
-                        </button>
-                        <a href="#!/watchlists/{{ watchlist.id }}" class="btn waves-effect waves-light transparent btn-edit-watchlist">
-                            <i class="material-icons">mode_edit</i>
-                            {{ translate('watchlist_edit_button') }}
-                        </a>
-                        <button class="btn waves-effect waves-light transparent btn-delete-watchlist" data-target="modal-confirmation-delete" ng-click="setDeletingWatchlist(watchlist)">
-                        <i class="material-icons">delete</i>
-                        {{ translate('watchlist_delete_button') }}
-                        </button>
-                    </div>
+                    <h2><a href="/watchlists/{{ watchlist.id }}" class="clickable">{{ watchlist.name }}</a></h2>
+                    <h5 ng-if="watchlist.owner.id"><a href="/user/{{watchlist.owner.id}}" class="clickable">@{{ watchlist.owner.name }}</a></h5>
                 </div>
                 <div class="watchlist-body">
                     <div class="carousel carousel-custom" id="{{ watchlist.id }}" ng-if="watchlists.length > 0">
@@ -47,12 +35,7 @@
                             </div>
                         </a>
                         <a class="carousel-item cover" ng-if="watchlist.movies.length > 0" ng-repeat="movie in watchlist.movies">
-                            <div class="overlay-cover">
-                                <i class="material-icons">play_arrow</i>
-                                <i class="material-icons" ng-click="selectMovie(movie)">info</i>
-                                <i class="material-icons" ng-click="deleteMovie(movie, watchlist)">delete</i>
-                            </div>
-                            <img ng-src="{{ movie.artworkUrl100.replace('100x100', '400x400') }}" class="cover-carousel">
+                            <img ng-src="{{ movie.artworkUrl100.replace('100x100', '400x400') }}" class="cover-carousel" ng-dblclick="selectMovie(movie)">
                             <span ng-if="$last" ng-init="loadCarousel()"></span>
                         </a>
                     </div>
@@ -61,58 +44,28 @@
                 <span ng-if="$last" ng-init="initWatchlists()"></span>
             </div>
         </div>
-        <div class="center-align" ng-if="!watchlists.length">
-            <h2>{{ translate('no_watchlists'); }}</h2>
-            <h4>{{ translate('no_watchlists_instructions'); }}</h4>
-        </div>
-    </div>
-    <div class="fixed-action-btn noselect">
-        <a class="btn-floating btn-large blue" data-target="modal-add">
-            <i class="large material-icons">add</i>
-        </a>
     </div>
 </div>
 <div ng-if="oneWatchlist">
     <div class="row">
-        <a href="#!/watchlists">
+        <a href="/watchlists">
             <i class="material-icons" style="font-size: 35px; cursor: pointer">arrow_back</i>
         </a>
     </div>
     <div class="row">
         <div class="container">
             <div class="header" ng-click="editTitle()">
-                <h1 style="display: inline" class="watchlist-title">{{ watchlist.name }}</h1> <i class="material-icons show-on-hover">mode_edit</i>
+                <h1 style="display: inline" class="watchlist-title">{{ watchlist.name }}</h1>
             </div>
             <div class="separator"></div>
             <div class="col l3 m4 s6" ng-repeat="movie in watchlist.movies | filter:search">
-                <img ng-src="{{ movie.artworkUrl100.replace('100x100', '400x400') }}" style="width: 100%; height: auto" class="movie-cover">
-                <i class="material-icons col s4 clickable">play_arrow</i>
-                <i class="material-icons col s4 clickable" ng-click="selectMovie(movie)">info</i>
-                <i class="material-icons col s4 clickable" ng-click="deleteMovie(movie, watchlist)">delete</i>
+                <img ng-src="{{ movie.artworkUrl100.replace('100x100', '400x400') }}" style="width: 100%; height: auto" class="movie-cover" ng-click="selectMovie(movie)">
             </div>
         </div>
     </div>
     <div class="fixed-action-btn">
         <a class="btn-floating btn-large waves-effect waves-light blue" ng-click="addMovies(watchlist)" data-target="modal-add-movies"><i class="material-icons">add</i></a>
     </div>
-</div>
-<!-- modal-add -->
-<div id="modal-add" class="modal">
-    <form novalidate>
-        <div class="modal-content">
-            <h2>{{ translate('add_watchlist_title'); }}</h2>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="watchlist_name" name="watchlist_name" ng-model="watchlistName" type="text" class="validate" autocomplete="off" required>
-                    <label for="watchlist_name">{{ translate("watchlist_name"); }}</label>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a class="modal-action modal-close waves-effect waves-yellow btn-flat"><i class="material-icons">close</i> {{ translate("button_cancel") }}</a>
-            <a class="waves-effect waves-green btn-flat" ng-click="createWatchlist(watchlistName)"><i class="material-icons">check</i> {{ translate("button_create") }}</a>
-        </div>
-    </form>
 </div>
 <!-- modal delete -->
 <div id="modal-confirmation-delete" class="modal">
