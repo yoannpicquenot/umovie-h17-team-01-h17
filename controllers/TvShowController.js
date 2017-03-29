@@ -9,13 +9,11 @@ app.controller("TvShowCtrl", [
   function ($rootScope, $scope, $api, $cookies, $routeParams) {
     var alreadyLoaded = false;
     var tvshowId = $routeParams.id;
-    loadTvShow(tvshowId);
-    loadTvShowEpisodes(tvshowId);
     $rootScope.tabActive = "tvshow";
 
     $scope.episodes = [];
 
-    function loadTvShow(tvshowId) {
+    $scope.loadTvShow = function loadTvShow() {
       $api.tvshow(tvshowId).then(function successCallback(response) {
         response.data.results[0].artworkUrl100 = response.data.results[0].artworkUrl100.replace("100x100", "227x227");
         response.data.results[0].releaseDate = response.data.results[0].releaseDate.substr(0, 10);
@@ -23,14 +21,11 @@ app.controller("TvShowCtrl", [
       }, function errorCallback(response) {});
     }
 
-    function loadTvShowEpisodes(tvshowId) {
+    $scope.loadTvShowEpisodes = function loadTvShowEpisodes() {;
       $api.tvshowEpisodes(tvshowId).then(function successCallback(response) {
         var episodes = response.data.results;
 
-        jwplayer("myvideo5").setup({
-          file: response.data.results[0].previewUrl,
-          image: response.data.results[0].artworkUrl100.replace("100x100", "227x227")
-        });
+        search(response.data.results[0].collectionName + ' ' + response.data.results[0].trackName);
 
         if (episodes) {
           for (episode of episodes) {
@@ -44,5 +39,8 @@ app.controller("TvShowCtrl", [
     $scope.loadCarousel = function () {
       $(".carousel").carousel();
     }
+
+    $scope.loadTvShow();
+    $scope.loadTvShowEpisodes();
   }
 ]);
