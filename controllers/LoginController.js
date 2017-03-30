@@ -27,7 +27,8 @@ app.controller("LoginCtrl", [
                             type: 'success',
                             text: $scope.translate('login_msg_success_connection')
                         });
-                        location.hash = "#!/home";
+
+                        location.pathname = `/user/${$rootScope.user.id}`;
                         $rootScope.connected = true;
                         $rootScope.overlayloading = false;
                     }, function errorCallback(response) {
@@ -50,7 +51,7 @@ app.controller("LoginCtrl", [
 
             $api.signup(newUser)
                 .then(function successCallback(response) {
-                    location.hash = "#!/login";
+                    location.pathname = "/login";
                     $toaster.create({
                         type: 'success',
                         text: $scope.translate('signup_success_msg'),

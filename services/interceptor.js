@@ -1,5 +1,5 @@
 var app = angular.module("umovie-app");
-app.factory('interceptor', function($q, $cookies, $injector, $rootScope) {
+app.factory('interceptor', function($cookies, $injector, $rootScope) {
     return {
         'request': function(config) {
             var token = $cookies.get("token");
@@ -7,17 +7,15 @@ app.factory('interceptor', function($q, $cookies, $injector, $rootScope) {
             if (token && config.url.indexOf('/tokeninfo') === -1) {
                 $injector.get("$api").auth()
                     .then(function successCallback(response) {
-                        var data = response.data;
                         $rootScope.connected = true;
-                        $rootScope.user = {
-                            name: data.name,
-                            email: data.email,
-                            id: data.id
-                        };
+                        $rootScope.user = response.data;
+                        $rootScope.user.avatarUrl = `https://www.gravatar.com/avatar/${md5($rootScope.user.email.trim())}?s=300`;
+                        $rootScope.md5 = md5;
+
                         return config;
                     }, function errorCallback(response) {
                         $cookies.remove("token");
-                        location.href = "#!/login";
+                        location.pathname = "/login";
                         return config;
                     });
             }

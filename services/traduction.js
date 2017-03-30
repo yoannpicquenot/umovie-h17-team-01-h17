@@ -74,6 +74,14 @@ app.run([
                 "en": "Follow",
                 "fr": "Suivez"
             },
+            "follow": {
+                "en": "Follow",
+                "fr": "Suivre"
+            },
+            "following": {
+                "en": "Following",
+                "fr": "Suivi"
+            },
             "footer": {
                 "en": "Footer",
                 "fr": "Bas de page"
@@ -97,6 +105,10 @@ app.run([
             "footer-information-text": {
                 "en": "Every data are provided by Apple Inc. This project has been created within a pedagogical aim.",
                 "fr": "Toutes les données proviennents de Apple Inc. Ce projet a été créé dans un cadre pédagogique."
+            },
+            "friends": {
+                "en": "Friends",
+                "fr": "Amis"
             },
             "home": {
                 "en": "Home",
@@ -195,8 +207,8 @@ app.run([
                 "fr": "Rechercher"
             },
             "search_watchlists": {
-                "en": "Search watchlist, ex: my favorite",
-                "fr": "Rechercher watchlist, ex: ma favorite"
+                "en": "Search watchlist",
+                "fr": "Rechercher watchlist"
             },
             "season": {
                 "en": "Season",
@@ -222,9 +234,13 @@ app.run([
                 "en": "IDs already exist",
                 "fr": "Les informations saisies existent déjà"
             },
-            "tvshow-name":{
-              "en": "TV Show",
-              "fr": "Série"
+            "tvshow-name": {
+                "en": "TV Show",
+                "fr": "Série"
+            },
+            "unfollow": {
+                "en": "Unfollow",
+                "fr": "Ne plus suivre"
             },
             "watch": {
                 "en": "Watch",
@@ -262,6 +278,14 @@ app.run([
                 "en": "Delete",
                 "fr": "Supprimer",
             },
+            "watchlist_created_msg": {
+                "en": "Successfully created",
+                "fr": "Création réussie",
+            },
+            "watchlist_deleted_msg": {
+                "en": "Successfully deleted",
+                "fr": "Supression réussie",
+            },
             "watchlist_name": {
                 "en": "Watchlist name",
                 "fr": "Nom de watchlist"
@@ -270,7 +294,7 @@ app.run([
 
         $rootScope.translate = function (expr) {
             if (dictionnary[expr] == null) {
-                return "Please add translation for : " + expr;
+                return "tra:" + expr;
             }
             return dictionnary[expr][$rootScope.lang];
         };
