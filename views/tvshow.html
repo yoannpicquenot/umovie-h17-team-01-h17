@@ -1,4 +1,4 @@
-<div class="infofilmmain-content" ng-controller="TvShowCtrl">
+<div class="infofilmmain-content">
     <div class="contener-content">
         <div class="row">
             <div class="infofilm-content col l12 s12">
@@ -37,8 +37,8 @@
 
                 </div>
             </div>
-            <div class="col l12 s12">
-                <div id="trailer" class="infofilmvideo-content">Loading the player...</div>
+            <div class="col offset-l2 l8 s12">
+                <div id="trailer" class="video-container">Loading the player...</div>
             </div>
             <div class="col l12 s12 carousel">
                 <a id="episode-carousel" class="carousel-item" href="javascript:void(0);" ng-repeat="episode in episodes"><img ng-src="{{ episode.artworkUrl100 }}"/>

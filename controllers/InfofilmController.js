@@ -4,12 +4,13 @@ app.controller("InfofilmCtrl", [
     '$rootScope',
     '$scope',
     '$api',
-    function($rootScope, $scope, $api) {
+    '$location',
+    function($rootScope, $scope, $api, $location) {
         $scope.goToActorPage = function goToActorPage() {
             $api.getActorByName($scope.currentMovie.artistName).then(function successCallback(response) {
                 if (response.data.resultCount > 0) {
                     $("#modal-infofilm").modal("close");
-                    location.pathName = `/actor/${response.data.results[0].artistId}`;
+                    $location.path(`/actor/${response.data.results[0].artistId}`);
                 }
             }, function errorCallback() {});
         };

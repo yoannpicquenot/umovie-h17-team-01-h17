@@ -9,13 +9,13 @@ googleApiClientReady = function() {
 function loadAPIClientInterfaces() {
   gapi.client.setApiKey('AIzaSyASeZopJsx4EfzBZDZRQR6FWWXkwF9lyys');
   gapi.client.load('youtube', 'v3', function() {
-    console.log("youtube api loaded");
+    $('body').trigger('apiYouTubeLoaded');
+    // console.log("youtube api loaded");
   });
 }
 
 // Search for a specified string.
 function search(toSearch) {
-  console.log('je lance la recherche sur youtube (si avant youtube api loaded -> erreur)');
   var q = toSearch + ' trailer';
   var request = gapi.client.youtube.search.list({
     q: q,

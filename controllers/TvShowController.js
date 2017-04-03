@@ -21,7 +21,7 @@ app.controller("TvShowCtrl", [
       }, function errorCallback(response) {});
     }
 
-    $scope.loadTvShowEpisodes = function loadTvShowEpisodes() {;
+    $scope.loadTvShowEpisodes = function loadTvShowEpisodes() {
       $api.tvshowEpisodes(tvshowId).then(function successCallback(response) {
         var episodes = response.data.results;
 
@@ -37,10 +37,14 @@ app.controller("TvShowCtrl", [
     }
 
     $scope.loadCarousel = function () {
-      $(".carousel").carousel();
+      $(".carousel").carousel({
+        'swipeable': true
+      });
     }
 
-    $scope.loadTvShow();
-    $scope.loadTvShowEpisodes();
+    $('body').on('apiYouTubeLoaded', function() {
+      $scope.loadTvShow();
+      $scope.loadTvShowEpisodes();
+    });
   }
 ]);
