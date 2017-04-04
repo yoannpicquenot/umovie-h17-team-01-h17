@@ -6,16 +6,19 @@ app.controller("HomeCtrl", [
         $rootScope.tabActive = "home";
         $rootScope.overlayloading = false;
 
-        $scope.buttonPageindicator = function buttonPageindicator(section) {
-            $('html,body')
-                .stop();
-            $('html,body')
-                .animate({
-                    scrollTop: $(section)
-                        .offset()
-                        .top
-                }, 1000);
-        };
-        $scope.buttonPageindicator("body");
+        $rootScope.$on('$viewContentLoaded', function () {
+            $('.parallax').parallax();
+            $scope.buttonPageindicator = function buttonPageindicator(section) {
+                $('html,body')
+                    .stop();
+                $('html,body')
+                    .animate({
+                        scrollTop: $(section)
+                            .offset()
+                            .top
+                    }, 1000);
+            };
+        });
+
     }
 ]);

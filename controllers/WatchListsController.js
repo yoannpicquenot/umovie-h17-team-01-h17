@@ -12,6 +12,7 @@ app.controller("WatchListsCtrl", [
         $scope.oneWatchlist = false;
         $scope.currentMovie = "";
         $scope.currentWatchlist = {};
+        $scope.hidden = true;
 
         $rootScope.$on('$viewContentLoaded', function () {
             $('.modal')
@@ -149,6 +150,13 @@ app.controller("WatchListsCtrl", [
 
             $scope.goToWatchlist = function goToWatchlist(id) {
                 $scope.currentWatchlistId = id;
+            };
+
+            $scope.showWatchlist = function () {
+                $('.fadein-watchlist.hidden').removeClass('hidden').addClass('appearing');
+                setTimeout(function() {
+                    $('.fadein-watchlist.appearing').removeClass('appearing').addClass('appeared');
+                }, 1000);
             };
 
             $scope.deleteWatchlist = function deleteWatchlist(watchlistId) {

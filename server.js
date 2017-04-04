@@ -1,12 +1,12 @@
 const express = require("express");
-const port = 80;
+const port = 5000;
 
 var app = express();
 
 app.use(express.static(__dirname));
 
 app.use(function(req, res) {
-  res.sendfile('./index.html');
+  res.sendFile('index.html', {root: __dirname});
 });
 
 app.listen(port, function(err) {

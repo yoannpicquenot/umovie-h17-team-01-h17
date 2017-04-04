@@ -1,6 +1,7 @@
 var app = angular.module("umovie-app", [
     "ngRoute",
     "ngCookies",
+    "ngAnimate",
     "ui.materialize"
 ]);
 
