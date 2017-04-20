@@ -62,6 +62,10 @@ app.run([
                 "en": "Email",
                 "fr": "Email"
             },
+            "episode": {
+                "en": "Episode",
+                "fr": "Épisode"
+            },
             "follow-block-text": {
                 "en": "Don't miss any series of yours thanks to your Watchlists",
                 "fr": "Ne ratez jamais vos séries favorites grâce à vos watchlists"
@@ -194,6 +198,10 @@ app.run([
                 "en": "Previous",
                 "fr": "Précédent"
             },
+            "runtime": {
+                "en": "Runtime",
+                "fr": "Durée"
+            },
             "search": {
                 "en": "Search",
                 "fr": "Rechercher"
@@ -201,6 +209,10 @@ app.run([
             "search_watchlists": {
                 "en": "Search watchlist",
                 "fr": "Rechercher watchlist"
+            },
+            "season": {
+                "en": "Season",
+                "fr": "Saison"
             },
             "settings": {
                 "en": "Settings",
