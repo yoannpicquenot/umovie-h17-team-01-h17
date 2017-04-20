@@ -124,6 +124,30 @@ app.factory("$api", [
                     method: 'GET',
                 });
             },
+            searchTvShowSeasonWithString: function searchMovieWithString(str) {
+                return $http({
+                    url: apiUrl + '/search/tvshows/seasons?q=' + str,
+                    method: 'GET',
+                });
+            },
+            searchActorWithString: function searchMovieWithString(str) {
+                return $http({
+                    url: apiUrl + '/search/actors?q=' + str,
+                    method: 'GET',
+                });
+            },
+            searchUserWithString: function searchMovieWithString(str) {
+                return $http({
+                    url: apiUrl + '/search/users?q=' + str,
+                    method: 'GET',
+                });
+            },
+            searchAllWithString: function searchMovieWithString(str) {
+                return $http({
+                    url: apiUrl + '/search?q=' + str,
+                    method: 'GET',
+                });
+            },
             signin: function signin(email, password) {
                 return $http({
                     url: apiUrl + '/login',

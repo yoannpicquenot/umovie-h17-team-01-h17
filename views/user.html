@@ -7,8 +7,41 @@
             <div class="col l10 s12">
                 <h1 class="username-container">{{ currentUser.name }}</h1>
                 <h5 class="mail-container"><i class="material-icons">mail</i> <span class="selectable">{{ currentUser.email }}</span></h5>
-                <div class="button-follow" ng-if="currentUser.id !== user.id">
-                    <a class="btn {{ following ? 'blue following' : 'transparent' }}" ng-click="followUnfollow()"><b>{{ following ? translate('following') : '+ ' + translate('follow') }}</b></a>
+                <div class="col s4" style="padding:0;">
+                    <nav>
+                        <div class="nav-wrapper">
+                            <form class="searchbar-form">
+                                <div class="input-field searchbar">
+                                    <input id="global-search-input" type="search" placeholder="Search (Translate to add)" class="autocomplete" ng-model="globalSearchInput" ng-model-options="{ debounce: 1000 }" autocomplete="off">
+                                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                                    <i class="material-icons">close</i>
+                                    <ul class="autocomplete-content dropdown-content" ng-hide="!globalSearchInput" style="overflow-y: auto; height: 200px">
+                                        <li ng-repeat="item in items" class="movie-suggestion">
+                                            <div class="left" ng-click="launchSearch(item)">
+                                                <img ng-src="{{ movie.artworkUrl100.replace('100x100', '400x400') }}">
+                                                <span style="color: #FFFFFF;">
+                                                    stuff to add
+                                                </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </form>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col s2">
+                    <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="launchGlobalSearch()" style="background-color:black;">Search
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+                <div class="col s2">
+                    <div input-field>
+                        <select class="" ng-model="selectedSearchOption" material-select watch>
+                            <option ng-repeat="searchOption in searchOptions">{{searchOption}}</option>
+                        </select>
+                        <label>Search filter</label>
+                    </div>
                 </div>
             </div>
         </div>

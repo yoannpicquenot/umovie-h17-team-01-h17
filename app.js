@@ -48,6 +48,10 @@ app.config([
                 templateUrl: "./views/user.html",
                 controller: "UserCtrl"
             })
+            .when('/searchresults/:type/:input', {
+                templateUrl: "./views/searchresults.html",
+                controller: "SearchResultsCtrl"
+            })
             .otherwise({
                 redirectTo: "/home"
             });

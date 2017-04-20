@@ -1,0 +1,22 @@
+<div id="searchresults-page">
+	<div class="col s3" ng-if="movieResults != 0">
+		<ul class="collection">
+	      <li class="collection-item" ng-repeat="movie in movieResults">{{movie}}</li>
+	    </ul>
+    <div>
+    <div class="col s3" ng-if="tvshowResults != 0">
+		<ul class="collection">
+	      <li class="collection-item" ng-repeat="tvshow in tvshowResults">{{tvshow}}</li>
+	    </ul>
+    <div>
+    <div class="col s3">
+		<ul class="collection" ng-if="actorResults != 0">
+	      <li class="collection-item" ng-repeat="actor in actorResults">{{actor}}</li>
+	    </ul>
+    <div>
+    <div class="col s3">
+		<ul class="collection" ng-if="userResults != 0">
+	      <li class="collection-item" ng-repeat="user in userResults">{{user}}</li>
+	    </ul>
+    <div>
+</div>
