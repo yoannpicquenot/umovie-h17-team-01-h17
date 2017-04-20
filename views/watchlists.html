@@ -1,12 +1,10 @@
 <div ng-if="!oneWatchlist">
     <div class="row">
         <div class="col l3 list-watchlist hide-on-med-and-down">
-            <ul class="watchlist">
+            <ul class="watchlist fadein-watchlist hidden">
                 <li>
                     <div class="input-field">
-                        <i class="material-icons prefix">search</i>
-                        <input type="text" id="watchlists-search" name="watchlists-search" ng-model="search">
-                        <label for="watchlists-search">{{ translate('search_watchlists'); }}</label>
+                        <input type="text" id="watchlists-search" name="watchlists-search" ng-model="search" placeholder="{{translate('search_watchlists'); }}">
                     </div>
                 </li>
                 <li class="tab col s12 {{ currentWatchlistId == watchlist.id ? 'active' : '' }}" ng-repeat="watchlist in watchlists | filter:search" ng-click="goToWatchlist(watchlist.id);">
@@ -16,29 +14,32 @@
         </div>
         <div class="col l9 s12 watchlists">
             <loading ng-hide="loaded"></loading>
-            <div ng-repeat="watchlist in watchlists" id="{{ watchlist.id }}">
-                <div class="watchlist-header">
-                    <h2><a href="/watchlists/{{ watchlist.id }}" class="clickable">{{ watchlist.name }}</a></h2>
-                    <h5 ng-if="watchlist.owner.id"><a href="/user/{{watchlist.owner.id}}" class="clickable">@{{ watchlist.owner.name }}</a></h5>
-                </div>
-                <div class="watchlist-body">
-                    <div class="carousel carousel-custom" id="{{ watchlist.id }}" ng-if="watchlists.length > 0">
-                        <a ng-if="!watchlist.movies.length" class="carousel-item" ng-init="loadCarousel()">
-                            <div class="cover-carousel">
-                                <div class="valign-wrapper icons-add-movies noselect" style="height: 295.516px" >
-                                    <h1 class="valign center">{{ translate("no_movies"); }}</h1>
-                                </div>
-                            </div>
-                        </a>
-                        <a class="carousel-item cover" ng-if="watchlist.movies.length > 0" ng-repeat="movie in watchlist.movies">
-                            <img ng-src="{{ movie.artworkUrl100.replace('100x100', '400x400') }}" class="cover-carousel" ng-dblclick="selectMovie(movie)">
-                            <span ng-if="$last" ng-init="loadCarousel()"></span>
-                        </a>
+            <div class="fadein-watchlist hidden">
+                <div ng-repeat="watchlist in watchlists" id="{{ watchlist.id }}">
+                    <div class="watchlist-header">
+                        <h2><a href="/watchlists/{{ watchlist.id }}" class="clickable">{{ watchlist.name }}</a></h2>
+                        <h5 ng-if="watchlist.owner.id"><a href="/user/{{watchlist.owner.id}}" class="clickable">@{{ watchlist.owner.name }}</a></h5>
                     </div>
+                    <div class="watchlist-body">
+                        <div class="carousel carousel-custom" id="{{ watchlist.id }}" ng-if="watchlists.length > 0">
+                            <a ng-if="!watchlist.movies.length" class="carousel-item" ng-init="loadCarousel()">
+                                <div class="cover-carousel">
+                                    <div class="valign-wrapper icons-add-movies noselect" style="height: 295.516px" >
+                                        <h1 class="valign center">{{ translate("no_movies"); }}</h1>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="carousel-item cover" ng-if="watchlist.movies.length > 0" ng-repeat="movie in watchlist.movies">
+                                <img ng-src="{{ movie.artworkUrl100.replace('100x100', '400x400') }}" class="cover-carousel" ng-dblclick="selectMovie(movie)">
+                                <span ng-if="$last" ng-init="loadCarousel()"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <span ng-if="$first" ng-init="setInitialWatchlist(watchlist.id)"></span>
+                    <span ng-if="$last" ng-init="initWatchlists()"></span>
                 </div>
-                <span ng-if="$first" ng-init="setInitialWatchlist(watchlist.id)"></span>
-                <span ng-if="$last" ng-init="initWatchlists()"></span>
             </div>
+            <span ng-if="loaded" ng-init="showWatchlist()"></span>
         </div>
     </div>
 </div>

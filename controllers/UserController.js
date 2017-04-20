@@ -111,6 +111,13 @@ app.controller('UserCtrl', [
             $('.materialboxed').materialbox();
         });
 
+        $scope.showWatchlist = function() {
+            $('.fadein-watchlist.hidden').removeClass('hidden').addClass('appearing');
+            setTimeout(function() {
+                $('.fadein-watchlist.appearing').removeClass('appearing').addClass('appeared');
+            }, 1000);
+        };
+
         $scope.goToWatchlist = function goToWatchlist(id) {
             $scope.currentWatchlistId = id;
         };

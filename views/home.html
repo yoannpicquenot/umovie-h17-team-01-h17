@@ -1,44 +1,59 @@
-<section id="banner" class="section scrollspy">
-    <div class="valign-wrapper page-title">
-        <div class="valign center-align page-title-banner row">
-            <h1 class="center-align col s12">UMOVIE</h1>
-            <h5 class="center-align col s12">
-            <i>{{ translate("bannersubtitle"); }}</i>
-            </h5>
-        </div>
+<div id="banner" class="section home-section valign-wrapper">
+    <div class="valign center-align row">
+        <h1 class="center-align col s12">UMOVIE</h1>
+        <h5 class="center-align col s12">
+        <i>{{ translate("bannersubtitle"); }}</i>
+        </h5>
     </div>
-</section>
-<section id="presentation">
-    <div class="valign-wrapper page-title">
-        <div class="valign center" style="width: 100%">
-            <div class="row">
-                <div class="container">
-                    <h2 class="page-title-presentation">{{ translate("presentationtitle"); }}</h2>
-                </div>
+</div>
+<div class="parallax-container fullpage">
+    <div class="parallax">
+        <img src="images/home-cover.jpg">
+    </div>
+</div>
+<div id="presentation" class="section home-section valign-wrapper">
+    <div class="valign center-align row">
+        <div class="col s12">
+            <h2 class="page-title-presentation">{{ translate("presentationtitle"); }}</h2>
+        </div>
+        <div class="col l4 m4  s12 valign-wrapper">
+            <div class="block valign">
+                <h5><i class="material-icons">tv</i> {{ translate("watch-block-title"); }}</h5>
+                <p>{{ translate("watch-block-text"); }}</p>
             </div>
-            <div class="row">
-                <div class="col l4 m4  s12 valign-wrapper">
-                    <div class="block valign">
-                        <h5><i class="material-icons">tv</i> {{ translate("watch-block-title"); }}</h5>
-                        <p>{{ translate("watch-block-text"); }}</p>
-                    </div>
-                </div>
-                <div class="col l4 m4 s12 valign-wrapper">
-                    <div class="block valign">
-                        <h5><i class="material-icons">star</i> {{ translate("follow-block-title"); }}</h5>
-                        <p>{{ translate("follow-block-text"); }}</p>
-                    </div>
-                </div>
-                <div class="col l4 m4 s12 valign-wrapper">
-                    <div class="block valign">
-                        <h5><i class="material-icons">share</i> {{ translate("share-block-title"); }}</h5>
-                        <p>{{ translate("share-block-text"); }}</p>
-                    </div>
-                </div>
+        </div>
+        <div class="col l4 m4 s12 valign-wrapper">
+            <div class="block valign">
+                <h5><i class="material-icons">star</i> {{ translate("follow-block-title"); }}</h5>
+                <p>{{ translate("follow-block-text"); }}</p>
+            </div>
+        </div>
+        <div class="col l4 m4 s12 valign-wrapper">
+            <div class="block valign">
+                <h5><i class="material-icons">share</i> {{ translate("share-block-title"); }}</h5>
+                <p>{{ translate("share-block-text"); }}</p>
             </div>
         </div>
     </div>
-</section>
+</div>
+<div class="parallax-container fullpage">
+    <div class="parallax">
+        <img src="images/presentation-cover.jpg">
+    </div>
+</div>
+<div id="join" class="section home-section valign-wrapper">
+    <div class="valign center-align row threequarter">
+        <h3>{{ translate('join_umovie_msg') }}</h3>
+        <a class="btn-large waves-effect home-button-signup blue" href="/signup">
+            <b>{{ translate('join_umovie_community'); }}</b>
+        </a>
+    </div>
+</div>
+<div class="parallax-container fullpage">
+    <div class="parallax">
+        <img src="images/joinus-cover.jpg">
+    </div>
+</div>
 <footer id="footer" class="page-footer">
     <div class="row">
         <div class="container">
@@ -69,6 +84,9 @@
         </li>
         <li>
             <a class="btn-large waves-effect waves-light transparent" ng-click="buttonPageindicator('#presentation')"><b>{{ translate("presentation"); }}</b></a>
+        </li>
+        <li>
+            <a class="btn-large waves-effect waves-light transparent" ng-click="buttonPageindicator('#join')"><b>{{ translate("join"); }}</b></a>
         </li>
         <li>
             <a class="btn-large waves-effect waves-light transparent" ng-click="buttonPageindicator('#footer')"><b>{{ translate("footer"); }}</b></a>

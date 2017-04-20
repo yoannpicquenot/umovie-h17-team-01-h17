@@ -6,9 +6,16 @@
             </div>
             <div class="col l10 s12">
                 <h1 class="username-container">{{ currentUser.name }}</h1>
-                <h5 class="mail-container"><i class="material-icons">mail</i> <span class="selectable">{{ currentUser.email }}</span></h5>
+                <h5 class="mail-container">
+                <i class="material-icons">mail</i>
+                <span class="selectable">
+                    {{ currentUser.email }}
+                </span>
+                </h5>
                 <div class="button-follow" ng-if="currentUser.id !== user.id">
-                    <a class="btn {{ following ? 'blue following' : 'transparent' }}" ng-click="followUnfollow()"><b>{{ following ? translate('following') : '+ ' + translate('follow') }}</b></a>
+                    <a class="btn {{ following ? 'blue following' : 'transparent' }}" ng-click="followUnfollow()">
+                        <b>{{ following ? translate('following') : '+ ' + translate('follow') }}</b>
+                    </a>
                 </div>
             </div>
         </div>
@@ -32,7 +39,7 @@
     <div class="row">
         <div id="watchlists">
             <div class="row">
-                <div class="col l3 list-watchlist user hide-on-med-and-down">
+                <div class="col l3 list-watchlist fadein-watchlist user hide-on-med-and-down">
                     <ul class="watchlist">
                         <li class="tab col s12 {{ currentWatchlistId == watchlist.id ? 'active' : '' }}" ng-repeat="watchlist in watchlists | filter:search" ng-click="goToWatchlist(watchlist.id);">
                             {{ watchlist.name }}
@@ -41,51 +48,54 @@
                 </div>
                 <div class="col l9 s12 watchlists user">
                     <loading ng-hide="loaded"></loading>
-                    <div class="center-align" ng-show="loaded && !watchlists.length">
-                        <h2>{{ translate('no_watchlists'); }}</h2>
-                        <h4>{{ translate('no_watchlists_instructions'); }}</h4>
-                    </div>
-                    <div ng-repeat="watchlist in watchlists | filter:search" id="{{ watchlist.id }}" ng-show="!watchlist.length">
-                        <div class="watchlist-header">
-                            <h2 class="left">{{ watchlist.name }}</h2>
-                            <div class="right" ng-if="isOwner">
-                                <button class="btn waves-effect waves-light transparent btn-add-watchlist" data-target="modal-add-movies" ng-click="addMovies(watchlist)">
-                                <i class="material-icons">add</i>
-                                {{ translate('watchlist_add_button') }}
-                                </button>
-                                <a href="/watchlists/{{ watchlist.id }}" class="btn waves-effect waves-light transparent btn-edit-watchlist">
-                                    <i class="material-icons">mode_edit</i>
-                                    {{ translate('watchlist_edit_button') }}
-                                </a>
-                                <button class="btn waves-effect waves-light transparent btn-delete-watchlist" data-target="modal-confirmation-delete" ng-click="setDeletingWatchlist(watchlist)">
-                                <i class="material-icons">delete</i>
-                                {{ translate('watchlist_delete_button') }}
-                                </button>
-                            </div>
+                    <div class="fadein-watchlist hidden">
+                        <div class="center-align" ng-show="loaded && !watchlists.length">
+                            <h2>{{ translate('no_watchlists'); }}</h2>
+                            <h4>{{ translate('no_watchlists_instructions'); }}</h4>
                         </div>
-                        <div class="watchlist-body">
-                            <div class="carousel carousel-custom" id="{{ watchlist.id }}" ng-if="watchlists.length > 0">
-                                <a ng-if="!watchlist.movies.length" class="carousel-item" ng-init="loadCarousel()">
-                                    <div class="cover-carousel">
-                                        <div class="valign-wrapper icons-add-movies noselect" style="height: 295.516px" >
-                                            <h1 class="valign center">{{ translate("no_movies"); }}</h1>
+                        <div ng-repeat="watchlist in watchlists | filter:search" id="{{ watchlist.id }}" ng-show="!watchlist.length">
+                            <div class="watchlist-header">
+                                <h2 class="left">{{ watchlist.name }}</h2>
+                                <div class="right" ng-if="isOwner">
+                                    <button class="btn waves-effect waves-light transparent btn-add-watchlist" data-target="modal-add-movies" ng-click="addMovies(watchlist)">
+                                    <i class="material-icons">add</i>
+                                    {{ translate('watchlist_add_button') }}
+                                    </button>
+                                    <a href="/watchlists/{{ watchlist.id }}" class="btn waves-effect waves-light transparent btn-edit-watchlist">
+                                        <i class="material-icons">mode_edit</i>
+                                        {{ translate('watchlist_edit_button') }}
+                                    </a>
+                                    <button class="btn waves-effect waves-light transparent btn-delete-watchlist" data-target="modal-confirmation-delete" ng-click="setDeletingWatchlist(watchlist)">
+                                    <i class="material-icons">delete</i>
+                                    {{ translate('watchlist_delete_button') }}
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="watchlist-body">
+                                <div class="carousel carousel-custom" id="{{ watchlist.id }}" ng-if="watchlists.length > 0">
+                                    <a ng-if="!watchlist.movies.length" class="carousel-item" ng-init="loadCarousel()">
+                                        <div class="cover-carousel">
+                                            <div class="valign-wrapper icons-add-movies noselect" style="height: 295.516px" >
+                                                <h1 class="valign center">{{ translate("no_movies"); }}</h1>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
-                                <a
-                                class="carousel-item cover"
-                                ng-if="watchlist.movies.length > 0"
-                                ng-repeat="movie in watchlist.movies"
-                                ng-dblclick="selectMovie(movie)">
-                                    <i class="material-icons delete-movie-from-watchlist" ng-click="deleteMovie(movie, watchlist)">delete</i>
-                                    <img ng-src="{{ movie.artworkUrl100.replace('100x100', '400x400') }}" class="cover-carousel">
-                                    <span ng-if="$last" ng-init="loadCarousel()"></span>
-                                </a>
+                                    </a>
+                                    <a
+                                        class="carousel-item cover"
+                                        ng-if="watchlist.movies.length > 0"
+                                        ng-repeat="movie in watchlist.movies"
+                                        ng-dblclick="selectMovie(movie)">
+                                        <i class="material-icons delete-movie-from-watchlist" ng-click="deleteMovie(movie, watchlist)" ng-if="currentUser.id === watchlist.id">delete</i>
+                                        <img ng-src="{{ movie.artworkUrl100.replace('100x100', '400x400') }}" class="cover-carousel">
+                                        <span ng-if="$last" ng-init="loadCarousel()"></span>
+                                    </a>
+                                </div>
                             </div>
+                            <span ng-if="$first" ng-init="setInitialWatchlist(watchlist.id)"></span>
+                            <span ng-if="$last" ng-init="initWatchlists()"></span>
                         </div>
-                        <span ng-if="$first" ng-init="setInitialWatchlist(watchlist.id)"></span>
-                        <span ng-if="$last" ng-init="initWatchlists()"></span>
                     </div>
+                    <span ng-if="loaded" ng-init="showWatchlist()"></span>
                 </div>
             </div>
             <div class="fixed-action-btn noselect" ng-if="isOwner">
