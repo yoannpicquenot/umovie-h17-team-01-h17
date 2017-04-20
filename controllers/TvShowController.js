@@ -41,6 +41,23 @@ app.controller("TvShowCtrl", [
       }, function errorCallback(response) {});
     }
 
+	  $scope.selectCurrentEpisode = function(episode){
+	    $scope.currentEpisode = episode;
+	    $scope.currentEpisode.runtime = Math.round(parseInt($scope.currentEpisode.trackTimeMillis) / (1000 * 60));
+	    jwplayer("myvideo6").setup({
+	        file: $scope.currentEpisode.previewUrl,
+	        image: $scope.currentEpisode.artworkUrl100.replace("100x100", "227x227")
+	      });
+	  }
+
+	  $scope.nextEpisode = function(episodes){
+	    $scope.selectCurrentEpisode(episodes[$scope.currentEpisode.trackNumber]);
+	  }
+
+	  $scope.previousEpisode = function(episodes){
+	    $scope.selectCurrentEpisode(episodes[$scope.currentEpisode.trackNumber - 2]);
+	  }
+
     $scope.loadCarousel = function () {
       $(".carousel").carousel();
     }

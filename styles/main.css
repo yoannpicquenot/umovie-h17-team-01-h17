@@ -2,18 +2,19 @@
     z-index: 999;
 }
 
-#banner {
-    z-index: 53;
-    min-width: 100%;
-    min-height: 100vh;
-    background: center no-repeat url(../images/home-cover.jpg);
+.fullpage {
+    height: 100vh !important;
 }
 
-#presentation {
-    z-index: 53;
-    min-width: 100%;
-    min-height: 100vh;
-    background: center no-repeat url(../images/presentation-cover.jpg);
+.home-section {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    padding: 0 !important;
+}
+
+.threequarter {
+    margin-top: 75vh;
 }
 
 .icon-flag {
@@ -716,3 +717,28 @@ i.material-icons.delete-movie-from-watchlist {
 i.material-icons.delete-movie-from-watchlist:hover {
     font-size: 44px;
 }
+
+.fadein-watchlist.hidden {
+    opacity: 0;
+}
+
+.fade-in-watchlist {
+    opacity: 0;
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+.fadein-watchlist.appearing {
+    animation: fadein 1s;
+}
+
+.fadein-watchlist.appeared {
+    opacity: 1;
+}
+
