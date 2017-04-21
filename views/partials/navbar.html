@@ -6,9 +6,10 @@
             <ul class="left hide-on-med-and-down">
                 <li class="{{ tabActive == 'home' ? 'active' : '' }}"><a href="/home"><b>{{ translate("home") }}</b></a></li>
                 <li ng-if="connected" class="{{ tabActive == 'watchlists' ? 'active' : '' }}"><a href="/watchlists"><b>{{ translate("watchlists") }}</b></a></li>
-                <li ng-if="connected" class="{{ tabActive == 'searchresults' ? 'active' : '' }}"><a href="/searchresults"><b>{{ translate("search") }}</b></a></li>
+                
             </ul>
             <ul class="right hide-on-med-and-down">
+                <li ng-if="connected" class="{{ tabActive == 'searchresults' ? 'active' : '' }}"><a href="/searchresults"><i class="material-icons">search</i></a></li>
                 <li>
                     <a ng-click="changeLanguage()"><img src="./images/icon-{{ lang }}-flag.png" class="icon-flag"></a>
                 </li>

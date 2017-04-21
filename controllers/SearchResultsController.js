@@ -17,36 +17,39 @@ app.controller("SearchResultsCtrl", [
         $scope.userResults = [];
 
         $scope.executeSearch = function() {
-            if ($scope.select.searchOption != ""){
+            if ($scope.globalSearchInput != undefined){
                 resetSearch();
                 if ($scope.select.searchOption == "All" || $scope.select.searchOption == undefined){
                 $api.searchAllWithString($scope.globalSearchInput).then(function successCallback(res) {
                         var searchResults = res.data.results;
                         separatingCategories(searchResults);
-                    }, function errorCallback(res) {});
+                    }, errorCallback);
                 } else if ($scope.select.searchOption == "Movie") {
                     $api.searchMovieWithString($scope.globalSearchInput).then(function successCallback(res) {
                         var searchResults = res.data.results;
                         separatingCategories(searchResults);
-                    }, function errorCallback(res) {});
+                    }, errorCallback);
                 } else if ($scope.select.searchOption == "TV Show") {
                     $api.searchTvShowSeasonWithString($scope.globalSearchInput).then(function successCallback(res) {
                         var searchResults = res.data.results;
                         separatingCategories(searchResults);
-                    }, function errorCallback(res) {});
+                    }, errorCallback);
                 } else if ($scope.select.searchOption == "Actor"){
                     $api.searchActorWithString($scope.globalSearchInput).then(function successCallback(res) {
                         var searchResults = res.data.results;
                         separatingCategories(searchResults);
-                    }, function errorCallback(res) {});
+                    }, errorCallback);
                 } else if ($scope.select.searchOption == "User"){
                     $api.searchUserWithString($scope.globalSearchInput).then(function successCallback(res) {
                         var searchResults = res.data;
                         separatingCategories(searchResults);
-                    }, function errorCallback(res) {});
+                    }, errorCallback);
                 }
             }
         };
+
+        function errorCallback(res){
+        }
 
         function resetSearch(){
             $scope.movieResults = [];
