@@ -130,7 +130,7 @@ SIGNUP -> /#!/signup
 Page searchresults.html
 
 ```
-SIGNUP -> /#!/searchresults
+GLOBAL SEARCH -> /#!/searchresults
 ```
 
 > ### Fonctionnalités supplémentaires :
