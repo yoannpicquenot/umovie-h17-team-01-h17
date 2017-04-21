@@ -126,3 +126,20 @@ Page signup.html
 ```
 SIGNUP -> /#!/signup
 ```
+
+Page searchresults.html
+
+```
+GLOBAL SEARCH -> /#!/searchresults
+```
+
+> ### Fonctionnalités supplémentaires :
+
+Traduction : Le bouton de drapeau situé en haut à droite de la barre de navigation permet de traduire de l’anglais au français les différentes informations qui se trouvent dans l’application Umovie.
+
+
+Autocomplétions :  Dans la section Watchlist, lorsque l’utilisateur recherche un film à ajouter, des suggestions apparaîtrons à l’écran sous la barre de recherche.
+
+
+Gravatar : Les logos gravatar des différents utilisateurs de l’application apparaissent aux côtés des noms d’utilisateur.
+

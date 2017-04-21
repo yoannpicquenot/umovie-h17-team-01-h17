@@ -51,6 +51,7 @@ app.controller('UserCtrl', [
             }, function errorCallback() {});
         })
 
+
         $scope.setInitialWatchlist = function setInitialWatchlist(id) {
             $scope.currentWatchlistId = id;
         };
@@ -236,5 +237,6 @@ app.controller('UserCtrl', [
             $scope.currentMovie = movie;
             $("#modal-infofilm").modal("open");
         };
+
     }
 ]);

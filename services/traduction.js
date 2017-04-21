@@ -10,6 +10,10 @@ app.run([
         }
 
         var dictionnary = {
+            "actor": {
+                "en": "Actor : ",
+                "fr": "Acteur : "
+            },
             "actorcategory": {
                 "en": "Category : ",
                 "fr": "Genre : "
@@ -110,6 +114,10 @@ app.run([
                 "en": "Friends",
                 "fr": "Amis"
             },
+            "genre-filter": {
+                "en": "Genre filter",
+                "fr": "Genre"
+            },
             "home": {
                 "en": "Home",
                 "fr": "Accueil"
@@ -145,6 +153,10 @@ app.run([
             "moreinformation": {
                 "en": "More information",
                 "fr": "Plus d'information"
+            },
+            "movie": {
+                "en": "Movie",
+                "fr": "Film"
             },
             "moviedate": {
                 "en": "Released",
@@ -206,6 +218,11 @@ app.run([
                 "en": "Search",
                 "fr": "Rechercher"
             },
+
+            "search-filter": {
+                "en": "Search filter",
+                "fr": "Filtre de recherche"
+            },
             "search_watchlists": {
                 "en": "Search watchlist",
                 "fr": "Rechercher watchlist"
@@ -241,6 +258,10 @@ app.run([
             "unfollow": {
                 "en": "Unfollow",
                 "fr": "Ne plus suivre"
+            },
+            "user": {
+                "en": "User",
+                "fr": "Utilisateur"
             },
             "watch": {
                 "en": "Watch",

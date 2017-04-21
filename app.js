@@ -28,6 +28,10 @@ app.config([
                 templateUrl: "./views/infofilm.html",
                 controller: "InfofilmCtrl"
             })
+            .when('/infofilm/:id', {
+                templateUrl: "./views/infofilm.html",
+                controller: "InfofilmCtrl"
+            })
             .when('/tvshow/:id', {
                 templateUrl: "./views/tvshow.html",
                 controller: "TvShowCtrl"
@@ -47,6 +51,10 @@ app.config([
             .when('/user/:uid', {
                 templateUrl: "./views/user.html",
                 controller: "UserCtrl"
+            })
+            .when('/searchresults', {
+                templateUrl: "./views/searchresults.html",
+                controller: "SearchResultsCtrl"
             })
             .otherwise({
                 redirectTo: "/home"
