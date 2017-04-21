@@ -16,7 +16,6 @@ app.controller('UserCtrl', [
         $scope.following = false;
         $scope.currentUser = {};
         $scope.watchlists = [];
-        $scope.searchOptions = ["All", "Movie", "TV Show", "Actor", "User"];
         var offsets = [];
         $scope.currentWatchlistId = "";
         $api.getUser($route.current.params.uid).then(function(res) {
@@ -239,11 +238,5 @@ app.controller('UserCtrl', [
             $("#modal-infofilm").modal("open");
         };
 
-        $scope.launchGlobalSearch = function launchGlobalSearch() {
-            if ($scope.globalSearchInput != undefined || $scope.globalSearchInput != ""){
-                // changer la location.pathname vers searchglobal
-                // passer le type de filter et le input de la recherche dans l'url. La methode de recherche se fait a louverture de la page searchglobal
-            }
-        };
     }
 ]);

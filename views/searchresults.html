@@ -1,22 +1,65 @@
-<div id="searchresults-page">
+<div class="search-input row" style="padding:16px;">
+	<div class="col s6" style="padding:0;">
+	    <nav>
+	        <div class="nav-wrapper">
+	            <form class="searchbar-form">
+	                <div class="input-field searchbar">
+	                    <input id="global-search-input" type="search" placeholder="Search (Translate to add)" class="autocomplete" ng-model="globalSearchInput" ng-model-options="{ debounce: 1000 }" autocomplete="off">
+	                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+	                    <i class="material-icons">close</i>
+	                    
+	                </div>
+	            </form>
+	        </div>
+	    </nav>
+	</div>
+	<div class="col s3">
+	    <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="executeSearch()" style="background-color:black;">Search
+	        <i class="material-icons right">send</i>
+	    </button>
+	</div>
+	<div class="col s3">
+	    <div input-field>
+	        <select ng-model="select.searchOption" material-select>
+	            <option ng-repeat="searchOption in select.searchOptions" style="color:#FFFFFF;">{{searchOption}}</option>
+	        </select>
+	        <label style="color:#FFFFFF;">Search filter</label>
+	    </div>
+	</div>
+</div>
+<div id="search-genre" class="row" ng-if="movieResults !=0 || tvshowResults != 0">
+	<div class="col s1">
+	    <div input-field>
+	        <select ng-model="select.genre" material-select>
+	            <option ng-repeat="genre in select.selectedGenre" style="color:#FFFFFF;">{{genre}}</option>
+	        </select>
+	        <label style="color:#FFFFFF;">Genre filter</label>
+	    </div>
+	</div>
+</div>
+<div id="search-results" class="row">
 	<div class="col s3" ng-if="movieResults != 0">
+		<h5>Movies</h5>
 		<ul class="collection">
-	      <li class="collection-item" ng-repeat="movie in movieResults">{{movie}}</li>
+	      <li class="collection-item" ng-repeat="movie in movieResults" style="background-color:grey;" ng-click="goTo(movie)" ng-if="select.genre == movie.primaryGenreName || select.genre == 'No Filter' || select.genre == undefined">{{movie.trackName}}<a href="#!" class="secondary-content"><i class="material-icons" style="color:#FFFFFF;">queue_play_next</i></a></li>
 	    </ul>
-    <div>
+    </div>
     <div class="col s3" ng-if="tvshowResults != 0">
+    	<h5>TV Shows</h5>
 		<ul class="collection">
-	      <li class="collection-item" ng-repeat="tvshow in tvshowResults">{{tvshow}}</li>
+	      <li class="collection-item" ng-repeat="tvshow in tvshowResults" style="background-color:grey;" ng-click="goTo(tvshow)" ng-if="select.genre == tvshow.primaryGenreName || select.genre == 'No Filter' || select.genre == undefined">{{tvshow.collectionName}}</li>
 	    </ul>
-    <div>
-    <div class="col s3">
-		<ul class="collection" ng-if="actorResults != 0">
-	      <li class="collection-item" ng-repeat="actor in actorResults">{{actor}}</li>
+    </div>
+    <div class="col s3" ng-if="actorResults != 0">
+    	<h5>Actors</h5>
+		<ul class="collection" >
+	      <li class="collection-item" ng-repeat="actor in actorResults" style="background-color:grey;" ng-click="goTo(actor)">{{actor.artistName}}</li>
 	    </ul>
-    <div>
-    <div class="col s3">
-		<ul class="collection" ng-if="userResults != 0">
-	      <li class="collection-item" ng-repeat="user in userResults">{{user}}</li>
+    </div>
+    <div class="col s3" ng-if="userResults != 0">
+    	<h5>Users</h5>
+		<ul class="collection" >
+	      <li class="collection-item" ng-repeat="user in userResults" style="background-color:grey;" ng-click="goTo(user)">{{user.name}}<a href="#!" class="secondary-content"><i class="material-icons" style="color:#FFFFFF;">add</i></a></li>
 	    </ul>
-    <div>
+    </div>
 </div>

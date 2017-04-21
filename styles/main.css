@@ -742,3 +742,8 @@ i.material-icons.delete-movie-from-watchlist:hover {
     opacity: 1;
 }
 
+/* override dropdown materialize */
+.dropdown-content li>span {
+    color: #FFFFFF;
+    font-weight: 600;
+}

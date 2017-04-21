@@ -28,6 +28,10 @@ app.config([
                 templateUrl: "./views/infofilm.html",
                 controller: "InfofilmCtrl"
             })
+            .when('/infofilm/:id', {
+                templateUrl: "./views/infofilm.html",
+                controller: "InfofilmCtrl"
+            })
             .when('/tvshow/:id', {
                 templateUrl: "./views/tvshow.html",
                 controller: "TvShowCtrl"
@@ -48,7 +52,7 @@ app.config([
                 templateUrl: "./views/user.html",
                 controller: "UserCtrl"
             })
-            .when('/searchresults/:type/:input', {
+            .when('/searchresults', {
                 templateUrl: "./views/searchresults.html",
                 controller: "SearchResultsCtrl"
             })
